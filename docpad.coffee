@@ -1,4 +1,4 @@
-# The DocPad Configuration File
+﻿# The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 
@@ -32,16 +32,16 @@ docpadConfig = {
 			version: "1.8.1",
 
 			# The default title of our website
-			title: "Semantic UI"
+			title: "Semantic UI中文官方网站"
 
 			# The website description (for SEO)
 			description: """
-				Semantic empowers designers and developers by creating a shared vocabulary for UI.
+				Semantic empowers designers and developers by creating a shared vocabulary for UI.Semantic UI中文官方网站
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				html5, ui, library, framework, javascript
+				html5, ui, library, framework, javascript, semantic ui, semantic ui中文网, semantic ui官方网站, semantic ui中文官网, semantic ui教程
 				"""
 
 
