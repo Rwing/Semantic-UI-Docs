@@ -7,7 +7,9 @@
       'data-title',
       'data-content'
     ],
-    detectlang   : false,
+    detectlang   : function() {
+        return 'zh';
+    },
     autocollect  : true,
     ignore_tags  : ['i', 'code', 'pre'],
     parse_attr   : ['data-title', 'data-content', 'data-text'],
