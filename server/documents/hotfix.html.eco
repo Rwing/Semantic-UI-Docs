@@ -9,16 +9,29 @@ type       : 'Library'
 <!-- TEST JS HERE !-->
 <script type="text/javascript">
 $(document).ready(function() {
-    $('.card')
-        .transition({
-            interval: 200,
-            animation: 'fade'
-        })
-        .transition({
-            interval: 200,
-            animation: 'scale'
-        })
-    ;
+
+  $.extend($.fn.api.settings.api, {
+    categorySearch: '//api.semantic-ui.com/search/category/{query}',
+    search: '//api.semantic-ui.com/search/{query}'
+  });
+   $('#search').search({
+    minCharacters: 0,
+    onSelect: function(result, response) {
+        alert(result ? result.title : 'null');
+    }
+});
+
+$('#search2').search({
+    source: [
+        { title: 'Andorra' },
+        { title: 'United Arab Emirates' },
+        { title: 'Afghanistan' }
+    ],
+    onSelect: function(result, response) {
+        alert(result ? result.title : 'null');
+    },
+    minCharacters: 0
+});
 });
 </script>
 
@@ -27,33 +40,23 @@ $(document).ready(function() {
 </style>
 
 <div style="max-width: 1000px;margin:2em auto;">
- <div class="ui vertical labeled icon buttons">
-            <button class="ui button">
-                <i class="pause icon"></i>
-                Pause
-            </button>
-            <button class="ui button">
-                <i class="play icon"></i>
-                Play
-            </button>
-            <button class="ui button">
-                <i class="shuffle icon"></i>
-                Shuffle
-            </button>
-        </div>
+<div id="search" class="ui search">
+    Name:
+    <div class="ui icon input">
+        <input class="prompt" placeholder="Name" type="text" id="name" />
+        <i class="circular search icon"></i>
+    </div>
 
- <div class="ui vertical labeled icon buttons">
-            <div class="ui button">
-                <i class="pause icon"></i>
-                Pause
-            </div>
-            <div class="ui button">
-                <i class="play icon"></i>
-                Play
-            </div>
-            <div class="ui button">
-                <i class="shuffle icon"></i>
-                Shuffle
-            </div>
-        </div>
+    <div class="results"></div>
+</div>
+
+<div id="search2" class="ui search">
+    Name:
+    <div class="ui icon input">
+        <input class="prompt" placeholder="Name" type="text" id="name" />
+        <i class="circular search icon"></i>
+    </div>
+
+    <div class="results"></div>
+</div>
 </div>

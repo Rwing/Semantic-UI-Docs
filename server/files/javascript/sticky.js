@@ -1,7 +1,7 @@
-semantic.dropdown = {};
+semantic.sticky = {};
 
 // ready event
-semantic.dropdown.ready = function() {
+semantic.sticky.ready = function() {
 
   // selector cache
   var
@@ -14,10 +14,6 @@ semantic.dropdown.ready = function() {
 
   };
 
-  setTimeout(function() {
-    $('.main.container .sticky.example .sticky').sticky('refresh');
-    $('.main.container .pushing.example .sticky').sticky('refresh');
-  }, 500);
 
   $('.main.container .pushing.example')
     .each(function() {
@@ -72,5 +68,10 @@ semantic.dropdown.ready = function() {
 
 // attach ready event
 $(document)
-  .ready(semantic.dropdown.ready)
+  .ready(semantic.sticky.ready)
 ;
+
+$(window).load(function() {
+  $('.main.container .sticky.example .sticky').sticky('refresh');
+  $('.main.container .pushing.example .sticky').sticky('refresh');
+});
