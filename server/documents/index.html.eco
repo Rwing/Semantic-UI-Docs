@@ -93,14 +93,14 @@ standalone : true
   </div>
   <div class="stackable very relaxed ui page grid">
     <div class="row">
-      <div class="six wide right aligned column">
+      <div class="seven wide column">
         <h2 class="ui header">Concise HTML</h2>
         <p>Semantic UI treats words and classes as exchangeable concepts.</p>
         <p>Classes use syntax from natural languages like noun/modifier relationships, word order, and plurality to link concepts intuitively.</p>
         <p>Get the same benefits as <a href="https://en.bem.info" target="_blank">BEM</a> or <a href="https://smacss.com" target="_blank">SMACSS</a>, but without the tedium.</p>
         </p>
       </div>
-      <div class="ten wide column">
+      <div class="nine wide column">
         <div class="hidden code" data-type="html">
           <div class="ui three buttons">
             <button class="ui active button">One</button>
@@ -117,12 +117,12 @@ standalone : true
     </div>
     <div class="ui divider"></div>
     <div class="row">
-      <div class="six wide right aligned column">
+      <div class="seven wide column">
         <h2 class="ui header">Intuitive Javascript</h2>
         <p>Semantic uses simple phrases called behaviors that trigger functionality.</p>
         <p>Any arbitrary decision in a component is included as a setting that developers can modify.</p>
       </div>
-      <div class="ten wide column">
+      <div class="nine wide column">
         <div class="hidden code" data-demo="true" data-type="javascript">
           $('.gender.dropdown')
             .dropdown('setting', 'transition', 'vertical flip')
@@ -144,13 +144,13 @@ standalone : true
     </div>
     <div class="ui divider"></div>
     <div class="row">
-      <div class="six wide right aligned column">
+      <div class="seven wide column">
         <h2 class="ui header">Simplified Debugging</h2>
         <p>Performance logging lets you track down bottlenecks without digging through stack traces.</p>
         <div class="ui info message">Don't have access to development tools right now? Check out <a href="http://t.co/GOUQx8iCyG">this short clip</a>.</a>
         </div>
       </div>
-      <div class="ten wide column">
+      <div class="nine wide column">
         <div class="hidden code" data-demo="true" data-type="javascript">
         $('.sequenced.images .image')
           .transition({
@@ -162,9 +162,8 @@ standalone : true
         ;
         </div>
         <div class="ui small sequenced images">
-          <img src="/images/avatar/large/stevie.jpg" class="ui circular image">
           <img src="/images/avatar/large/daniel.jpg" class="ui circular image">
-          <img src="/images/avatar/large/joe.jpg" class="ui circular image">
+          <img src="/images/avatar/large/stevie.jpg" class="ui circular image">
           <img src="/images/avatar/large/veronika.jpg" class="ui circular image">
         </div>
       </div>
@@ -256,31 +255,33 @@ standalone : true
 </div>
 <div class="feature alternate ui stripe vertical segment">
   <div class="ui three column equal height center aligned divided relaxed stackable page grid">
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/paint.png">
-        3000+ Theming Variables
-      </h2>
-      <p>The only dogma from this framework: <em>everything arbitrary is mutable</em>.</p>
-      <a class="ui large button" href="http://learnsemantic.com/developing/customizing.html">Integration Guide</a>
-    </div>
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/book.png">
-        50+ UI Components
-      </h2>
-      <p>Build your entire site with one UI stack. Share your UI between multiple projects.</p>
-      <div class="ui primary view-ui large button">Browse UI</div>
-    </div>
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/lab.png">
-        3,800+ Commits
-      </h2>
-      <p>
-        Semantic UI is a <b>free open source</b> project already used in multiple <a href="http://www.quirky.com" target="_blank">large</a> scale <a href="http://www.newrepublic.com" target="_blank">production</a> environments.
-      </p>
-      <a href="https://github.com/Semantic-Org/Semantic-UI/issues" class="ui large button">Visit GitHub</a>
+    <div class="row">
+      <div class="column">
+        <h2 class="ui icon header">
+          <img class="ui icon image" src="/images/icons/paint.png">
+          3000+ Theming Variables
+        </h2>
+        <p>The only dogma from this framework: <em>everything arbitrary is mutable</em>.</p>
+        <a class="ui large button" href="http://learnsemantic.com/developing/customizing.html">Integration Guide</a>
+      </div>
+      <div class="column">
+        <h2 class="ui icon header">
+          <img class="ui icon image" src="/images/icons/book.png">
+          50+ UI Components
+        </h2>
+        <p>Build your entire site with one UI stack. Share your UI between multiple projects.</p>
+        <div class="ui primary view-ui large button">Browse UI</div>
+      </div>
+      <div class="column">
+        <h2 class="ui icon header">
+          <img class="ui icon image" src="/images/icons/lab.png">
+          3,800+ Commits
+        </h2>
+        <p>
+          Semantic UI is a <b>free open source</b> project already used in multiple <a href="http://www.quirky.com" target="_blank">large</a> scale <a href="http://www.newrepublic.com" target="_blank">production</a> environments.
+        </p>
+        <a href="https://github.com/Semantic-Org/Semantic-UI/issues" class="ui large button">Visit GitHub</a>
+      </div>
     </div>
   </div>
 </div>
@@ -939,19 +940,21 @@ standalone : true
 </div>
 <div class="ui stripe community vertical segment">
   <div class="ui two column equal height center aligned divided very relaxed stackable page grid">
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/mobile.png">
-        Responsively Designed
-      </h2>
-      <p>Semantic is <b>designed completely with em</b> making reponsive sizing a breeze. Design <em>variations</em> built into elements allow you to make the choice how content adjusts for tablet and mobile.</p>
-    </div>
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/heart.png">
-        Partners with Libraries You Love
-      </h2>
-      <p>Semantic has integrations with <b>Angular, Meteor, Ember</b> and many other frameworks to help organize your UI layer alongside your application logic.</p>
+    <div class="row">
+      <div class="column">
+        <h2 class="ui icon header">
+          <img class="ui icon image" src="/images/icons/mobile.png">
+          Responsively Designed
+        </h2>
+        <p>Semantic is <b>designed completely with em</b> making reponsive sizing a breeze. Design <em>variations</em> built into elements allow you to make the choice how content adjusts for tablet and mobile.</p>
+      </div>
+      <div class="column">
+        <h2 class="ui icon header">
+          <img class="ui icon image" src="/images/icons/heart.png">
+          Partners with Libraries You Love
+        </h2>
+        <p>Semantic has integrations with <b>Angular, Meteor, Ember</b> and many other frameworks to help organize your UI layer alongside your application logic.</p>
+      </div>
     </div>
   </div>
 </div>

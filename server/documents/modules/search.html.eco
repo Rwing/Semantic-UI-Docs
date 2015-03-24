@@ -413,7 +413,7 @@ type        : 'UI Module'
           }
           </div>
           </td>
-          <td>Settings for <a href="/modules/api.html#/usage">API</a> call.</td>
+          <td>Settings for <a href="/behaviors/api.html#/usage">API</a> call.</td>
         </tr>
         <tr>
           <td>minCharacters</td>
@@ -433,13 +433,6 @@ type        : 'UI Module'
             300
           </td>
           <td>Duration of animation events</td>
-        </tr>
-        <tr>
-          <td>easing</td>
-          <td>
-            easeOutExpo
-          </td>
-          <td>Easing equation when using fallback javascript animation</td>
         </tr>
         <tr>
           <td>maxResults</td>
@@ -481,7 +474,14 @@ type        : 'UI Module'
         <tr>
           <td>searchDelay</td>
           <td>300</td>
-          <td>Delay before showing results on inputchange</td>
+          <td>Delay before querying results on inputchange</td>
+        </tr>
+        <tr>
+          <td>easing</td>
+          <td>
+            easeOutExpo
+          </td>
+          <td>Easing equation when using fallback javascript animation</td>
         </tr>
       </tbody>
     </table>

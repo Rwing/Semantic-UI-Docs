@@ -14,6 +14,7 @@
 }
 #example > .pusher {
   display: block;
+  min-height: 0px;
   flex-direction: initial;
 }
 #example > .pusher > .full.height {
@@ -288,7 +289,8 @@
 }
 #example.index .masthead.segment h1 .text {
   display: inline-block;
-  font-weight: 500;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
   margin-left: -0.4em;
 }
 #example.index .masthead h2 {
@@ -476,8 +478,22 @@
 #example.index .stripe .grid .row {
   margin: 2rem 0rem;
 }
+#example.index .feature.stripe .grid .row {
+  margin: 0rem;
+}
+#example.index .feature.stripe .column {
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+}
 #example.index .feature.stripe p {
-  min-height: 100px;
+  -webkit-flex: 1 0 auto;
+  -moz-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  margin: 0.5em 0em 2em;
 }
 #example .stripe .ui.vertical.divider {
   font-size: 1rem;
@@ -549,7 +565,7 @@
   font-size: 20px;
 }
 #example .feature.stripe {
-  padding: 5em 0em;
+  padding: 3em 0em;
 }
 #example .theming.stripe .left.aligned.column {
   padding-top: 8em;
@@ -633,6 +649,9 @@
   }
   #example.index .masthead.segment h1 > .library {
     font-size: 1.5em;
+  }
+  #example.index .feature.stripe {
+    padding: 1em;
   }
 }
 
