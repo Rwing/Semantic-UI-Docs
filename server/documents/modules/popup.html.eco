@@ -16,7 +16,7 @@ themes      : ['Default']
 <script src="/javascript/popup.js"></script>
 
 <%- @partial('header', { tabs: 'module' }) %>
-<div class="main container">
+<div class="main ui container">
 
   <div class="ui active tab" data-tab="definition">
 
@@ -132,6 +132,8 @@ themes      : ['Default']
     <div class="example">
       <h4 class="ui header">Size</h4>
       <p>A popup can vary in size</p>
+      <i class="circular heart icon link" data-content="Hello. This is a mini popup" data-variation="mini"></i>
+      <i class="circular heart icon link" data-content="Hello. This is a tiny popup" data-variation="tiny"></i>
       <i class="circular heart icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
       <i class="circular heart icon link" data-content="Hello. This is a large popup" data-variation="large"></i>
       <i class="circular heart icon link" data-content="Hello. This is a huge popup" data-variation="huge"></i>
@@ -142,7 +144,7 @@ themes      : ['Default']
       <p>A popup can have no maximum width and continue to flow to fit its content</p>
       <div class="ui button">Show flowing popup</div>
       <div class="ui flowing popup">
-        <div class="ui three column divided equal height center aligned grid">
+        <div class="ui three column divided center aligned grid">
           <div class="column">
             <h4 class="ui header">Basic Plan</h4>
             <p><b>2</b> projects, $10 a month</p>
@@ -234,7 +236,6 @@ themes      : ['Default']
             <li><code>data-variation</code>: the popup variation to use </li>
             <li><code>data-offset</code>: a pixel offset correction for popup</li>
             <li><code>data-position</code>: the side to position popup on</li>
-            <li><code>data-variation</code>: the popup variation to use </li>
           </ul>
         </div>
       </div>
@@ -325,12 +326,10 @@ themes      : ['Default']
 
     <div class="example">
       <h4 class="ui header">Wide Popup Menu</h4>
-      <div class="ignored">
-        <p>An easier way to display complex content, like a wide popup menu is to have the popup content as a pre-  existing part of your page's html.</p>
-        <p>Using the setting <code>inline: true</code> will let Semantic know to display the next sibling <code>ui  popup</code> element after the activator.</p>
+      <p>An easier way to display complex content, like a wide popup menu is to have the popup content as a pre-  existing part of your page's html.</p>
+      <p>Using the setting <code>inline: true</code> will let Semantic know to display the next sibling <code>ui  popup</code> element after the activator.</p>
 
-        <p>Tweaking settings like the delay for show, and hide, and making the menu hoverable will help it function   more like a dropdown menu</p>
-      </div>
+      <p>Tweaking settings like the delay for show, and hide, and making the menu hoverable will help it function   more like a dropdown menu</p>
 
       <div class="evaluated code">
       $('.example .menu .browse')
@@ -347,12 +346,12 @@ themes      : ['Default']
       </div>
       <div class="ui menu">
         <a class="browse item">
-          <i class="dropdown icon"></i>
           Browse
+          <i class="dropdown icon"></i>
         </a>
         <div class="ui fluid popup">
-          <div class="ui four column relaxed equal height divided grid">
-            <div class="ui column">
+          <div class="ui four column relaxed divided grid">
+            <div class="column">
               <h4 class="ui header">Fabrics</h4>
               <div class="ui link list">
                 <a class="item">Cashmere</a>
@@ -361,8 +360,8 @@ themes      : ['Default']
                 <a class="item">Viscose</a>
               </div>
             </div>
-            <div class="ui column">
-              <h4 class="ui header">Sizes</h4>
+            <div class="column">
+              <h4 class="ui header">Size</h4>
               <div class="ui link list">
                 <a class="item">Small</a>
                 <a class="item">Medium</a>
@@ -370,7 +369,7 @@ themes      : ['Default']
                 <a class="item">Plus Sizes</a>
               </div>
             </div>
-            <div class="ui column">
+            <div class="column">
               <h4 class="ui header">Colors</h4>
               <div class="ui link list">
                 <a class="item">Neutrals</a>
@@ -378,7 +377,7 @@ themes      : ['Default']
                 <a class="item">Pastels</a>
               </div>
             </div>
-            <div class="ui column">
+            <div class="column">
               <h4 class="ui header">Types</h4>
               <div class="ui link list">
                 <a class="item">Knitwear</a>
@@ -400,6 +399,9 @@ themes      : ['Default']
     <div class="example">
       <h4 class="ui header">Specifying a selector for a popup</h4>
       <p>If its not possible to include the popup content as the next sibling, you can also specify a custom selector to help link the popup contents to its activator.</p>
+      <div class="ui warning ignored message">
+        Using an <code>inline</code> popup may require specifying a <code>min-width</code> on your popup, if your popup content will appear outside the boundaries of its parent element.
+      </div>
       <div class="evaluated code">
       $('.example .custom.button')
         .popup({
@@ -568,7 +570,7 @@ themes      : ['Default']
         <tr>
           <td>movePopup</td>
           <td>true</td>
-          <td>Whether to move popup to same offset container as target element when <code>popup</code> is specified in settings. Using a popup inside of an element without <code>overflow:visible</code>, like a sidebar, may require you to set this to <code>false</code></td>
+          <td>Whether to move popup to same offset container as target element when <code>popup</code> already exists on the page. Using a popup inside of an element without <code>overflow:visible</code>, like a sidebar, may require you to set this to <code>false</code></td>
         </tr>
         <tr>
           <td>context</td>
@@ -603,7 +605,7 @@ themes      : ['Default']
         <tr>
           <td>on</td>
           <td>hover</td>
-          <td>Event used to trigger popup. Can be either <b>focus, click, hover, or manual</b>. Manul popups must be triggered with <code>$('.element').popup('show');</code></td>
+          <td>Event used to trigger popup. Can be either <b>focus, click, hover, or manual</b>. Manual popups must be triggered with <code>$('.element').popup('show');</code></td>
         </tr>
         <tr>
           <td>delay</td>
@@ -632,11 +634,6 @@ themes      : ['Default']
           <td>Duration of animation events</td>
         </tr>
         <tr>
-          <td>hideOnScroll</td>
-          <td>auto</td>
-          <td>Whether popup should hide on scroll and touchmove, auto only hides for popups withohut <code>on:click</code></td>
-        </tr>
-        <tr>
           <td>setFluidWidth</td>
           <td>true</td>
           <td>Whether popup should set fluid popup variation width on load to avoid <code>width: 100%</code> including padding</td>
@@ -650,6 +647,17 @@ themes      : ['Default']
           <td>closable</td>
           <td>true</td>
           <td>When using <code>on: 'click'</code> specifies whether clicking the page should close the popup</td>
+        </tr>
+        <tr>
+          <td>addTouchEvents</td>
+          <td>true</td>
+          <td>When using <code>on: 'hover'</code> whether <code>touchstart</code> events should be added to allow the popup to be triggered</td>
+        </tr>
+        <tr>
+          <td>hideOnScroll</td>
+          <td>auto</td>
+          <td>Whether popup should hide on scroll or touchmove, <b>auto</b> only hides for popups without <code>on:click</code>.<br>
+          Set this to <b>false</b> to prevent mobile browsers from closing popups when your tap inside input fields.</td>
         </tr>
         <tr>
           <td>target</td>
@@ -703,7 +711,7 @@ themes      : ['Default']
           <td>onShow</td>
           <td>$module</td>
           <td>$popup</td>
-          <td>Callback before popup is shown</td>
+          <td>Callback before popup is shown. Returning <code>false</code> from this callback will cancel the popup from showing.</td>
         </tr>
         <tr>
           <td>onVisible</td>
@@ -715,7 +723,7 @@ themes      : ['Default']
           <td>onHide</td>
           <td>$module</td>
           <td>$popup</td>
-          <td>Callback before popup is hidden</td>
+          <td>Callback before popup is hidden. Returning <code>false</code> from this callback will cancel the popup from hiding.</td>
         </tr>
         <tr>
           <td>onHidden</td>

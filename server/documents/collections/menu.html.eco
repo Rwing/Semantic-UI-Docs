@@ -10,26 +10,165 @@ title       : 'Menu'
 description : 'A menu displays grouped navigation actions'
 type        : 'UI Collection'
 
-themes      : ['Default', 'GitHub']
+themes      : ['Default', 'Chubby', 'GitHub', 'Material']
 ---
+
 <link rel="stylesheet/less" type="text/css" href="/src/definitions/collections/menu.less" />
 <script src="/javascript/menu.js"></script>
 
 <%- @partial('header') %>
 
-<div class="main container">
+<div class="main ui container">
 
   <h2 class="ui dividing header">Types</h2>
   <div class="example">
-    <h4 class="ui header">Menu</h4>
-
+    <h4 class="ui header">
+      Menu
+      <span class="ui teal label">Flexbox</span>
+    </h4>
     <p>A menu</p>
-    <div class="ui menu">
+    <div class="ui ignored message">
+      Starting in <code>2.0</code> menus now use flexbox. This allows each menu item to automatically stretch to the size of the largest item.
+    </div>
+    <div class="ui three item menu">
+      <a class="active item">Editorials</a>
+      <a class="item">Reviews</a>
+      <a class="item">Upcoming Events</a>
+    </div>
+  </div>
+  <div class="another school example">
+    <div class="ui text menu">
+      <div class="item">
+        <img src="/images/new-school.jpg">
+      </div>
+      <a class="browse item">
+        Browse Courses
+        <i class="dropdown icon"></i>
+      </a>
+      <div class="ui right dropdown item">
+        More
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Applications</div>
+          <div class="item">International Students</div>
+          <div class="item">Scholarships</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui flowing basic admission popup">
+      <div class="ui three column relaxed divided grid">
+        <div class="column">
+          <h4 class="ui header">Business</h4>
+          <div class="ui link list">
+            <a class="item">Design & Urban Ecologies</a>
+            <a class="item">Fashion Design</a>
+            <a class="item">Fine Art</a>
+            <a class="item">Strategic Design</a>
+          </div>
+        </div>
+        <div class="column">
+          <h4 class="ui header">Liberal Arts</h4>
+          <div class="ui link list">
+            <a class="item">Anthropology</a>
+            <a class="item">Economics</a>
+            <a class="item">Media Studies</a>
+            <a class="item">Philosophy</a>
+          </div>
+        </div>
+        <div class="column">
+          <h4 class="ui header">Social Sciences</h4>
+          <div class="ui link list">
+            <a class="item">Food Studies</a>
+            <a class="item">Journalism</a>
+            <a class="item">Non Profit Management</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui top attached menu">
+      <div class="ui dropdown icon item">
+        <i class="wrench icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">New</span>
+            <div class="menu">
+              <div class="item">Document</div>
+              <div class="item">Image</div>
+            </div>
+          </div>
+          <div class="item">
+            Open...
+          </div>
+          <div class="item">
+            Save...
+          </div>
+          <div class="item">Edit Permissions</div>
+          <div class="divider"></div>
+          <div class="header">
+            Export
+          </div>
+          <div class="item">
+            Share...
+          </div>
+        </div>
+      </div>
+      <div class="right menu">
+        <div class="ui right aligned category search item">
+          <div class="ui transparent icon input">
+            <input class="prompt" type="text" placeholder="Search animals...">
+            <i class="search link icon"></i>
+          </div>
+          <div class="results"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ui bottom attached segment">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Secondary Menu</h4>
+    <p>A secondary menu allows for a section of content on a page to be activated</p>
+    <div class="ui secondary  menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search...">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+        <a class="ui item">
+          Logout
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Pointing</h4>
+    <p>A menu can point to content to show relationship</p>
+    <div class="ui pointing menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
       </a>
       <div class="right menu">
         <div class="item">
@@ -41,20 +180,123 @@ themes      : ['Default', 'GitHub']
       </div>
     </div>
     <div class="ui segment">
-      <img class="ui wireframe image" src="/images/wireframe/media-paragraph.png">
       <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui secondary pointing menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+      <div class="right menu">
+        <a class="ui item">
+          Logout
+        </a>
+      </div>
+    </div>
+    <div class="ui segment">
+      <img class="ui wireframe image" src="/images/wireframe/media-paragraph.png">
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Tabular</h4>
+    <p>A message can be formatted to show tabs of information</p>
+    <div class="ui ignored info message">
+      Be sure to visit the <a href="/modules/tab.html">tab documentation</a> for information on how to set up dynamic tabs
+    </div>
+    <div class="ui tabular menu">
+      <a class="active item">
+        Bio
+      </a>
+      <a class="item">
+        Photos
+      </a>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui top attached tabular menu">
+      <div class="item">
+        <img src="/images/logo.png">
+      </div>
+      <a class="active item">
+        Bio
+      </a>
+      <a class="item">
+        Photos
+      </a>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui transparent icon input">
+            <input type="text" placeholder="Search users...">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui bottom attached segment">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui vertical fluid tabular menu">
+          <a class="active item">
+            Bio
+          </a>
+          <a class="item">
+            Pics
+          </a>
+          <a class="item">
+            Companies
+          </a>
+          <a class="item">
+            Links
+          </a>
+        </div>
+      </div>
+      <div class="twelve wide stretched column">
+        <div class="ui segment">
+          This is an stretched grid column. This segment will always match the tab height
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Text</h4>
+    <p>A menu can display simple text links</p>
+    <div class="ui text menu">
+      <div class="header item">Sort By</div>
+      <a class="active item">
+        Closest
+      </a>
+      <a class="item">
+        Most Comments
+      </a>
+      <a class="item">
+        Most Popular
+      </a>
     </div>
   </div>
 
   <div class="example">
     <h4 class="ui header">Vertical Menu</h4>
     <p>A vertical menu displays elements vertically..</p>
-    <div class="ui ignore warning message"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
+    <div class="ui ignore warning message">A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
 
     <div class="ui vertical menu">
       <a class="active teal item">
         Inbox
-        <div class="ui teal label">1</div>
+        <div class="ui teal pointing left label">1</div>
       </a>
       <a class="item">
         Spam
@@ -73,13 +315,74 @@ themes      : ['Default', 'GitHub']
     </div>
   </div>
 
+  <div class="another example">
+    <div class="ui secondary vertical menu">
+      <a class="active item">
+        Account
+      </a>
+      <a class="item">
+        Settings
+      </a>
+      <div class="ui dropdown item">
+        <i class="dropdown icon"></i>
+        Display Options
+        <div class="menu">
+          <div class="header">Text Size</div>
+          <a class="item">Small</a>
+          <a class="item">Medium</a>
+          <a class="item">Large</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui vertical text menu">
+      <div class="header item">Sort By</div>
+      <a class="active item">
+        Closest
+      </a>
+      <a class="item">
+        Most Comments
+      </a>
+      <a class="item">
+        Most Popular
+      </a>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui vertical pointing menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui secondary vertical pointing menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+  </div>
+
   <div class="example">
     <h4 class="ui header">Pagination</h4>
     <p>A pagination menu is specially formatted to present links to pages of content</p>
     <div class="ui pagination menu">
-      <a class="icon item">
-        <i class="left arrow icon"></i>
-      </a>
       <a class="active item">
         1
       </a>
@@ -95,243 +398,14 @@ themes      : ['Default', 'GitHub']
       <a class="item">
         12
       </a>
-      <a class="icon item">
-        <i class="right arrow icon"></i>
-      </a>
     </div>
   </div>
+
+  <h2 class="ui dividing header">Content</h2>
 
   <div class="example">
-    <h4 class="ui header">Tabular</h4>
-    <p>A message can be formatted to show tabs of information</p>
-    <div class="ui tabular menu">
-      <a class="active item">
-        Bio
-      </a>
-      <a class="item">
-        Pics
-      </a>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui top attached tabular menu">
-      <a class="active item">
-        Bio
-      </a>
-      <a class="item">
-        Pics
-      </a>
-    </div>
-    <div class="ui bottom attached segment">
-      This is the content of the tab.
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Vertical Menu w/ Sub Menus</h4>
-    <p>A tiered menu can show the sub-sections available as part of an activated section.</p>
-    <div class="ui vertical menu">
-      <div class="item">
-        <div class="ui input"><input type="text" placeholder="Search..."></div>
-      </div>
-      <div class="item">
-        <i class="home icon"></i> Home
-        <div class="menu">
-          <a class="active item">Search</a>
-          <a class="item">Add</a>
-          <a class="item">Remove</a>
-        </div>
-      </div>
-      <a class="item">
-        <i class="grid layout icon"></i> Browse
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <div class="ui dropdown item">
-        More
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <a class="item"><i class="edit icon"></i> Edit Profile</a>
-          <a class="item"><i class="globe icon"></i> Choose Language</a>
-          <a class="item"><i class="settings icon"></i> Account Settings</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="example">
-    <h4 class="ui header">Secondary Menu</h4>
-    <p>A secondary menu allows for a section of content on a page to be activated</p>
-    <div class="ui secondary  menu">
-      <a class="active item">
-        <i class="home icon"></i> Home
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
-      <div class="right menu">
-        <div class="item">
-          <div class="ui icon input">
-            <input type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-        </div>
-        <a class="ui item">
-          Logout
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="another example">
-    <div class="ui secondary vertical menu">
-      <a class="active item">
-        <i class="users icon"></i>
-        Friends
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
-      <div class="ui dropdown item">
-        More
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <a class="item"><i class="edit icon"></i> Edit Profile</a>
-          <a class="item"><i class="globe icon"></i> Choose Language</a>
-          <a class="item"><i class="settings icon"></i> Account Settings</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Pointing</h4>
-    <p>A menu can point to content to show relationship</p>
-    <div class="ui pointing menu">
-      <a class="active item">
-        <i class="home icon"></i> Home
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
-      <div class="right menu">
-        <div class="item">
-          <div class="ui icon input">
-            <input type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-        </div>
-        <div class="ui dropdown item">
-          Language
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <a class="item">English</a>
-            <a class="item">Russian</a>
-            <a class="item">Spanish</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui vertical pointing menu">
-      <a class="active item">
-        <i class="home icon"></i> Home
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui secondary pointing menu">
-      <a class="active item">
-        <i class="home icon"></i> Home
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
-      <div class="right menu">
-        <div class="item">
-          <div class="ui transparent icon input">
-            <input type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-        </div>
-        <a class="ui item">
-          Logout
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui secondary vertical pointing menu">
-      <a class="active item">
-        <i class="home icon"></i> Home
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Text</h4>
-    <p>A menu can display simple text links</p>
-    <div class="ui text menu">
-      <div class="header item">Sort By</div>
-      <a class="active item">
-        <i class="home icon"></i> Closest
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Most Comments
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Most Popular
-      </a>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui vertical text menu">
-      <div class="header item">Sort By</div>
-      <a class="active item">
-        <i class="home icon"></i> Closest
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Most Comments
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Most Popular
-      </a>
-    </div>
-  </div>
-
-  <h2 class="ui dividing header">Elements</h2>
-
-  <div class="example">
-    <h4 class="ui header">Header Item</h4>
-    <p>A menu may have a header to help label sections of a menu.</p>
-
+    <h4 class="ui header">Header</h4>
+    <p>A menu item may include a header or may itself be a header</p>
     <div class="ui menu">
       <div class="header item">
         Our Company
@@ -345,79 +419,58 @@ themes      : ['Default', 'GitHub']
       <a class="item">
         Locations
       </a>
-      <div class="right menu">
-        <div class="header item">
-          Support
-        </div>
-        <a class="item">
-          FAQ
-        </a>
-        <a class="item">
-          E-mail Support
-        </a>
-      </div>
     </div>
   </div>
   <div class="another example">
     <div class="ui vertical menu">
-      <div class="header item">
-        Products
+      <div class="item">
+        <div class="header">Products</div>
+        <div class="menu">
+          <a class="item">Enterprise</a>
+          <a class="item">Consumer</a>
+        </div>
       </div>
       <div class="item">
-        CMS Solutions
+        <div class="header">CMS Solutions</div>
         <div class="menu">
           <a class="item">Rails</a>
           <a class="item">Python</a>
           <a class="item">PHP</a>
         </div>
       </div>
-      <a class="item">
-        Hosting
-      </a>
-      <a class="item">
-        Enterprise
-      </a>
-      <div class="header item">
-        Our Company
+      <div class="item">
+        <div class="header">Hosting</div>
+        <div class="menu">
+          <a class="item">Shared</a>
+          <a class="item">Dedicated</a>
+        </div>
       </div>
-      <a class="item">
-        About Us
-      </a>
-      <a class="item">
-        Jobs
-      </a>
-      <a class="item">
-        Locations
-      </a>
-      <div class="header item">
-        Support
+      <div class="item">
+        <div class="header">Support</div>
+        <div class="menu">
+          <a class="item">E-mail Support</a>
+          <a class="item">FAQs</a>
+        </div>
       </div>
-      <a class="item">
-        FAQ
-      </a>
-      <a class="item">
-        E-mail Support
-      </a>
     </div>
   </div>
 
   <div class="example">
-    <h4 class="ui header">Text Item</h4>
-    <p>A menu may have a simple text item.</p>
-    <div class="ui ignore info message">
-      <p><i class="icon heart"></i> Single paragraphs are automatically formatted as text. You can also specify an item as textual by adding the classname <b>text</b></p>
-    </div>
+    <h4 class="ui header">Text</h4>
+    <p>A vertical menu item can include any type of text content.</p>
     <div class="ui vertical menu">
-      <div class="header item">
-        Promotions
-        <span class="ui teal label">New</span>
-      </div>
-      <div class="text item">
-        <a>Join now</a> and save $10 on a pro membership!
-      </div>
-      <div class="item">
-        <p><a>Join tomorrow</a> and save $5 on pro.</p>
-      </div>
+      <a class="item">
+        <h4 class="ui header">Promotions</h4>
+        <p>Check out our new promotions</p>
+      </a>
+      <a class="item">
+        <h4 class="ui header">Coupons</h4>
+        <p>Check out our collection of coupons</p>
+      </a>
+      <a class="item">
+        <h4 class="ui header">Rebates</h4>
+        <p>Visit our rebate forum for information on claiming rebates</p>
+      </a>
     </div>
   </div>
 
@@ -459,10 +512,6 @@ themes      : ['Default', 'GitHub']
   <div class="example">
     <h4 class="ui header">Link Item</h4>
     <p>A menu may contain a link item, or an item formatted as if it is a link.</p>
-
-    <div class="ui ignore info message">
-      <p><i class="icon heart"></i> Items that are anchor tags will automatically be formatted as a link.</p>
-    </div>
     <div class="ui vertical menu">
       <a href="http://www.google.com" class="item">
         Visit Google
@@ -475,9 +524,9 @@ themes      : ['Default', 'GitHub']
 
   <div class="example">
     <h4 class="ui header">Dropdown Item</h4>
-    <p>An item may contain a nested menu in a dropdown.</p>
-    <div class="ui ignore warning message">
-      <p><i class="icon heart"></i>Dropdowns use <a href="/modules/dropdown.html">UI dropdown elements</a>. To have a dropdown open without javascript, use the simple variation</p>
+    <p>An item may contain a nested menu in a <a href="/modules/dropdown.html">dropdown</a>.</p>
+    <div class="ui ignored message">
+      <p>To have a dropdown open without javascript, use the <a href="/modules/dropdown.html#simple">simple</a> variation</p>
     </div>
     <div class="ui vertical menu">
       <div class="ui dropdown item">
@@ -491,6 +540,74 @@ themes      : ['Default', 'GitHub']
       </div>
     </div>
   </div>
+
+  <div class="popup example">
+    <h4 class="ui header">Popup Menu</h4>
+    <p>A menu item may show a large menu, or additional content using a <a href="/modules/popup.html">popup</a></p>
+    <div class="ui menu">
+      <a class="browse item">
+        Browse
+        <i class="dropdown icon"></i>
+      </a>
+    </div>
+    <div class="ui fluid popup">
+      <div class="ui four column relaxed equal height divided grid">
+        <div class="column">
+          <h4 class="ui header">Fabrics</h4>
+          <div class="ui link list">
+            <a class="item">Cashmere</a>
+            <a class="item">Linen</a>
+            <a class="item">Cotton</a>
+            <a class="item">Viscose</a>
+          </div>
+        </div>
+        <div class="column">
+          <h4 class="ui header">Size</h4>
+          <div class="ui link list">
+            <a class="item">Small</a>
+            <a class="item">Medium</a>
+            <a class="item">Large</a>
+            <a class="item">Plus Sizes</a>
+          </div>
+        </div>
+        <div class="column">
+          <h4 class="ui header">Colored</h4>
+          <div class="ui link list">
+            <a class="item">Neutrals</a>
+            <a class="item">Brights</a>
+            <a class="item">Pastels</a>
+          </div>
+        </div>
+        <div class="column">
+          <h4 class="ui header">Types</h4>
+          <div class="ui link list">
+            <a class="item">Knitwear</a>
+            <a class="item">Outerwear</a>
+            <a class="item">Pants</a>
+            <a class="item">Shoes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Search</h4>
+    <p>A menu can contain a <a href="/modules/search.html">search</a> input</p>
+    <div class="ui menu">
+      <div class="ui category search item">
+        <div class="ui transparent icon input">
+          <input class="prompt" type="text" placeholder="Search animals...">
+          <i class="search link icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+  </div>
+
   <div class="example">
     <h4 class="ui header">Menu</h4>
     <p>A menu may contain another menu group in the same level as menu items.</p>
@@ -504,22 +621,39 @@ themes      : ['Default', 'GitHub']
     </div>
   </div>
 
+
   <div class="example">
-    <h4 class="ui header">Nested Menu</h4>
+    <h4 class="ui header">Sub Menu</h4>
     <p>A menu item may contain another menu nested inside that acts as a grouped sub-menu.</p>
     <div class="ui vertical menu">
-      <a class="item"><b>Friends</b></a>
       <div class="item">
-        <a><b>Your Profile</b></a>
+        <div class="ui input"><input type="text" placeholder="Search..."></div>
+      </div>
+      <div class="item">
+        Home
         <div class="menu">
-          <a class="item">Inbox</a>
-          <a class="item">Activity</a>
-          <a class="item">Groups</a>
+          <a class="active item">Search</a>
+          <a class="item">Add</a>
+          <a class="item">Remove</a>
+        </div>
+      </div>
+      <a class="item">
+        <i class="grid layout icon"></i> Browse
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <div class="ui dropdown item">
+        More
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item"><i class="edit icon"></i> Edit Profile</a>
+          <a class="item"><i class="globe icon"></i> Choose Language</a>
+          <a class="item"><i class="settings icon"></i> Account Settings</a>
         </div>
       </div>
     </div>
   </div>
-
 
   <h2 class="ui dividing header">States</h2>
 
@@ -558,177 +692,428 @@ themes      : ['Default', 'GitHub']
 
   <h2 class="ui dividing header">Variations</h2>
 
-  <h3 class="ui header">Menu</h3>
+  <div class="example">
+    <h4 class="ui header">Fixed</h4>
+    <p>A menu can be fixed to a side of its context</p>
+    <div class="ui ignored info message">These examples use a <a href="http://meyerweb.com/eric/thoughts/2011/09/12/un-fixing-fixed-elements-with-css-transforms/">transform context</a> to avoid layout issues with this page. In all other cases, <code>fixed menu</code> will appear against the edge of a web page.</div>
+    <div class="ui ignored positive message">For more advanced fixed position uses, consider using a <a href="/modules/sticky.html">sticky menu</a> or <a href="/behaviors/visibility.html#fixing-content-to-viewport">visibility APIs</a>.</div>
+    <div class="ui segment" style="transform:rotateZ(0deg)">
+      <div class="ui fixed menu">
+        <div class="item">
+          <img src="/images/logo.png">
+        </div>
+        <a class="item">Features</a>
+        <a class="item">Testimonials</a>
+        <a class="item">Sign-in</a>
+      </div>
+      <div class="ui bottom fixed menu">
+        <div class="item">
+          <img src="/images/logo.png">
+        </div>
+        <a class="item">Features</a>
+        <a class="item">Testimonials</a>
+        <a class="item">Sign-in</a>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui segment" style="transform:rotateZ(0deg)">
+      <div class="ui left fixed vertical menu">
+        <div class="item">
+          <img class="ui mini image" src="/images/logo.png">
+        </div>
+        <a class="item">Features</a>
+        <a class="item">Testimonials</a>
+        <a class="item">Sign-in</a>
+      </div>
+      <div class="ui right fixed vertical menu">
+        <div class="item">
+          <img class="ui mini image" src="/images/logo.png">
+        </div>
+        <a class="item">Features</a>
+        <a class="item">Testimonials</a>
+        <a class="item">Sign-in</a>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Stackable</h4>
+    <p>A menu can stack at mobile resolutions</p>
+    <div class="ui ignored info message">
+      Stackable menus are intended to be used with only simple menu content. Stacked menus will not replicate all additional stylings for vertical menus like adjusting dropdown position.
+    </div>
+    <div class="ui stackable menu">
+      <div class="item">
+        <img src="/images/logo.png">
+      </div>
+      <a class="item">Features</a>
+      <a class="item">Testimonials</a>
+      <a class="item">Sign-in</a>
+    </div>
+  </div>
+
   <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A menu may have its colors inverted to show greater contrast</p>
     <div class="ui inverted menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
   </div>
+  <div class="another example">
+    <div class="ui inverted vertical menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui inverted vertical pointing menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui inverted segment">
+      <div class="ui inverted secondary menu">
+        <a class="active item">
+          Home
+        </a>
+        <a class="item">
+          Messages
+        </a>
+        <a class="item">
+          Friends
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui inverted segment">
+      <div class="ui inverted secondary pointing menu">
+        <a class="active item">
+          Home
+        </a>
+        <a class="item">
+          Messages
+        </a>
+        <a class="item">
+          Friends
+        </a>
+      </div>
+    </div>
+  </div>
   <div class="example">
-    <h4 class="ui header">Colors</h4>
+    <h4 class="ui header">Colored</h4>
     <p>Additional colors can be specified.</p>
     <div class="ui menu">
-      <a class="active green item">
-        <i class="home icon"></i> Green
+      <a class="ui active red item">Red</a>
+      <a class="ui orange item">Orange</a>
+      <a class="ui yellow item">Yellow</a>
+      <a class="ui olive item">Olive</a>
+      <a class="ui green item">Green</a>
+      <a class="ui teal item">Teal</a>
+    </div>
+    <div class="ui menu">
+      <a class="ui blue item">Blue</a>
+      <a class="ui violet item">Violet</a>
+      <a class="ui purple item">Purple</a>
+      <a class="ui pink item">Pink</a>
+      <a class="ui brown item">Brown</a>
+      <a class="ui grey item">Grey</a>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui red three item menu">
+      <a class="active item">
+        Home
       </a>
-      <a class="red item">
-        <i class="mail icon"></i> Red
+      <a class="item">
+        Messages
       </a>
-      <a class="blue item">
-        <i class="user icon"></i> Blue
-      </a>
-      <a class="orange item">
-        <i class="home icon"></i> Orange
-      </a>
-      <a class="purple item">
-        <i class="mail icon"></i> Purple
-      </a>
-      <a class="teal item">
-        <i class="user icon"></i> Teal
+      <a class="item">
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui red menu">
+    <div class="ui orange three item menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui blue menu">
+    <div class="ui yellow three item menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui orange menu">
+    <div class="ui olive three item menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui purple menu">
+    <div class="ui green three item menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui teal menu">
+    <div class="ui teal three item menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
+      </a>
+    </div>
+    <div class="ui blue three item menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui violet three item menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui purple three item menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui pink three item menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui brown three item menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui grey three item menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
       </a>
     </div>
   </div>
   <div class="another example">
     <p>These colors can also be inverted</p>
-    <div class="ui green inverted menu">
+    <div class="ui red three item inverted menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui red inverted menu">
+    <div class="ui orange three item inverted menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui blue inverted menu">
+    <div class="ui yellow three item inverted menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui orange inverted menu">
+    <div class="ui olive three item inverted menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui purple inverted menu">
+    <div class="ui green three item inverted menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
       </a>
     </div>
-    <br>
-    <div class="ui teal inverted menu">
+    <div class="ui teal three item inverted menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <a class="item">
-        <i class="user icon"></i> Friends
+        Friends
+      </a>
+    </div>
+    <div class="ui blue three item inverted menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui violet three item inverted menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui purple three item inverted menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui pink three item inverted menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui brown three item inverted menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
+    <div class="ui grey three item inverted menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
       </a>
     </div>
   </div>
@@ -738,26 +1123,26 @@ themes      : ['Default', 'GitHub']
     <h4 class="ui header">Icons</h4>
     <p>A menu may have just icons</p>
     <div class="ui icon menu">
-      <a class="red item">
-        <i class="mail icon"></i>
+      <a class="item">
+        <i class="gamepad icon"></i>
       </a>
-      <a class="teal item">
-        <i class="lab icon"></i>
+      <a class="item">
+        <i class="video camera icon"></i>
       </a>
-      <a class="green item">
-        <i class="star icon"></i>
+      <a class="item">
+        <i class="video play icon"></i>
       </a>
     </div>
     <br><br>
     <div class="ui vertical icon menu">
-      <a class="red item">
-        <i class="mail icon"></i>
+      <a class="item">
+        <i class="gamepad icon"></i>
       </a>
-      <a class="teal item">
-        <i class="lab icon"></i>
+      <a class="item">
+        <i class="video camera icon"></i>
       </a>
-      <a class="green item">
-        <i class="star icon"></i>
+      <a class="item">
+        <i class="video play icon"></i>
       </a>
     </div>
   </div>
@@ -766,32 +1151,32 @@ themes      : ['Default', 'GitHub']
     <h4 class="ui header">Labeled Icon</h4>
     <p>A menu may have labeled icons</p>
     <div class="ui labeled icon menu">
-      <a class="red item">
-        <i class="mail icon"></i>
-        Mail
+      <a class="item">
+        <i class="gamepad icon"></i>
+        Games
       </a>
-      <a class="teal item">
-        <i class="lab icon"></i>
-        Lab
+      <a class="item">
+        <i class="video camera icon"></i>
+        Channels
       </a>
-      <a class="green item">
-        <i class="star icon"></i>
-        Favorites
+      <a class="item">
+        <i class="video play icon"></i>
+        Videos
       </a>
     </div>
     <br><br>
     <div class="ui vertical labeled icon menu">
-      <a class="red item">
-        <i class="mail icon"></i>
-        Mail
+      <a class="item">
+        <i class="gamepad icon"></i>
+        Games
       </a>
-      <a class="teal item">
-        <i class="lab icon"></i>
-        Lab
+      <a class="item">
+        <i class="video camera icon"></i>
+        Channels
       </a>
-      <a class="green item">
-        <i class="star icon"></i>
-        Favorites
+      <a class="item">
+        <i class="video play icon"></i>
+        Videos
       </a>
     </div>
   </div>
@@ -806,6 +1191,42 @@ themes      : ['Default', 'GitHub']
       <a class="item">Bike</a>
     </div>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Compact</h4>
+    <p>A menu can take up only the space necessary to fit its content</p>
+    <div class="ui compact menu">
+      <a class="item">
+        <i class="gamepad icon"></i>
+        Games
+      </a>
+      <a class="item">
+        <i class="video camera icon"></i>
+        Channels
+      </a>
+      <a class="item">
+        <i class="video play icon"></i>
+        Videos
+      </a>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui compact vertical labeled icon menu">
+      <a class="item">
+        <i class="gamepad icon"></i>
+        Games
+      </a>
+      <a class="item">
+        <i class="video camera icon"></i>
+        Channels
+      </a>
+      <a class="item">
+        <i class="video play icon"></i>
+        Videos
+      </a>
+    </div>
+  </div>
+
 
   <div class="example">
     <h4 class="ui header">Evenly sized items</h4>
@@ -858,24 +1279,39 @@ themes      : ['Default', 'GitHub']
       There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
     </div>
   </div>
+  <div class="another example">
+    <div class="ui top attached menu">
+      <a class="active item">
+        Section 1
+      </a>
+      <a class="item">
+        Section 2
+      </a>
+    </div>
+    <div class="ui attached segment">
+      There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+    </div>
+    <div class="ui bottom attached menu">
+      <a class="active item">
+        Section 1
+      </a>
+      <a class="item">
+        Section 2
+      </a>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Horizontal Sizes</h4>
     <p>A horizontal menu can vary in size</p>
     <div class="ui large menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <div class="right menu">
-        <div class="item">
-          <div class="ui icon input">
-            <input type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-        </div>
         <div class="ui dropdown item">
           Language <i class="dropdown icon"></i>
           <div class="menu">
@@ -893,18 +1329,12 @@ themes      : ['Default', 'GitHub']
   <div class="another example">
     <div class="ui small menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        Home
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        Messages
       </a>
       <div class="right menu">
-        <div class="item">
-          <div class="ui icon input">
-            <input type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-        </div>
         <div class="ui dropdown item">
           Language <i class="dropdown icon"></i>
           <div class="menu">
@@ -987,19 +1417,13 @@ themes      : ['Default', 'GitHub']
   <div class="example">
     <h4 class="ui header">Borderless</h4>
     <p>A menu item or menu can have no borders</p>
-    <div class="ui borderless pagination menu">
-      <a class="item">
-        <i class="left arrow icon"></i> Previous
-      </a>
+    <div class="ui borderless menu">
       <a class="item">1</a>
       <a class="item">2</a>
       <a class="item">3</a>
       <a class="item">4</a>
       <a class="item">5</a>
       <a class="item">6</a>
-      <a class="item">
-        Next <i class="icon right arrow"></i>
-      </a>
     </div>
   </div>
 

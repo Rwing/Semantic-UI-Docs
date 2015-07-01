@@ -1,6 +1,6 @@
 ---
 layout      : 'default'
-css         : ''
+css         : 'minimal'
 standalone  : true
 
 element     : 'sidebar'
@@ -17,8 +17,7 @@ themes      : ['Default']
 
 <%- @partial('header', { tabs: 'module' }) %>
 
-
-<div class="main container">
+<div class="main ui container">
 
   <div class="ui active tab" data-tab="definition">
 
@@ -28,7 +27,8 @@ themes      : ['Default']
       <h4 class="ui header">Sidebar</h4>
       <p>A sidebar</p>
       <div class="ui ignored info message">
-        <p>Sidebars do not have any inherent formatting, and can be used to display any off-canvas content of your choosing. Sidebar have a loose coupling with <a href="/collections/menu.html">ui menu</a> which can provide additional structure for content.</p>
+        <p>Sidebars do not have any inherent formatting, and can be used alongside other UI to display any off-canvas content of your choosing.</p>
+        <p>The following example uses additional classes from <a href="/collections/menu.html">ui menu</a> to provide structure for sidebar content.</p>
       </div>
       <div class="code" data-type="html" data-title="Example HTML">
         <div class="ui left vertical inverted labeled icon sidebar menu">
@@ -43,30 +43,6 @@ themes      : ['Default']
           <a class="item">
             <i class="smile icon"></i>
             Friends
-          </a>
-          <a class="item">
-            <i class="calendar icon"></i>
-            History
-          </a>
-          <a class="item">
-            <i class="mail icon"></i>
-            Messages
-          </a>
-          <a class="item">
-            <i class="chat icon"></i>
-            Discussions
-          </a>
-          <a class="item">
-            <i class="trophy icon"></i>
-            Achievements
-          </a>
-          <a class="item">
-            <i class="shop icon"></i>
-            Store
-          </a>
-          <a class="item">
-            <i class="settings icon"></i>
-            Settings
           </a>
         </div>
       </div>
@@ -102,15 +78,13 @@ themes      : ['Default']
       </div>
     </div>
 
-
-
     <h2 class="ui dividing header">Variations</h2>
 
     <div class="no left example">
       <h4 class="ui header">Transitions</h4>
       <p>A sidebar can use different transitions to display itself</p>
       <div class="ui ignored message">
-        <p>Browsers that do not support <code>translate3D</code>, like <b>IE < 10</b> will automatically fall back to javascript transitions, you can also force this behavior using <code>useLegacy: true</code>.</p>
+        <p>If you require legacy browser support setting <code>useLegacy: auto</code> will add feature detection for <code>translate3D</code> to make sure that older browsers like <b>IE < 10</b> will automatically fall back to javascript animations.</p>
       </div>
       <table class="ui celled definition collapsing table">
         <thead>
@@ -299,16 +273,18 @@ themes      : ['Default']
 
     <div class="no example">
       <h4 class="ui header">iOS Sidebars</h4>
-      <p>Sidebars use a special fix for iOS</p>
+      <p>Sidebars use a special fix for iOS that are added using <code>userAgent</code> detection.</p>
       <div class="code" data-type="css">
-      @media only screen and (max-width: @computerBreakpoint) {
-        html.ios {
-          overflow-x: hidden;
-          -webkit-overflow-scrolling: touch;
-        }
+      html.ios {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+      html.ios,
+      html.ios body {
+        height: initial !important;
       }
       </div>
-      <p>Adding an overflow to <code>html</code> is necessary to make sure elements translated off-screen with 3d transformations do not cause iOS to trigger native canvas resizing.</p>
+      <p>In <code>2.0</code>, unlike previous versions, this should have no affect on your code. <code>document</code> scroll values will still report correctly in Safari iOS, even though <code>overflow</code> is added to <code>html</code> to prevent the canvas from resizing by the browser when a sidebar displays.</p>
     </div>
 
     <h2 class="ui dividing header">Behavior</h2>
@@ -445,7 +421,7 @@ themes      : ['Default']
         </div>
       </div>
       <div class="evaluated code" data-type="javascript">
-      // showing multiple
+      // using context
       $('.context.example .ui.sidebar')
         .sidebar({
           context: $('.context.example .bottom.segment')
@@ -613,12 +589,12 @@ themes      : ['Default']
         <tr>
           <td>transition</td>
           <td>auto</td>
-          <td>Named <a href="/modules/transition.html">ui transitions</a> to use when animating sidebar. Defaults to 'auto' which selects transition from <code>defaultTransition</code> based on direction.</td>
+          <td>Named transition to use when animating sidebar. Defaults to 'auto' which selects transition from <code>defaultTransition</code> based on direction.</td>
         </tr>
         <tr>
           <td>mobileTransition</td>
           <td>auto</td>
-          <td>Named <a href="/modules/transition.html">ui transitions</a> to use when animating when detecting mobile device. Defaults to 'auto' which selects transition from <code>defaultTransition</code> based on direction.</td>
+          <td>Named transition to use when animating when detecting mobile device. Defaults to 'auto' which selects transition from <code>defaultTransition</code> based on direction.</td>
         </tr>
         <tr>
           <td>defaultTransition</td>
@@ -644,8 +620,8 @@ themes      : ['Default']
         </tr>
         <tr>
           <td>useLegacy</td>
-          <td>auto</td>
-          <td>Whether javascript animations should be used. Defaults to <code>auto</code> using for only browsers that do not support CSS transforms</td>
+          <td>false</td>
+          <td>Whether javascript animations should be used. Defaults to <code>false</code>. Setting to <code>auto</code> will use legacy animations only for browsers that do not support CSS transforms</td>
         </tr>
         <tr>
           <td>duration</td>

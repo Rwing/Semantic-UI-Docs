@@ -53,6 +53,7 @@ semantic.shape.ready = function() {
         .each(handler.removeShape)
       ;
       $demo
+        .removeAttr('style')
         .addClass(shape)
       ;
     }
@@ -65,6 +66,7 @@ semantic.shape.ready = function() {
   $directionButton
     .on('click', handler.rotate)
     .popup({
+      delay     : 0,
       position  : 'bottom center'
     })
   ;

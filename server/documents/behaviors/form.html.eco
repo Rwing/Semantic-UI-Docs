@@ -18,7 +18,7 @@ type        : 'UI Behavior'
 
 <%- @partial('header', { tabs: { usage: 'Usage', examples: 'Examples', settings: 'Settings'} }) %>
 
-<div class="main container">
+<div class="main ui container">
 
   <div class="ui active tab" data-tab="usage">
 
@@ -33,54 +33,63 @@ type        : 'UI Behavior'
       <div class="ignore code">
       $('.ui.form')
         .form({
-          name: {
-            identifier  : 'name',
-            rules: [
-              {
-                type   : 'empty',
-                prompt : 'Please enter your name'
-              }
-            ]
-          },
-          gender: {
-            identifier  : 'gender',
-            rules: [
-              {
-                type   : 'empty',
-                prompt : 'Please select a gender'
-              }
-            ]
-          },
-          username: {
-            identifier : 'username',
-            rules: [
-              {
-                type   : 'empty',
-                prompt : 'Please enter a username'
-              }
-            ]
-          },
-          password: {
-            identifier : 'password',
-            rules: [
-              {
-                type   : 'empty',
-                prompt : 'Please enter a password'
-              },
-              {
-                type   : 'length[6]',
-                prompt : 'Your password must be at least 6 characters'
-              }
-            ]
-          },
-          terms: {
-            identifier : 'terms',
-            rules: [
-              {
-                type   : 'checked',
-                prompt : 'You must agree to the terms and conditions'
-              }
-            ]
+          fields: {
+            name: {
+              identifier  : 'name',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your name'
+                }
+              ]
+            },
+            skills: {
+              identifier : 'skills',
+              rules: [
+                type   : 'minCount[2]',
+                prompt : 'Please select at least two skills'
+              ]
+            },
+            gender: {
+              identifier  : 'gender',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please select a gender'
+                }
+              ]
+            },
+            username: {
+              identifier : 'username',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter a username'
+                }
+              ]
+            },
+            password: {
+              identifier : 'password',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter a password'
+                },
+                {
+                  type   : 'length[6]',
+                  prompt : 'Your password must be at least 6 characters'
+                }
+              ]
+            },
+            terms: {
+              identifier : 'terms',
+              rules: [
+                {
+                  type   : 'checked',
+                  prompt : 'You must agree to the terms and conditions'
+                }
+              ]
+            }
           }
         })
       ;
@@ -101,13 +110,28 @@ type        : 'UI Behavior'
             </select>
           </div>
         </div>
-        <div class="field">
-          <label>Username</label>
-          <input placeholder="Username" name="username" type="text">
+        <div class="two fields">
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" name="username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password">
+          </div>
         </div>
         <div class="field">
-          <label>Password</label>
-          <input type="password" name="password">
+          <label>Skills</label>
+          <select name="skills" multiple class="ui dropdown">
+            <option value="">Select Skills</option>
+            <option value="css">CSS</option>
+            <option value="html">HTML</option>
+            <option value="javascript">Javascript</option>
+            <option value="design">Graphic Design</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="mech">Mechanical Engineering</option>
+            <option value="repair">Kitchen Repair</option>
+          </select>
         </div>
         <div class="inline field">
           <div class="ui checkbox">
@@ -116,6 +140,7 @@ type        : 'UI Behavior'
           </div>
         </div>
         <div class="ui blue submit button">Submit</div>
+        <div class="ui error message"></div>
       </div>
     </form>
 
@@ -126,11 +151,11 @@ type        : 'UI Behavior'
         <p>Validation rules are a set of conditions required to validate a field</p>
       <div class="ui info message">Validation rules are found in <code>$.fn.form.settings.rules</code>, to add new global validation rules, modify <code>$.fn.form.settings.rules</code> to include your function.</div>
       <div class="in red message">To pass parameters to a rule, use bracket notation in your settings object. For example <code>type: 'not[dog]'</code></div>
-      <table class="ui celled sortable basic table">
+      <table class="ui celled sortable basic table segment">
         <thead>
           <th class="four wide">Name</th>
           <th>Validates</th>
-          <th>Example</th>
+          <th class="six wide">Example</th>
         </thead>
         <tbody>
           <tr>
@@ -180,13 +205,42 @@ type        : 'UI Behavior'
           </tr>
           <tr>
             <td>match</td>
-            <td>A field matches the value of another validation field</td>
+            <td>A field should match the value of another validation field, for example to confirm passwords</td>
             <td><code>match[password]</code></td>
+          </tr>
+          <tr>
+            <td>different</td>
+            <td>A field should be different than another specified field</td>
+            <td><code>different[choice]</code></td>
           </tr>
           <tr>
             <td>maxLength</td>
             <td>A field is less than a max length</td>
             <td><code>maxLength[50]</code></td>
+          </tr>
+          <tr>
+            <td>minCount</td>
+            <td>A multiple select field contains at minimum (count) selections</td>
+            <td><code>minCount[count]</code></td>
+          </tr>
+          <tr>
+            <td>exactCount</td>
+            <td>A multiple select field contains exactly (count) selections</td>
+            <td><code>exactCount[count]</code></td>
+          </tr>
+          <tr>
+            <td>maxCount</td>
+            <td>A multiple select field contains at maximum (count) selections</td>
+            <td><code>maxCount[count]</code></td>
+          </tr>
+          <tr>
+            <td>regExp[expression]</td>
+            <td>Matches against a regular expression</td>
+            <td>
+              <code>regExp[/^[a-z0-9_-]{3,16}$/gi]]</code>
+              <div class="ui horizontal divider">Or</div>
+              <code>regExp[^[a-z0-9_-]{3,16}$]]</code>
+            </td>
           </tr>
           <tr>
             <td>not</td>
@@ -457,31 +511,33 @@ type        : 'UI Behavior'
     <h2 class="ui dividing header">Examples</h2>
     <div class="dropdown example">
       <h4 class="ui header">Validating Dropdowns</h4>
-      <p><a href="/modules/dropdown.html">Dropdowns</a> can also be validated like other form fields. Simply match the validation rule to the hidden input associated with the dropdown</p>
-      <div class="ignored  code">
+      <p><a href="/modules/dropdown.html">Dropdowns</a> can also be validated like other form fields. Simply match the validation rule to the <code>input</code> or <code>select</code> associated with the dropdown</p>
+      <div class="ignored code">
       $('.ui.dropdown')
         .dropdown()
       ;
       $('.ui.form')
-        .form({
-          gender: {
-            identifier  : 'gender',
-            rules: [
-              {
-                type   : 'empty',
-                prompt : 'Please enter a gender'
-              }
-            ]
-          },
-          name: {
-            identifier  : 'name',
-            rules: [
-              {
-                type   : 'empty',
-                prompt : 'Please enter your name'
-              }
-            ]
-          },
+        .form(
+          fields: {
+            gender: {
+              identifier  : 'gender',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter a gender'
+                }
+              ]
+            },
+            name: {
+              identifier  : 'name',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your name'
+                }
+              ]
+            }
+          }
         })
       ;
       </div>
@@ -513,26 +569,28 @@ type        : 'UI Behavior'
       <p>Adding the parameter <code>optional: true</code> will only add your validation rules when the field is <b>not empty</b>.
       <div class="ignored code">
       $('.ui.form')
-        .form({
-          email: {
-            identifier : 'email',
-            rules: [
-              {
-                type   : 'email',
-                prompt : 'Please enter a valid e-mail'
-              }
-            ]
-          },
-          ccEmail: {
-            identifier : 'cc-email',
-            optional   : true,
-            rules: [
-              {
-                type   : 'email',
-                prompt : 'Please enter a valid second e-mail'
-              }
-            ]
-          },
+        .form(
+          fields: {
+            email: {
+              identifier : 'email',
+              rules: [
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid e-mail'
+                }
+              ]
+            },
+            ccEmail: {
+              identifier : 'cc-email',
+              optional   : true,
+              rules: [
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid second e-mail'
+                }
+              ]
+            }
+          }
         })
       ;
       </div>
@@ -548,10 +606,53 @@ type        : 'UI Behavior'
             <input type="text" name="cc-email">
           </div>
         </div>
+        <div class="ui divider"></div>
         <div class="ui blue submit button">Submit</div>
         <div class="ui error message"></div>
       </form>
     </div>
+
+    <div class="optional example">
+      <h4 class="ui header">Setting Site Defaults</h4>
+      <p>You can specify site wide validation settings by modifying <code>$.fn.form.settings.defaults</code> that will apply on any form validation if the field appears in the form</b>.
+      <div class="code">
+      $.fn.form.settings.defaults = {
+        email: {
+          identifier : 'email',
+          rules: [
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid e-mail'
+            }
+          ]
+        },
+        // this form doesn't have a cc email but it will not produce an error
+        ccEmail: {
+          identifier : 'cc-email',
+          optional   : true,
+          rules: [
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid second e-mail'
+            }
+          ]
+        },
+      };
+      </div>
+      <form class="ui form">
+        <p>Your tickets are all ready to print. Where would you like to send a receipt?</p>
+        <div class="fields">
+          <div class="ten wide field">
+            <label>E-mail</label>
+            <input type="text" name="email">
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+
     <div class="example">
       <h4 class="ui header">Displaying Error Messages</h4>
       <p>Forms that contain a <a href="/collections/message.html">ui message</a> error block will automatically be filled in with form validation information.</p>
@@ -594,7 +695,8 @@ type        : 'UI Behavior'
       <div class="ui ignored warning message">This example also uses a different validation event. Each element will be validated on input blur instead of the default form submit.</div>
       <div class="code" data-type="javascript">
         $('.ui.form')
-          .form(validationRules, {
+          .form({
+            fields : validationRules,
             inline : true,
             on     : 'blur'
           })
@@ -685,6 +787,10 @@ type        : 'UI Behavior'
       <tr>
         <td>submit</td>
         <td>Submits selected form</td>
+      </tr>
+      <tr>
+        <td>is valid</td>
+        <td>Returns true/false whether a form passes its validation rules</td>
       </tr>
       <tr>
         <td>validate form</td>

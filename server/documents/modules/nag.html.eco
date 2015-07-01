@@ -3,15 +3,15 @@ layout      : 'default'
 css         : ''
 element     : 'nag'
 elementType : 'module'
+standalone  : true
 
 title       : 'Nag'
 description : 'A nag is an important message that persists until dismissed by a user'
 type        : 'UI Module'
 
-status      : 'Undocumented'
 ---
 
-<%- @partial('header', { tabs: {  overview: 'Overview' } }) %>
+<%- @partial('header') %>
 
 <div class="main container">
 

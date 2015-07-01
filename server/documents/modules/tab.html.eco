@@ -17,7 +17,7 @@ themes      : ['Default']
 
 <%- @partial('header', { tabs: { definition: 'Definition', examples: 'Examples',  usage: 'Usage',  settings: 'Settings' } }) %>
 
-<div class="main container">
+<div class="main ui container">
 
   <div class="ui active tab" data-tab="definition">
 
@@ -108,13 +108,16 @@ themes      : ['Default']
     <div class="dynamic no example">
       <h4 class="header">Retreiving Remote Tab Content</h4>
       <p>Using <code>auto: true</code> will load the tab's path from your server with additional headers to specify an in-page request. Additional requests will automatically be loaded from cache without a server request.</p>
-      <div class="ui bottom attached message">
-        API requests for the following example have been faked using <a href="http://sinonjs.org/">SinonJS</a> to avoid network overhead.
+      <div class="ui ignored info message">
+        Tab contents defaults to automatically caching in <code>sessionStorage</code> using API's <code>cache: 'local'</code> setting. You can disable this behavior by setting <code>cache: false</code> in <code>apiSettings</code>.
+      </div>
+      <div class="ui ignored warning message">
+        API requests for the following example have been faked using <a href="/behaviors/api.html#using-custom-backends">mockResponseAsync</a> API setting to avoid network overhead.
       </div>
       <div class="code">
       $('.dynamic.example .menu .item')
         .tab({
-          context : '.dynamic.example',
+          context : 'parent',
           auto    : true,
           path    : '/'
         })
@@ -141,7 +144,7 @@ themes      : ['Default']
     <div class="context example">
       <h4 class="ui header">Multiple Tabs on Same Page</h4>
       <p>There are a several of ways to include independent tab groups on the same page, even with history. One of the easiest ways is provide a specific parent context for each tab group.</p>
-      <div class="ui info message">
+      <div class="ui ignored info message">
         If you are using tab contexts inside of tabs, you can also specify <code>childrenOnly: true</code> which will only look for tabs as the immediate children of the given context, or <code>context: 'parent'</code> a special keyword which avoids having to create unique selectors for each group.
       </div>
       <div id="context1">
@@ -226,7 +229,8 @@ themes      : ['Default']
           ;
           $('#context2 .menu .item')
             .tab({
-              context: $('#context2')
+              // special keyword works same as above
+              context: 'parent'
             })
           ;
         </div>
@@ -237,7 +241,7 @@ themes      : ['Default']
 
       <h4 class="ui header">Default Paths</h4>
       <p>When you specify a path like <code>first/</code> after opening the tab it will look for the any child paths and open the first. In this example even if the path is <code>first/</code>, the tab corresponding with <code>first/a</code> will automatically also be open because it is the default child tab. This will work recursively for as many additional child tab groups as you include.</p>
-      <div class="ui info message">Each of these examples is initialized with a context to prevent contamination with other tab examples on this page. This is not necessary unless using multiple tab systems on a single page.</div>
+      <div class="ui ignored info message">Each of these examples is initialized with a context to prevent contamination with other tab examples on this page. This is not necessary unless using multiple tab systems on a single page.</div>
       <div class="ignored code" data-type="javascript">
       $('.paths.example .menu .item')
         .tab({
@@ -546,6 +550,11 @@ themes      : ['Default']
           <td>Do not load content remotely on first tab load. Useful when open tab is rendered on server.</td>
         </tr>
         <tr>
+          <td>parseScripts</td>
+          <td>once</td>
+          <td>Whether inline scripts in tab html should be parsed on tab load. Defaults to <code>once</code>, parsing only on first load. Can also be set to <code>true</code> or <code>false</code> to always parse or never parse inline scripts.</td>
+        </tr>
+        <tr>
           <td>alwaysRefresh</td>
           <td>false</td>
           <td>Tab should reload content every time it is opened</td>
@@ -603,16 +612,28 @@ themes      : ['Default']
       </thead>
       <tbody>
         <tr>
-          <td>onTabInit</td>
+          <td>onFirstLoad</td>
           <td>tabPath, parameterArray, historyEvent</td>
           <td>Tab</td>
           <td>Callback only the first time a tab is loaded</td>
         </tr>
         <tr>
-          <td>onTabLoad</td>
+          <td>onLoad</td>
           <td>tabPath, parameterArray, historyEvent</td>
           <td>Tab</td>
           <td>Callback every time a tab is loaded</td>
+        </tr>
+        <tr>
+          <td>onRequest</td>
+          <td>tabPath</td>
+          <td>Tab</td>
+          <td>Called when a tab begins loading remote content</td>
+        </tr>
+        <tr>
+          <td>onVisible</td>
+          <td>tabPath</td>
+          <td>Tab</td>
+          <td>Called after a tab becomes visible</td>
         </tr>
       </tbody>
     </table>

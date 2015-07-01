@@ -15,7 +15,14 @@
   <%- @partial('fixed-menu') %>
   <div class="pusher">
     <div class="full height">
-      <%- @content %>
+      <div class="toc">
+        <div class="ui vertical inverted sticky menu">
+        <%- @partial('site-menu') %>
+        </div>
+      </div>
+      <div class="article">
+        <%- @content %>
+      </div>
     </div>
     <%- @partial('footer') %>
   </div>

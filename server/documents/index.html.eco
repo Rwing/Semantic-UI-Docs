@@ -4,24 +4,26 @@ css        : 'index'
 standalone : true
 ---
 <div class="following bar">
-  <div class="ui page grid">
-    <div class="column">
-      <div class="ui logo shape">
-        <div class="sides">
-          <div class="active ui side">
-            <img class="ui image" src="/images/logo.png">
-          </div>
-          <div class="learn side">
-            <img class="ui image" src="/images/learn-logo.png">
+  <div class="ui container">
+    <div class="ui large inverted secondary network menu">
+      <div class="item">
+        <div class="ui logo shape">
+          <div class="sides">
+            <div class="active ui side">
+              <img class="ui image" src="/images/logo.png">
+            </div>
           </div>
         </div>
       </div>
-      <div class="ui inverted right floated secondary menu">
+      <a class="view-ui item">
+        <i class="sidebar icon"></i> Menu
+      </a>
+      <div class="right menu">
         <div class="item">
-<!--
-          <a class="twitter-share-button twitter"
+          <% if 'development' in @getEnvironments(): %>
+          <% else: %><!--          <a class="twitter-share-button twitter"
             href="http://twitter.com/share"
-            data-text="Semantic UI is a next-gen UI library"
+            data-text="Semantic UI 2.0 is out!"
             data-url="http://semantic-ui.com"
             data-via="semanticui">
           </a>
@@ -30,59 +32,59 @@ standalone : true
           </script>
 -->
           <iframe class="github" src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+          <% end %>
         </div>
         <div class="ui language floating dropdown link item" id="languages">
           <i class="world icon"></i>
           <div class="text">English</div>
-          <%- @partial('languages') %>
+          <div class="menu">
+            <div class="header">Search Languages</div>
+            <div class="ui icon search input">
+              <i class="search icon"></i>
+              <input type="text" placeholder="Search languages...">
+            </div>
+            <%- @partial('languages') %>
+          </div>
         </div>
-      </div>
-      <div class="ui large inverted secondary network menu">
-        <a class="view-ui item">
-          <i class="sidebar icon"></i> Menu
-        </a>
-        <a href="http://www.learnsemantic.com" data-site="learn" class="additional item">Learn</a>
-        <!-- <span class="additional item" data-site="themes" data-content="Coming Soon">Themes</span>
-        <span class="additional item" data-site="layout" data-content="Coming Soon">Layouts</span> -->
       </div>
     </div>
   </div>
 </div>
 <div class="zoomed masthead segment">
-  <div class="ui page grid">
-    <div class="column">
-      <div class="introduction">
-        <a class="ui black version label" href="https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md">
-          <%= @getVersion() %>
-        </a>
-        <h1 class="ui inverted header">
-          <span class="library">
-            Semantic UI
-          </span>
-          <b data-text="User Interface">HTML</b>
-          <span class="typed-cursor">|</span>
-          <span class="text">is the language of the web.</span>
-        </h1>
-        <div class="ui hidden divider"></div>
-        <a href="<%= @getZip() %>" class="ui huge basic inverted teal download button">
-          Download Now
-        </a>
-      </div>
-      <div class="inverted advertisement">
-        <% unless 'development' in @getEnvironments(): %>
-        <div id="carbonads-container">
-          <div class="carbonad">
-            <div id="azcarbon"></div>
-            <script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
-          </div>
+  <div class="ui container">
+    <div class="introduction">
+      <a class="ui black version label" href="https://github.com/Semantic-Org/Semantic-UI/blob/<%= @getBranch() %>/RELEASE-NOTES.md">
+        <%= @getVersion() %>
+      </a>
+      <h1 class="ui inverted header">
+        <span class="library">
+          Semantic UI
+        </span>
+        <span class="tagline">
+          User Interface is the language of the web
+        </span>
+      </h1>
+      <div class="ui hidden divider"></div>
+
+      <a href="/introduction/getting-started.html" class="ui huge inverted download button">
+        Get Started
+      </a>
+      <a href="/introduction/new.html" class="ui huge inverted basic button">What's New in 2.0</a>
+    </div>
+    <div class="inverted advertisement">
+      <% unless 'development' in @getEnvironments(): %>
+      <div id="carbonads-container">
+        <div class="carbonad">
+          <div id="azcarbon"></div>
+          <script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
         </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="ui vertical stripe intro segment">
-  <div class="ui stackable very relaxed center aligned page grid">
+  <div class="ui stackable very relaxed center aligned grid container">
     <div class="row">
       <div class="twelve wide column">
         <img class="ui fluid image" src="/images/devices.png">
@@ -91,7 +93,7 @@ standalone : true
       </div>
     </div>
   </div>
-  <div class="stackable very relaxed ui page grid">
+  <div class="stackable very relaxed ui grid container">
     <div class="row">
       <div class="seven wide column">
         <h2 class="ui header">Concise HTML</h2>
@@ -124,21 +126,31 @@ standalone : true
       </div>
       <div class="nine wide column">
         <div class="hidden code" data-demo="true" data-type="javascript">
-          $('.gender.dropdown')
-            .dropdown('setting', 'transition', 'vertical flip')
-            .dropdown('set selected', 'female')
-            .popup('setting', 'content', 'Select your gender')
+          $('select.dropdown')
+            .dropdown('set selected', ['meteor', 'ember'])
           ;
         </div>
         <div class="hidden code" data-type="html">
-          <select class="ui gender dropdown">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+          <select name="skills" multiple class="ui fluid dropdown">
+            <option value="">Skills</option>
+            <option value="angular">Angular</option>
+            <option value="css">CSS</option>
+            <option value="ember">Ember</option>
+            <option value="html">HTML</option>
+            <option value="javascript">Javascript</option>
+            <option value="meteor">Meteor</option>
+            <option value="node">NodeJS</option>
           </select>
         </div>
-        <select class="ui gender dropdown" style="display:block;">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+        <select multiple class="ui fluid dropdown">
+          <option value="">Skills</option>
+          <option value="angular">Angular</option>
+          <option value="css">CSS</option>
+          <option value="ember">Ember</option>
+          <option value="html">HTML</option>
+          <option value="javascript">Javascript</option>
+          <option value="meteor">Meteor</option>
+          <option value="node">NodeJS</option>
         </select>
       </div>
     </div>
@@ -162,16 +174,16 @@ standalone : true
         ;
         </div>
         <div class="ui small sequenced images">
-          <img src="/images/avatar/large/daniel.jpg" class="ui circular image">
-          <img src="/images/avatar/large/stevie.jpg" class="ui circular image">
-          <img src="/images/avatar/large/veronika.jpg" class="ui circular image">
+          <img src="/images/avatar2/large/elyse.png" class="ui circular image">
+          <img src="/images/avatar2/large/matthew.png" class="ui circular image">
+          <img src="/images/avatar2/large/kristy.png" class="ui circular image">
         </div>
       </div>
     </div>
   </div>
 </div>
 <div class="ui email alternate stripe vertical segment">
-  <div class="ui center aligned page grid">
+  <div class="ui center aligned grid container">
     <div class="column">
       <h3 class="ui header">
         Semantic is growing fast. Want to see just how much? Sign up and we'll let you know
@@ -190,7 +202,7 @@ standalone : true
   </div>
 </div>
 <div class="ui stripe theming vertical segment">
-  <div class="ui stackable very relaxed two column page grid">
+  <div class="ui stackable very relaxed two column grid container">
     <div class="center aligned column">
       <h1 class="ui icon header">
         <img src="/images/icons/theming.png" class="ui icon image">
@@ -254,7 +266,7 @@ standalone : true
   </div>
 </div>
 <div class="feature alternate ui stripe vertical segment">
-  <div class="ui three column equal height center aligned divided relaxed stackable page grid">
+  <div class="ui three column center aligned divided relaxed stackable grid container">
     <div class="row">
       <div class="column">
         <h2 class="ui icon header">
@@ -262,7 +274,7 @@ standalone : true
           3000+ Theming Variables
         </h2>
         <p>The only dogma from this framework: <em>everything arbitrary is mutable</em>.</p>
-        <a class="ui large button" href="http://learnsemantic.com/developing/customizing.html">Integration Guide</a>
+        <a class="ui large button" href="/usage/theming.html">Theming Guide</a>
       </div>
       <div class="column">
         <h2 class="ui icon header">
@@ -275,7 +287,7 @@ standalone : true
       <div class="column">
         <h2 class="ui icon header">
           <img class="ui icon image" src="/images/icons/lab.png">
-          3,800+ Commits
+          5000+ Commits
         </h2>
         <p>
           Semantic UI is a <b>free open source</b> project already used in multiple <a href="http://www.quirky.com" target="_blank">large</a> scale <a href="http://www.newrepublic.com" target="_blank">production</a> environments.
@@ -286,15 +298,15 @@ standalone : true
   </div>
 </div>
 <div class="ui stripe vertical segment">
-  <div class="ui stackable very relaxed page grid">
+  <div class="ui stackable very relaxed grid container">
     <div class="fourteen wide center aligned centered column">
       <h1 class="ui icon header">
         <img src="/images/icons/toolbox.png" class="ui icon image">
         Unbelievable Breadth
       </h1>
       <p>Definitions aren't limited to just buttons on a page. Semantic's components allow several distinct types of definitions: elements, collections, views, modules and behaviors which cover the gamut of interface design.</p>
-      <a class="ui large primary button" href="/kitchen-sink.html">
-        See More Examples
+      <a class="ui large primary button" href="/usage/layout.html">
+        See Layout Examples
         <i class="right chevron icon"></i>
       </a>
     </div>
@@ -473,7 +485,7 @@ standalone : true
             <a href="/views/card.html">Card</a>
           </h4>
           <div class="ui card">
-            <div class="image dimmable">
+            <div class="blurring dimmable image">
               <div class="ui dimmer">
                 <div class="content">
                   <div class="center">
@@ -481,15 +493,12 @@ standalone : true
                   </div>
                 </div>
               </div>
-              <img src="/images/home-avatar.png">
+              <img src="/images/avatar2/large/rachel.png">
             </div>
             <div class="content">
-              <div class="header">Steve Jobes</div>
+              <div class="header">Rachel Maddaw</div>
               <div class="meta">
-                <a class="group">Acquaintances</a>
-              </div>
-              <div class="description">
-                Steve Jobes is a fictional character designed to resemble someone familiar to readers.
+                <a class="group">Pundit</a>
               </div>
             </div>
             <div class="extra content">
@@ -510,30 +519,30 @@ standalone : true
           <div class="ui feed">
             <div class="event">
               <div class="label">
-                <img src="/images/avatar/small/elliot.jpg">
+                <img src="/images/avatar2/small/mark.png">
               </div>
               <div class="content">
                 <div class="summary">
                   <a class="user">
-                    Elliot Fu
+                    Mark
                   </a> added you as a friend
                 </div>
               </div>
             </div>
             <div class="event">
               <div class="label">
-                <img src="/images/avatar/small/jenny.jpg">
+                <img src="/images/avatar2/small/lena.png">
               </div>
               <div class="content">
-                You added Jenny Hess to the group <a>Close Friends</a>
+                You added Lena to the group <a>Close Friends</a>
               </div>
             </div>
             <div class="event">
               <div class="label">
-                <img src="/images/avatar/small/zoe.jpg">
+                <img src="/images/avatar2/small/eve.png">
               </div>
               <div class="content">
-                Zoe just <a>posted on your page</a>
+                Eve just <a>posted on your page</a>
               </div>
             </div>
           </div>
@@ -543,8 +552,8 @@ standalone : true
             <a href="/elements/label.html">Label</a>
           </h4>
           <div class="ui image label">
-            <img src="/images/avatar/small/justen.jpg">
-            jkitsune@newrepublic.com
+            <img src="/images/avatar2/small/molly.png">
+            molly@thebears.com
             <i class="delete icon"></i>
           </div>
           <a class="ui teal label">
@@ -837,43 +846,59 @@ standalone : true
           </div>
 
           <div class="ui divider"></div>
-          <div tabindex="0" class="ui searchable floating dropdown labeled icon button">
+          <div class="ui floating dropdown labeled icon button">
             <i class="filter icon"></i>
             <span class="text">Filter Posts</span>
-            <div tabindex="-1" class="menu">
+            <div class="menu">
+              <div class="ui icon search input">
+                <i class="search icon"></i>
+                <input type="text" placeholder="Search tags...">
+              </div>
               <div class="header">
-                Filter by Tag
+                <i class="tags icon"></i>
+                Tag Label
               </div>
-              <div class="item">
-                <div class="ui red empty circular label"></div>
-                Important
-              </div>
-              <div class="item">
-                <div class="ui blue empty circular label"></div>
-                Announcement
-              </div>
-              <div class="item">
-                <div class="ui black empty circular label"></div>
-                Cannot Fix
-              </div>
-              <div class="item">
-                <div class="ui green empty circular label"></div>
-                Discussion
+              <div class="scrolling menu">
+                <div class="item">
+                  <div class="ui red empty circular label"></div>
+                  Important
+                </div>
+                <div class="item">
+                  <div class="ui blue empty circular label"></div>
+                  Announcement
+                </div>
+                <div class="item">
+                  <div class="ui black empty circular label"></div>
+                  Cannot Fix
+                </div>
+                <div class="item">
+                  <div class="ui purple empty circular label"></div>
+                  News
+                </div>
+                <div class="item">
+                  <div class="ui orange empty circular label"></div>
+                  Enhancement
+                </div>
+                <div class="item">
+                  <div class="ui empty circular label"></div>
+                  Change Declined
+                </div>
+                <div class="item">
+                  <div class="ui yellow empty circular label"></div>
+                  Off Topic
+                </div>
+                <div class="item">
+                  <div class="ui pink empty circular label"></div>
+                  Interesting
+                </div>
+                <div class="item">
+                  <div class="ui green empty circular label"></div>
+                  Discussion
+                </div>
               </div>
             </div>
           </div>
       </div>
-        <div class="no example">
-          <h4 class="ui header">
-            <a href="/modules/progress.html">Progress</a>
-          </h4>
-          <div data-total="20" data-value="6" class="ui teal file demo progress active">
-            <div class="bar" style="width: 25%;">
-              <div class="progress"></div>
-            </div>
-            <div class="label">Adding 5 of 20 photos</div>
-          </div>
-        </div>
         <div class="no segment example">
           <h4 class="ui header">
             <a href="/elements/segment.html">Segment</a>
@@ -939,7 +964,7 @@ standalone : true
   </div>
 </div>
 <div class="ui stripe community vertical segment">
-  <div class="ui two column equal height center aligned divided very relaxed stackable page grid">
+  <div class="ui two column center aligned divided very relaxed stackable grid container">
     <div class="row">
       <div class="column">
         <h2 class="ui icon header">
@@ -947,39 +972,33 @@ standalone : true
           Responsively Designed
         </h2>
         <p>Semantic is <b>designed completely with em</b> making reponsive sizing a breeze. Design <em>variations</em> built into elements allow you to make the choice how content adjusts for tablet and mobile.</p>
+        <a class="ui large button" href="/usage/layout.html">Responsive Examples</a>
       </div>
       <div class="column">
         <h2 class="ui icon header">
           <img class="ui icon image" src="/images/icons/heart.png">
           Partners with Libraries You Love
         </h2>
-        <p>Semantic has integrations with <b>Angular, Meteor, Ember</b> and many other frameworks to help organize your UI layer alongside your application logic.</p>
+        <p>Semantic has integrations with <b>React, Angular, Meteor, Ember</b> and many other frameworks to help organize your UI layer alongside your application logic.</p>
+        <a class="ui large button" href="/introduction/integrations.html">See Integrations</a>
       </div>
     </div>
   </div>
 </div>
 <div class="ui alternate stripe vertical segment">
-  <div class="ui stackable center aligned page grid">
+  <div class="ui stackable center aligned grid container">
     <div class="fourteen wide column">
       <h1 class="ui icon header">
         <img class="ui inline icon image" src="/images/icons/rocket.png">
         Liberate your Development
       </h1>
       <div class="ui stackable center aligned vertically padded grid">
-<!--         <div class="column">
-          <h3 class="ui header">Beginner Friendly</h3>
-          <p>Don't feel comfortable tweaking everything? Download free community designed themes and use our customizer to build a package fit for your needs.</p>
-          <a class="ui large disabled right labeled icon button">
-            <i class="right chevron icon"></i>
-            View Basic Guide
-          </a>
-        </div> -->
         <div class="eight wide column">
           <h3 class="ui header">Enterprise Ready</h3>
           <p>Build tools, performance logging, support for custom definitions, multiple-levels of theme inheritance—a developer's dream.</p>
-          <a class="ui large right labeled primary icon button" href="http://www.learnsemantic.com/guide/expert.html">
+          <a class="ui large right labeled primary icon button" href="/introduction/getting-started.html">
             <i class="right chevron icon"></i>
-            Getting Started Guide
+            Get Started Now
           </a>
         </div>
       </div>

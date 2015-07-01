@@ -42,12 +42,21 @@ semantic.validateForm.ready = function() {
         }
       ]
     },
+    skills: {
+      identifier  : 'skills',
+      rules: [
+        {
+          type   : 'minCount[2]',
+          prompt : 'Please select at least two skills'
+        }
+      ]
+    },
     name: {
       identifier  : 'name',
       rules: [
         {
           type   : 'empty',
-          prompt : 'Please enter you name'
+          prompt : 'Please enter your name'
         }
       ]
     },
@@ -75,6 +84,10 @@ semantic.validateForm.ready = function() {
         {
           type   : 'empty',
           prompt : 'Please enter a username'
+        },
+        {
+          type   : 'length[5]',
+          prompt : 'Your username must be at least 5 characters'
         }
       ]
     },
@@ -131,7 +144,7 @@ semantic.validateForm.ready = function() {
 
 
   $inlineForm
-    .form({}, {
+    .form({
       inline : true,
       on: 'blur'
     })
@@ -139,24 +152,26 @@ semantic.validateForm.ready = function() {
 
   $dropdownForm
     .form({
-      gender: {
-        identifier  : 'gender',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter a gender'
-          }
-        ]
-      },
-      name: {
-        identifier  : 'name',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter your name'
-          }
-        ]
-      },
+      fields: {
+        gender: {
+          identifier  : 'gender',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter a gender'
+            }
+          ]
+        },
+        name: {
+          identifier  : 'name',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter your name'
+            }
+          ]
+        }
+      }
     })
     .find('.dropdown')
       .dropdown()
@@ -164,46 +179,50 @@ semantic.validateForm.ready = function() {
 
   $optionalForm
     .form({
-      email: {
-        identifier : 'email',
-        rules: [
-          {
-            type   : 'email',
-            prompt : 'Please enter a valid e-mail'
-          }
-        ]
-      },
-      ccEmail: {
-        identifier : 'cc-email',
-        optional   : true,
-        rules: [
-          {
-            type   : 'email',
-            prompt : 'Please enter a valid second e-mail'
-          }
-        ]
-      },
+      fields: {
+        email: {
+          identifier : 'email',
+          rules: [
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid e-mail'
+            }
+          ]
+        },
+        ccEmail: {
+          identifier : 'cc-email',
+          optional   : true,
+          rules: [
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid second e-mail'
+            }
+          ]
+        }
+      }
     })
   ;
 
   $dogForm
     .form({
-      dog: {
-        identifier: 'dog',
-        rules: [
-          {
-            type: 'empty',
-            prompt: 'You must have a dog to add'
-          },
-          {
-            type: 'contains[fluffy]',
-            prompt: 'I only want you to add fluffy dogs!'
-          },
-          {
-            type: 'not[mean]',
-            prompt: 'Why would you add a mean dog to the list?'
-          }
-        ]
+      fields: {
+        dog: {
+          identifier: 'dog',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'You must have a dog to add'
+            },
+            {
+              type: 'contains[fluffy]',
+              prompt: 'I only want you to add fluffy dogs!'
+            },
+            {
+              type: 'not[mean]',
+              prompt: 'Why would you add a mean dog to the list?'
+            }
+          ]
+        }
       }
     })
   ;

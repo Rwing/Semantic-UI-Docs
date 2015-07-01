@@ -10,6 +10,7 @@ semantic.home.ready = function() {
     $phrase        = $header.find('h1 span'),
     $download      = $header.find('.download'),
     $library       = $header.find('.library'),
+    $cursor        = $header.find('.typed-cursor'),
     $version       = $header.find('.version'),
     $themeButton   = $('.theming .source.button'),
     $themeGrid     = $('.theming .source.grid'),
@@ -18,35 +19,18 @@ semantic.home.ready = function() {
   ;
 
   handler = {
-    endAnimation: function() {
-      $header
-        .addClass('stopped')
-      ;
+    getRandomInt: function(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     introduction: function() {
+      var
+        background = 'bg' + handler.getRandomInt(1, 14)
+      ;
       // zoom out
-      setTimeout(function() {
-        $header
-          .removeClass('zoomed')
-        ;
-      }, 500);
-
-      $ui.typed({
-        replaceBaseText : true,
-        strings         : [
-          $ui.data('text')
-        ],
-        showCursor      : false,
-        typeSpeed       : 120,
-        backSpeed       : 120,
-        backDelay       : 500
-      });
-      setTimeout(function() {
-        $library.transition('scale in', 1000);
-      }, 3750);
-      setTimeout(function() {
-        $version.transition('fade', 1000);
-      }, 4250);
+      $header
+        .addClass(background)
+        .removeClass('zoomed')
+      ;
     },
     changeLogo: function() {
       var
@@ -153,7 +137,6 @@ semantic.home.ready = function() {
         $themeDropdown
           .api({
             on       : 'now',
-            debug    : true,
             url      : variableURL,
             dataType : 'text',
             urlData  : urlData,
@@ -219,38 +202,38 @@ semantic.home.ready = function() {
     }
   };
 
-  $('.logo.shape')
-    .shape({
-      duration: 400
-    })
-  ;
+  // intro
+  handler.introduction();
 
   if($(window).width() > 600) {
     $('body')
       .visibility({
-        offset: -1,
-        once: false,
-        continuous: false,
+        offset         : -10,
+        observeChanges : false,
+        once           : false,
+        continuous     : false,
         onTopPassed: function() {
-          $('.following.bar')
-            .addClass('light fixed')
-            .find('.menu')
-              .removeClass('inverted')
-          ;
           requestAnimationFrame(function() {
+            $('.following.bar')
+              .addClass('light fixed')
+              .find('.menu')
+                .removeClass('inverted')
+            ;
             $('.following .additional.item')
               .transition('scale in', 750)
             ;
           });
         },
         onTopPassedReverse: function() {
-          $('.following.bar')
-            .removeClass('light fixed')
-            .find('.menu')
-              .addClass('inverted')
-              .find('.additional.item')
-                .transition('hide')
-          ;
+          requestAnimationFrame(function() {
+            $('.following.bar')
+              .removeClass('light fixed')
+              .find('.menu')
+                .addClass('inverted')
+                .find('.additional.item')
+                  .transition('hide')
+            ;
+          });
         }
       })
     ;
@@ -265,32 +248,27 @@ semantic.home.ready = function() {
     })
   ;
 
-  $('.following.bar .network')
-    .find('.item')
-      .on('mouseenter', handler.changeLogo)
-      .on('mouseleave', handler.returnLogo)
-  ;
-
   $('.email.stripe form')
     .form({
-      email: {
-        identifier : 'email',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter an e-mail'
-          },
-          {
-            type   : 'email',
-            prompt : 'Please enter a valid e-mail address'
-          }
-        ]
+      fields: {
+        email: {
+          identifier : 'email',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter an e-mail'
+            },
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid e-mail address'
+            }
+          ]
+        }
       }
     })
   ;
 
 
-  handler.introduction();
 
   $themeDropdown
     .dropdown('setting', 'transition', 'drop')

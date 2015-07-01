@@ -1,12 +1,13 @@
 ---
 layout      : 'default'
 css         : 'breadcrumb'
+standalone  : true
 
 element     : 'breadcrumb'
 elementType : 'collection'
 
 title       : 'Breadcrumb'
-description : 'A breadcrumb is used to show heirarchy between content'
+description : 'A breadcrumb is used to show hierarchy between content'
 type        : 'UI Collection'
 
 themes      : ['Default']
@@ -18,7 +19,7 @@ themes      : ['Default']
 <link rel="stylesheet/less" type="text/css" href="/src/definitions/collections/breadcrumb.less" />
 
 
-<div class="main container">
+<div class="main ui container">
 
   <h2 class="ui dividing header">Types</h2>
 
@@ -34,7 +35,18 @@ themes      : ['Default']
     </div>
   </div>
 
-  <h2 class="ui dividing header">Elements</h2>
+  <div class="another example">
+    <div class="ui breadcrumb">
+      <a class="section">Home</a>
+      <i class="right angle icon divider"></i>
+      <a class="section">Store</a>
+      <i class="right angle icon divider"></i>
+      <div class="active section">T-Shirt</div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Content</h2>
 
   <div class="example">
     <h4 class="ui header">Divider</h4>

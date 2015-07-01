@@ -15,7 +15,7 @@ type        : 'UI Module'
 
 <%- @partial('header', { tabs: { definition: 'Definition', usage: 'Usage', settings: 'Settings'} }) %>
 
-<div class="main container">
+<div class="main ui container">
 
   <div class="ui active tab" data-tab="definition">
 
@@ -172,6 +172,7 @@ type        : 'UI Module'
         })
       ;
     </div>
+
     <h4 class="ui header">Named URL</h4>
     <p>You can specify custom API settings to adjust the url, callback settings, or specify a different api action.</p>
     <div class="code" data-label="javascript">
@@ -186,6 +187,7 @@ type        : 'UI Module'
         })
       ;
     </div>
+
     <h4 class="ui header">Local Object</h4>
     <p>Local search results allow you to search across specified properties of a javacript object literal looking for matching values</p>
     <p>
@@ -215,7 +217,8 @@ type        : 'UI Module'
         })
       ;
     </div>
-    <h3 class="ui header">Server Responses</h3>
+
+    <h2 class="ui dividing header">Server Responses</h2>
 
     <div class="ui info message">You may also consider adding a top level property like <code>success: true</code> and using API's <code>successTest</code> parameter to determine wheter a server response is actually succesful, even if it returns the correct HTTP code</div>
 
@@ -227,7 +230,7 @@ type        : 'UI Module'
             "title": "Result Title",
             "url": "/optional/url/on/click",
             "image": "optional-image.jpg",
-            "price": "Optional Price"
+            "price": "Optional Price",
             "description": "Optional Description"
           },
           {
@@ -237,7 +240,7 @@ type        : 'UI Module'
         ],
         // optional action below results
         "action": {
-          "url": '/path/to/results'
+          "url": '/path/to/results',
           "text": "View all 202 results"
         }
       }
@@ -255,14 +258,14 @@ type        : 'UI Module'
                 "title": "Result Title",
                 "url": "/optional/url/on/click",
                 "image": "optional-image.jpg",
-                "price": "Optional Price"
+                "price": "Optional Price",
                 "description": "Optional Description"
               },
               {
                 "title": "Result Title",
                 "url": "/optional/url/on/click",
                 "image": "optional-image.jpg",
-                "price": "Optional Price"
+                "price": "Optional Price",
                 "description": "Optional Description"
               }
             ]
@@ -274,7 +277,7 @@ type        : 'UI Module'
                 "title": "Result Title",
                 "url": "/optional/url/on/click",
                 "image": "optional-image.jpg",
-                "price": "Optional Price"
+                "price": "Optional Price",
                 "description": "Optional Description"
               }
             ]
@@ -282,11 +285,35 @@ type        : 'UI Module'
         }
         // optional action below results
         "action": {
-          "url": '/path/to/results'
+          "url": '/path/to/results',
           "text": "View all 202 results"
         }
       }
     </div>
+
+
+    <h2 class="ui dividing header">Retreiving Results</h2>
+
+    <h4 class="ui header">Unique IDs</h4>
+    <p>If no <code>id</code> property is included on a result, a key will automatically be generated when your results are returned for each result.</p>
+    <p>IDs are generated using the position in the results, for example the first element will receive the id <code>1</code>, and the first category result will receive the id <code>a1</code>.</p>
+    <p>An <code>id</code> or search result title can then be used with <code>get result(value)</code> to return the result object.
+    </p>
+    <div class="code" data-label="javascript">
+      // get result from current query results with the title cat
+      $('.ui.search')
+        .search('get result', 'cat')
+      ;
+      // get first result from first category with category search
+      $('.ui.search')
+        .search('get result', 'a1')
+      ;
+      // get first result from standard search
+      $('.ui.search')
+        .search('get result', '1')
+      ;
+    </div>
+
 
     <h2 class="ui dividing header">Behaviors</h2>
 
@@ -320,15 +347,19 @@ type        : 'UI Module'
           <td>Search local object for specified query and display results</td>
         </tr>
         <tr>
+          <td>has minimum characters</td>
+          <td>Whether has minimum characters</td>
+        </tr>
+        <tr>
           <td>search remote(query)</td>
           <td>Search remote endpoint for specified query and display results</td>
         </tr>
         <tr>
-          <td>search object(query, object)</td>
+          <td>search object(query, object, searchFields)</td>
           <td>Search object for specified query and return results</td>
         </tr>
         <tr>
-          <td>cancel</td>
+          <td>cancel query</td>
           <td>Cancels current remote search request</td>
         </tr>
         <tr>
@@ -349,18 +380,22 @@ type        : 'UI Module'
         </tr>
         <tr>
           <td>get result(value)</td>
-          <td>Returns JSON object matching search value</td>
+          <td>Returns JSON object matching searched title or id (see above)</td>
         </tr>
         <tr>
           <td>set value(value)</td>
           <td>Sets search input to value</td>
         </tr>
         <tr>
-          <td>read cachedHTML(query)</td>
+          <td>read cache(query)</td>
           <td>Reads cached results for query</td>
         </tr>
         <tr>
-          <td>write cachedHTML(query)</td>
+          <td>clear cache(query)</td>
+          <td>Clears value from cache, if no parameter passed clears all cache</td>
+        </tr>
+        <tr>
+          <td>write cache(query)</td>
           <td>Writes cached results for query</td>
         </tr>
         <tr>
@@ -464,7 +499,7 @@ type        : 'UI Module'
               ]
             </div>
           </td>
-          <td>Specify object properties inside source object which will be searched</td>
+          <td>Specify object properties inside local source object which will be searched</td>
         </tr>
         <tr>
           <td>hideDelay</td>
@@ -531,6 +566,44 @@ type        : 'UI Module'
     </table>
 
     <h2 class="ui dividing header">
+      Templates
+    </h2>
+
+    <p>These templates are used to generate the html structures for search results</p>
+
+    <div class="ui ignored info message">
+      By specifying a search as <code>type: 'customType'</code>, and a custom template under <code>$.fn.search.settings.templates.customType</code> you can create custom search results. Keep in mind that <code>.title</code> will be used for matching results <code>onSelect</code>
+    </div>
+     <table class="ui sortable celled definition table">
+      <thead>
+        <th></th>
+        <th class="twelve wide">Functions</th>
+      </thead>
+        <tr>
+          <td>templates</td>
+          <td>
+            <div class="code" data-type="css">
+            $.fn.search.settings.templates : {
+              escape: function(string) {
+                // returns escaped string for injected results
+              },
+              message: function(message, type) {
+               // returns html for message with given message and type
+              },
+              category: function(response) {
+               // returns results html for category results
+              },
+              standard: function(response) {
+               // returns results html for standard results
+              }
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="ui dividing header">
       Module
     </h2>
 
@@ -554,6 +627,18 @@ type        : 'UI Module'
           <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
         </tr>
         <tr>
+          <td>regExp</td>
+          <td>
+            <div class="code" data-type="css">
+            regExp: {
+              escape     : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
+              beginsWith : '(?:\s|^)'
+            }
+            </div>
+          </td>
+          <td>Regular expressions used for matching</td>
+        </tr>
+        <tr>
           <td>selector</td>
           <td>
             <div class="code" data-type="css">
@@ -567,6 +652,18 @@ type        : 'UI Module'
             </div>
           </td>
           <td>Selectors used to find parts of a module</td>
+        </tr>
+        <tr>
+          <td>metadata</td>
+          <td>
+            <div class="code">
+            metadata: {
+              cache   : 'cache',
+              results : 'results'
+            }
+            </div>
+          </td>
+          <td>HTML5 metadata attributes used internally</td>
         </tr>
         <tr>
           <td>className</td>

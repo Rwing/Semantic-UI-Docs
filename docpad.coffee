@@ -29,7 +29,9 @@ docpadConfig = {
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [],
 
-			version: "1.12.1",
+			version: "2.0.0",
+
+			branch: "master",
 
 			# The default title of our website
 			title: "Semantic UI中文官方网站"
@@ -52,8 +54,14 @@ docpadConfig = {
 		# Often we would like to specify particular formatting to our page's title
 		# we can apply that formatting here
 
+		getDirPath: ->
+			@document.dirPath
+
 		getVersion: ->
 			@site.version
+
+		getBranch: ->
+			@site.branch
 
 		getZip: ->
 			if @site.version
@@ -129,6 +137,10 @@ docpadConfig = {
 	# Here we can define handlers for events that DocPad fires
 	# You can find a full listing of events on the DocPad Wiki
 	# events:
+	events:
+    extendCollections: (opts) ->
+        @docpad.getCollection('files').on('add', (document) ->
+            document.setMetaDefaults(standalone:true))
 
 
 }

@@ -14,7 +14,7 @@ themes      : ['default', 'GitHub']
 <%- @partial('header') %>
 <link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/segment.less" />
 
-<div class="main container">
+<div class="main ui container">
 
   <h2 class="ui dividing header">Types</h2>
 
@@ -27,45 +27,10 @@ themes      : ['default', 'GitHub']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Vertical Segment</h4>
-    <p>A vertical segment formats content to be aligned as part of a vertical group</p>
-    <div class="ui segment">
-      <div class="ui vertical segment">
-        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
-      </div>
-      <div class="ui vertical segment">
-        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
-      </div>
-      <div class="ui vertical segment">
-        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
-      </div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Horizontal Segment</h4>
-    <p>A horizontal segment formats its content to be aligned as part of a horizontal group</p>
-    <div class="ui ignored info message">
-      <div class="header">When to Use Horizontal Segments</div>
-      <p>Horizontal segments are most effectively used with grids, to allow for text groups that are aligned across grid rows.</p>
-      <p>A <code>horizontal segment</code> adds horizontal padding and a horizontal border, while a <code>basic horizontal segment</code> adds only the padding <b>but not the border</b>.</p>
-    </div>
-    <div class="ui three column grid">
-      <div class="column">
-        <div class="ui horizontal segment">
-          <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui horizontal segment">
-          <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui horizontal segment">
-          <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
-        </div>
-      </div>
+    <h4 class="ui header">Raised</h4>
+    <p>A segment may be formatted to raise above the page.</p>
+    <div class="ui raised segment">
+      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
     </div>
   </div>
 
@@ -82,7 +47,7 @@ themes      : ['default', 'GitHub']
     </div>
   </div>
 
-  <div class="example">
+  <div class="piled example">
     <h4 class="ui header">Piled</h4>
     <p>A segment can be formatted to look like a pile of pages</p>
     <div class="ui ignored warning message">
@@ -98,6 +63,175 @@ themes      : ['default', 'GitHub']
     </div>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Vertical Segment</h4>
+    <p>A vertical segment formats content to be aligned as part of a vertical group</p>
+    <div class="ui vertical segment">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui vertical segment">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui vertical segment">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Groups</h2>
+
+  <div class="example">
+    <h4 class="ui header">Segment Group</h4>
+    <p>A group of segments can be formatted to appear together</p>
+
+    <div class="ui segments">
+      <div class="ui segment">
+        <p>Top</p>
+      </div>
+      <div class="ui segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui segment">
+        <p>Bottom</p>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui segments">
+      <div class="ui segment">
+        <p>Top</p>
+      </div>
+      <div class="ui red segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui blue segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui green segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui yellow segment">
+        <p>Bottom</p>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui segments">
+      <div class="ui segment">
+        <p>Top</p>
+      </div>
+      <div class="ui secondary segment">
+        <p>Secondary Content</p>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Nested Group</h4>
+    <p>A group of segments can be nested in another group</p>
+    <div class="ui segments">
+      <div class="ui segment">
+        <p>Top</p>
+      </div>
+      <div class="ui segments">
+        <div class="ui segment">
+          <p>Nested Top</p>
+        </div>
+        <div class="ui segment">
+          <p>Nested Middle</p>
+        </div>
+        <div class="ui segment">
+          <p>Nested Bottom</p>
+        </div>
+      </div>
+      <div class="ui segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui horizontal segments">
+        <div class="ui segment">
+          <p>Top</p>
+        </div>
+        <div class="ui segment">
+          <p>Middle</p>
+        </div>
+        <div class="ui segment">
+          <p>Bottom</p>
+        </div>
+      </div>
+      <div class="ui segment">
+        <p>Bottom</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Horizontal Group</h4>
+    <p>A segment group can appear horizontally</p>
+    <div class="ui horizontal segments">
+      <div class="ui segment">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      </div>
+      <div class="ui segment">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      </div>
+      <div class="ui segment">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Raised Group</h4>
+    <p>A group of segments can be raised</p>
+    <div class="ui raised segments">
+      <div class="ui segment">
+        <p>Top</p>
+      </div>
+      <div class="ui segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui segment">
+        <p>Bottom</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Stacked Group</h4>
+    <p>A group of segments can be stacked</p>
+    <div class="ui stacked segments">
+      <div class="ui segment">
+        <p>Top</p>
+      </div>
+      <div class="ui segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui segment">
+        <p>Bottom</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="piled example">
+    <h4 class="ui header">Piled Group</h4>
+    <p>A group of segments can be raised</p>
+    <div class="ui piled segments">
+      <div class="ui segment">
+        <p>Top</p>
+      </div>
+      <div class="ui segment">
+        <p>Middle</p>
+      </div>
+      <div class="ui segment">
+        <p>Bottom</p>
+      </div>
+    </div>
+  </div>
 
   <h2 class="ui dividing header">States</h2>
 
@@ -132,9 +266,7 @@ themes      : ['default', 'GitHub']
     <p>A segment can be attached to other content on a page</p>
 
     <div class="ui ignored info message">
-      <div class="header">Adding Segment Headers</div>
-      <p>Attached segments are designed to be used with <code>attached header</code> a variation of <a href="/elements/header.html">header</a> that can attach to segments.</p>
-      <p>You can also attach <a href="/collections/message.html">ui messages</a> to segments as well</p>
+      <p>Attached segments are designed to be used with other <code>attached</code> variations like <a href="/header.html#attached">attached header</a> or <a href="/collections/message.html#attached">attached messages</a>.</p>
     </div>
     <div class="ui top attached segment">
       <p>This segment is on top</p>
@@ -172,69 +304,74 @@ themes      : ['default', 'GitHub']
   </div>
 
   <div class="example">
+    <h4 class="ui header">Padded</h4>
+    <p>A segment can increase its padding</p>
+    <div class="ui padded segment">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui very padded segment">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Compact</h4>
     <p>A segment may take up only as much space as is necessary</p>
     <div class="ui compact segment">
       <p>Pellentesque habitant morbi</p>
     </div>
   </div>
-
-  <div class="example">
-    <h4 class="ui header">Raised</h4>
-    <p>A segment may be formatted to raise above the page.</p>
-    <div class="ui raised segment">
-      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+  <div class="another example">
+    <div class="ui compact segments">
+      <div class="ui segment">
+        <p>Pellentesque habitant morbi</p>
+      </div>
+      <div class="ui segment">
+        <p>Pellentesque habitant morbi</p>
+      </div>
     </div>
   </div>
 
   <div class="example">
     <h4 class="ui header">Colored</h4>
     <p>A segment can be colored</p>
-    <div class="ui blue segment">
-      Blue
-    </div>
-    <div class="ui orange segment">
-      Orange
-    </div>
-    <div class="ui green segment">
-      Green
-    </div>
-    <div class="ui red segment">
-      Red
-    </div>
-    <div class="ui purple segment">
-      Purple
-    </div>
-    <div class="ui teal segment">
-      Teal
-    </div>
+    <div class="ui red segment">Red</div>
+    <div class="ui orange segment">Orange</div>
+    <div class="ui yellow segment">Yellow</div>
+    <div class="ui olive segment">Olive</div>
+    <div class="ui green segment">Green</div>
+    <div class="ui teal segment">Teal</div>
+    <div class="ui blue segment">Blue</div>
+    <div class="ui violet segment">Violet</div>
+    <div class="ui purple segment">Purple</div>
+    <div class="ui pink segment">Pink</div>
+    <div class="ui brown segment">Brown</div>
+    <div class="ui grey segment">Grey</div>
+    <div class="ui black segment">Black</div>
   </div>
   <div class="another example">
     <p>These colors can be inverted</p>
-    <div class="ui blue inverted segment">
-      Blue
-    </div>
-    <div class="ui orange inverted segment">
-      Orange
-    </div>
-    <div class="ui green inverted segment">
-      Green
-    </div>
-    <div class="ui red inverted segment">
-      Red
-    </div>
-    <div class="ui purple inverted segment">
-      Purple
-    </div>
-    <div class="ui teal inverted segment">
-      Teal
-    </div>
+    <div class="ui red inverted segment">Red</div>
+    <div class="ui orange inverted segment">Orange</div>
+    <div class="ui yellow inverted segment">Yellow</div>
+    <div class="ui olive inverted segment">Olive</div>
+    <div class="ui green inverted segment">Green</div>
+    <div class="ui teal inverted segment">Teal</div>
+    <div class="ui blue inverted segment">Blue</div>
+    <div class="ui violet inverted segment">Violet</div>
+    <div class="ui purple inverted segment">Purple</div>
+    <div class="ui pink inverted segment">Pink</div>
+    <div class="ui brown inverted segment">Brown</div>
+    <div class="ui grey inverted segment">Grey</div>
+    <div class="ui black inverted segment">Black</div>
   </div>
 
   <div class="example">
-    <h4 class="ui header">Ordinality</h4>
+    <h4 class="ui header">Emphasis</h4>
     <p>A segment can be formatted to appear more or less noticeable</p>
-    <div class="ui primary segment">
+    <div class="ui segment">
       <p>I'm here to tell you something, and you will probably read me first.</p>
     </div>
     <div class="ui secondary segment">
@@ -246,7 +383,7 @@ themes      : ['default', 'GitHub']
   </div>
   <div class="another example">
     <p>Inverted colors may also be more or less noticeable</p>
-    <div class="ui primary inverted segment">
+    <div class="ui inverted segment">
       <p>I'm here to tell you something, and you will probably read me first.</p>
     </div>
     <div class="ui secondary inverted segment">
@@ -257,7 +394,7 @@ themes      : ['default', 'GitHub']
     </div>
   </div>
   <div class="another example">
-    <div class="ui primary inverted red segment">
+    <div class="ui inverted red segment">
       <p>I'm here to tell you something, and you will probably read me first.</p>
     </div>
     <div class="ui secondary inverted red segment">
@@ -284,17 +421,24 @@ themes      : ['default', 'GitHub']
       </h2>
     </div>
   </div>
+
+
+  <div class="example">
+    <h4 class="ui header">
+      Clearing
+      <span class="ui teal label">New</span>
+    </h4>
+    <p>A segment can clear floated content</p>
+    <div class="ui clearing segment">
+      <div class="ui right floated button">Floated</div>
+    </div>
+  </div>
+
   <div class="example">
     <h4 class="ui header">Floated</h4>
     <p>A segment can appear to the left or right of other content</p>
     <div class="ui right floated segment">
       <p>This segment will appear to the right
-    </div>
-    <div class="ui right floated segment">
-      <p>This segment will appear to the right
-    </div>
-    <div class="ui left floated segment">
-      This segment will appear to the left
     </div>
     <div class="ui left floated segment">
       This segment will appear to the left
@@ -323,39 +467,5 @@ themes      : ['default', 'GitHub']
     </div>
   </div>
 
-  <h2 class="ui dividing header">Groups</h2>
 
-
-  <div class="example">
-    <h4 class="ui header">Segment Group</h4>
-    <p>A group of segments can be formatted to appear together</p>
-
-    <div class="ui segments">
-      <div class="ui segment">
-        <p>Top</p>
-      </div>
-      <div class="ui segment">
-        <p>Middle</p>
-      </div>
-      <div class="ui segment">
-        <p>Middle</p>
-      </div>
-      <div class="ui segment">
-        <p>Middle</p>
-      </div>
-      <div class="ui segment">
-        <p>Bottom</p>
-      </div>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui segments">
-      <div class="ui segment">
-        <p>Top</p>
-      </div>
-      <div class="ui secondary segment">
-        <p>Secondary Content</p>
-      </div>
-    </div>
-  </div>
 </div>

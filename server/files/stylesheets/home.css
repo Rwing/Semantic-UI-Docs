@@ -18,12 +18,24 @@
   flex-direction: initial;
 }
 #example > .pusher > .full.height {
+  display: block;
   flex: none !important;
 }
 
 /*--------------
     Masthead
 ---------------*/
+
+#example.index .masthead.segment.zoomed h1 {
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 1);
+}
+#example.index .masthead.zoomed:after {
+  opacity: 0;
+}
+#example.index .masthead.zoomed {
+  background-color: #25282A;
+}
 
 #example.index .masthead {
   position: relative;
@@ -34,28 +46,113 @@
   margin-bottom: 0px;
   border-bottom: none;
 
-  background-color: #009189;
-  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  background-color: #000000;
   background-position: 50% 50%;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+}
+#example.index .masthead:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-size: cover;
 
-  -ms-transition: background-color 3s ease-in-out 1s;
-  -moz-transition: background-color 3s ease-in-out 1s;
-  -webkit-transition: background-color 3s ease-in-out 1s;
-  transition: background-color 3s ease-in-out 1s;
+  opacity: 0.45;
 }
-#example.index .masthead.zoomed {
-  background-color: #2A2A2A;
-  animation: none;
-  -webkit-animation: none;
+#example.index .masthead.bg1:after {
+  background-image: url("/images/backgrounds/1.jpg");
 }
-#example .masthead .grid {
-  margin: 0em;
+#example.index .masthead.bg2:after {
+  background-image: url("/images/backgrounds/2.jpg");
+}
+#example.index .masthead.bg3:after {
+  background-image: url("/images/backgrounds/3.jpg");
+}
+#example.index .masthead.bg4:after {
+  background-image: url("/images/backgrounds/4.jpg");
+}
+#example.index .masthead.bg5:after {
+  background-image: url("/images/backgrounds/5.jpg");
+}
+#example.index .masthead.bg6:after {
+  background-image: url("/images/backgrounds/6.jpg");
+}
+#example.index .masthead.bg7:after {
+  background-image: url("/images/backgrounds/7.jpg");
+}
+#example.index .masthead.bg8:after {
+  background-image: url("/images/backgrounds/8.jpg");
+}
+#example.index .masthead.bg9:after {
+  background-image: url("/images/backgrounds/9.jpg");
+}
+#example.index .masthead.bg10:after {
+  background-image: url("/images/backgrounds/10.jpg");
+}
+#example.index .masthead.bg11:after {
+  background-image: url("/images/backgrounds/11.jpg");
+}
+#example.index .masthead.bg12:after {
+  background-image: url("/images/backgrounds/12.jpg");
+}
+#example.index .masthead.bg13:after {
+  background-image: url("/images/backgrounds/13.jpg");
+}
+#example.index .masthead.bg14:after {
+  background-image: url("/images/backgrounds/14.jpg");
+}
+
+
+#example.index .masthead,
+#example.index .masthead:after {
+  -ms-transition:
+    background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s,
+    opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s
+  ;
+  -moz-transition:
+    background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s,
+    opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s
+  ;
+  -webkit-transition:
+    background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s,
+    opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s
+  ;
+  transition:
+    background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s,
+    opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s
+  ;
+}
+#example.index .masthead .container {
+  height: 55vh;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  min-height: 600px;
+
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+#example .masthead .container {
   padding: 15rem 0em;
 }
 #example.index .following.bar iframe.github {
   margin-top: 0px;
+}
+#example.index .following.bar .menu .item {
+  display: block;
 }
 #example.index.pushed .masthead,
 #example.index.pushed .following.bar {
@@ -64,170 +161,12 @@
   transform: translate3d(0, 0, 0);
 }
 
-/* Animation */
-/*#example.index .masthead:before {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  top: 0%;
-  left: 0px;
-  content: '';
-  background: url(/images/before.jpg);
-
-  -moz-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-
-  -webkit-animation-name: masthead;
-  -moz-animation-name: masthead;
-  -o-animation-name: masthead;
-  animation-name: masthead;
-
-  -ms-transition: opacity 2.5s ease-in-out, transform 5s ease-in-out;
-  -webkit-transition: opacity 2.5s ease-in-out, transform 5s ease-in-out;
-  -moz-transition: opacity 2.5s ease-in-out, transform 5s ease-in-out;
-  transition: opacity 2.5s ease-in-out, transform 5s ease-in-out;
-
-  opacity: 0;
-
-  -webkit-animation-duration: 15s;
-  -moz-animation-duration: 15s;
-  -ms-animation-duration: 15s;
-  -o-animation-duration: 15s;
-  animation-duration: 15s;
-
-  -webkit-animation-fill-mode: both;
-  -moz-animation-fill-mode: both;
-  -ms-animation-fill-mode: both;
-  -o-animation-fill-mode: both;
-  animation-fill-mode: both;
-
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
-
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -ms-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-#example.index .masthead:after {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  top: 0%;
-  left: 0px;
-  content: '';
-  background: url(/images/ui.png);
-
-  -moz-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-
-  -webkit-animation-name: masthead;
-  -moz-animation-name: masthead;
-  -o-animation-name: masthead;
-  animation-name: masthead;
-
-  -ms-transition: opacity 3s ease-in-out, transform 5s ease-in-out;
-  -webkit-transition: opacity 3s ease-in-out, transform 5s ease-in-out;
-  -moz-transition: opacity 3s ease-in-out, transform 5s ease-in-out;
-  transition: opacity 3s ease-in-out, transform 5s ease-in-out;
-
-  opacity: 0.06;
-
-  -webkit-animation-duration: 15s;
-  -moz-animation-duration: 15s;
-  -ms-animation-duration: 15s;
-  -o-animation-duration: 15s;
-  animation-duration: 15s;
-
-  -webkit-animation-fill-mode: both;
-  -moz-animation-fill-mode: both;
-  -ms-animation-fill-mode: both;
-  -o-animation-fill-mode: both;
-  animation-fill-mode: both;
-
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
-
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -ms-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-
-}
-#example .masthead.zoomed:before {
-  opacity: 0.05;
-  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-  -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-}
-#example.index .masthead.zoomed:after {
-  opacity: 0;
-  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(-6%) translateZ(0px);
-  -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(-6%) translateZ(0px);
-  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(-6%) translateZ(0px);
-}
-@keyframes masthead {
- 0% {
-    background-position: 0% 0%;
- }
- 100% {
-    background-position: 0% -475px;
- }
-}
-@-moz-keyframes masthead {
- 0% {
-   background-position: 0% 0%;
- }
- 100% {
-   background-position: 0% -475px;
- }
-}
-@-webkit-keyframes masthead {
- 0% {
-   background-position: 0% 0%;
- }
- 100% {
-   background-position: 0% -475px;
- }
-}
-@-ms-keyframes masthead {
- 0% {
-   background-position: 0% 0%;
- }
- 100% {
-  background-position: 0% -475px;
- }
-}
-@-o-keyframes masthead {
- 0% {
-   background-position: 0% 0%;
- }
- 100% {
-   background-position: 0% -475px;
- }
+#example.index > .pusher > .footer {
+  padding-left: 0em;
 }
 
-*/
-
-
-#example.index .fixed.following.bar {
-  background-image: none;
-}
-#example.index .fixed.following.bar {
-  position: fixed;
-  top: 0px;
+#example.index .light.following.bar {
   padding: 1em 0em;
-  background-color: #FFFFFF;
-}
-#example.index .fixed.light.following.bar {
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
@@ -237,10 +176,20 @@
   position: relative;
   top: -0.05em;
   left: -0.25em;
+  visibility: hidden;
   opacity: 1;
   -webkit-animation: blink 0.7s infinite;
   -moz-animation: blink 0.7s infinite;
   animation: blink 0.7s infinite;
+  -webkit-transition: opacity 0.7s ease;
+  -moz-transition: opacity 0.7s ease;
+  transition: opacity 0.7s ease;
+}
+#example.index .masthead.segment .typed-cursor.stop {
+  opacity: 0;
+  -moz-animation-duration: 0s;
+  -webkit-animation-duration: 0s;
+  animation-duration: 0s;
 }
 @keyframes blink {
   0% { opacity:1; }
@@ -264,33 +213,35 @@
 
 #example.index .masthead.segment h1 {
   font-size: 3em;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 1);
   line-height: 1.2;
   margin: 0px 0px 0px;
   padding-bottom: 0px;
   -moz-perspective: 500px;
   -webkit-perspective: 500px;
   perspective: 500px;
+
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
   -moz-transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
+#example.index .masthead.segment h1 .tagline {
+  font-size: 0.75em;
+}
 #example.index .masthead.segment h1 > .library {
-  visibility: hidden;
   display: block;
   font-size: 1.75em;
-  color: #FFFFFF;
   font-weight: bold;
 }
 #example.index .masthead.segment h1 b {
   display: inline-block;
   font-weight: 500;
-  color: #FFFFFF;
 }
 #example.index .masthead.segment h1 .text {
   display: inline-block;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
   margin-left: -0.4em;
 }
 #example.index .masthead h2 {
@@ -403,7 +354,7 @@
 ---------------*/
 
 #example.index .following.bar {
-  position: absolute;
+  position: fixed;
   top: 0px;
   z-index: 900;
   left: 0%;
@@ -425,9 +376,6 @@
 #example.index.pushed .following.bar {
   transition: none;
 }
-#example.index .following.bar .additional.item {
-  display: none;
-}
 #example.index .following.bar .additional.item[data-site="learn"]:hover {
   color: #D9499A;
 }
@@ -441,15 +389,20 @@
 #example.index .following.bar .column > .menu {
   margin-top: 0px;
   height: 35px;
+}
+#example.index .following.bar .network.menu .item {
   font-weight: bold;
+}
+#example.index .following.bar .item iframe {
+  margin-left: 10px;
 }
 #example.index .following.bar .network.menu .view-ui {
   margin-right: 1em;
 }
-#example.index .fixed.following.bar .network.menu .view-ui {
+#example.index .light.following.bar .network.menu .view-ui {
   color: #00B5AD;
 }
-#example.index .fixed.following.bar .inverted.network.menu .view-ui {
+#example.index .light.following.bar .inverted.network.menu .view-ui {
   color: #6DFFFF;
 }
 #example.index .following .logo {
@@ -467,9 +420,6 @@
   margin: 0.25em 0px 0px 1em;
 }
 
-#example.index .introduction .version.label {
-  visibility: hidden;
-}
 
 /*--------------
      Stripes
@@ -579,7 +529,8 @@
   margin: 2rem 2rem -4rem;
 }
 #example .theming .source.grid.visible {
-  display: block !important;
+  display: block;
+  display: flex !important;
 }
 
 #example .theming.stripe .buttons {
@@ -647,8 +598,8 @@
   #example.index .carbonad {
     width: 260px !important;
   }
-  #example.index .masthead.segment h1 > .library {
-    font-size: 1.5em;
+  #example.index .masthead.segment h1  {
+    font-size: 1.75em !important;
   }
   #example.index .feature.stripe {
     padding: 1em;
@@ -658,6 +609,10 @@
 
 
 @media only screen and (max-width : 600px) {
+  #example.index .solid,
+  #example.index .stripe {
+    padding: 4em 0em;
+  }
   #example.index .masthead.segment h1 .text {
     margin-left: 0em;
   }
@@ -680,14 +635,14 @@
     vertical-align: top;
     margin-top: 0em;
   }
-  #example .masthead .grid {
+  #example .masthead .container {
     padding: 6rem 0rem;
   }
   #example.index .masthead.segment h1 {
     font-size: 2.25em;
   }
   #example.index .email.stripe .input {
-    width: auto;
+    width: 100%;
   }
   #example.index .following .secondary.menu {
     display: none;
@@ -703,7 +658,7 @@
   }
 }
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width : 650px) {
   #example.index .fixed.launch.button {
     display: none;
   }
@@ -711,13 +666,14 @@
     font-size: 32px;
   }
 }
-@media only screen and (min-width : 600px) {
+@media only screen and (min-width : 650px) {
   #example .theming .source.button {
     display: none;
   }
   #example.index .main.menu {
     display: none;
   }
+
   #example.index .fixed.launch.button {
     display: none;
   }
@@ -727,6 +683,9 @@
 
 /* Homepage */
 @media only screen and (max-width : 810px) {
+  #example.index .masthead.segment h1 > .library {
+    font-size: 1.75em;
+  }
   #example.index .feature.stripe p {
     height: auto;
     min-height: 0px;
@@ -738,12 +697,19 @@
   #example .solid, #example .stripe {
     padding: 6em 0em;
   }
+  #example.index .masthead .container {
+    margin-top: 50px;
+  }
   #example.index .following.bar span.additional.item {
     display: none;
     visibility: hidden !important;
   }
   #example.index .following.bar .network.menu .view-ui {
     margin-right: 0.75em;
+  }
+  #example.index .masthead .container {
+    min-height: 350px;
+    height: auto;
   }
 }
 

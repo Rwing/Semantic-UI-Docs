@@ -17,7 +17,7 @@ themes      : ['Default']
 
 <script src="/javascript/icon.js"></script>
 
-<div class="main container">
+<div class="main ui container">
 
   <div class="ui active tab" data-tab="icons">
 
@@ -31,7 +31,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Web Content</h4>
       <p>Icons can represent types of content found on websites</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="alarm icon"></i>Alarm</div>
         <div class="column"><i class="alarm slash icon"></i>Alarm Slash</div>
         <div class="column"><i class="alarm outline icon"></i>Alarm Outline</div>
@@ -49,6 +49,7 @@ themes      : ['Default']
         <div class="column"><i class="comments outline icon"></i>Comments Outline</div>
         <div class="column"><i class="copyright icon"></i>Copyright</div>
         <div class="column"><i class="dashboard icon"></i>Dashboard</div>
+        <div class="column"><i class="dropdown icon"></i>Dropdown</div>
         <div class="column"><i class="external square icon"></i>External Square</div>
         <div class="column"><i class="external icon"></i>External</div>
         <div class="column"><i class="eyedropper icon"></i>Eyedropper</div>
@@ -67,12 +68,15 @@ themes      : ['Default']
         <div class="column"><i class="options icon"></i>Options</div>
         <div class="column"><i class="paint brush icon"></i>Paint Brush</div>
         <div class="column"><i class="payment icon"></i>Payment</div>
+        <div class="column"><i class="phone icon"></i>Phone</div>
+        <div class="column"><i class="phone square icon"></i>Phone Square</div>
         <div class="column"><i class="privacy icon"></i>Privacy</div>
         <div class="column"><i class="protect icon"></i>Protect</div>
         <div class="column"><i class="search icon"></i>Search</div>
         <div class="column"><i class="setting icon"></i>Setting</div>
         <div class="column"><i class="settings icon"></i>Settings</div>
         <div class="column"><i class="shop icon"></i>Shop</div>
+        <div class="column"><i class="sidebar icon"></i>Sidebar</div>
         <div class="column"><i class="signal icon"></i>Signal</div>
         <div class="column"><i class="sitemap icon"></i>Sitemap</div>
         <div class="column"><i class="tag icon"></i>Tag</div>
@@ -102,6 +106,7 @@ themes      : ['Default']
         <i class="comments outline icon"></i>
         <i class="copyright icon"></i>
         <i class="dashboard icon"></i>
+        <i class="dropdown icon"></i>
         <i class="external icon"></i>
         <i class="f square icon"></i>
         <i class="eyedropper icon"></i>
@@ -120,11 +125,14 @@ themes      : ['Default']
         <i class="options icon"></i>
         <i class="paint brush icon"></i>
         <i class="payment icon"></i>
+        <i class="phone icon"></i>
+        <i class="phone square icon"></i>
         <i class="privacy icon"></i>
         <i class="protect icon"></i>
         <i class="search icon"></i>
         <i class="setting icon"></i>
         <i class="settings icon"></i>
+        <i class="sidebar icon"></i>
         <i class="shop icon"></i>
         <i class="signal icon"></i>
         <i class="sitemap icon"></i>
@@ -142,7 +150,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">User Actions</h4>
       <p>Icons can represent common actions a user can take</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
       <div class="column"><i class="adjust icon"></i>Adjust</div>
       <div class="column"><i class="add user icon"></i>Add User</div>
       <div class="column"><i class="add to cart icon"></i>Add to cart</div>
@@ -260,7 +268,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Message</h4>
       <p>Icons can alert users to the type of message being displayed</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="announcement icon"></i>Announcement</div>
         <div class="column"><i class="birthday icon"></i>Birthday</div>
         <div class="column"><i class="flag icon"></i>Flag</div>
@@ -288,7 +296,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Users</h4>
       <p>Icons can represent types of people</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="child icon"></i>Child</div>
         <div class="column"><i class="doctor icon"></i>Doctor</div>
         <div class="column"><i class="handicap icon"></i>Handicap</div>
@@ -311,7 +319,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Gender & Sexuality</h4>
       <p>Icons can represent genders or types of sexuality</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="female icon"></i> Female </div>
         <div class="column"><i class="gay icon"></i> Gay </div>
         <div class="column"><i class="heterosexual icon"></i> Heterosexual </div>
@@ -348,7 +356,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Layout Adjustment</h4>
       <p>Icons can alert users to common ways to adjust page layouts</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="grid layout icon"></i>Grid Layout</div>
         <div class="column"><i class="list layout icon"></i>List Layout</div>
         <div class="column"><i class="block layout icon"></i>Block Layout</div>
@@ -375,7 +383,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Objects</h4>
       <p>Icons can be used to represent common objects</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="anchor icon"></i>Anchor</div>
         <div class="column"><i class="bar icon"></i>Bar</div>
         <div class="column"><i class="bomb icon"></i>Bomb</div>
@@ -451,7 +459,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Shapes</h4>
       <p>Icons can be used to create shapes</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="crosshairs icon"></i>Crosshairs</div>
         <div class="column"><i class="asterisk icon"></i>Asterisk</div>
         <div class="column"><i class="certificate icon"></i>Certificate</div>
@@ -487,7 +495,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Item Selection</h4>
       <p>Icons can show whether an item is included in a set</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="add circle icon"></i>Add Circle</div>
         <div class="column"><i class="add square icon"></i>Add Square</div>
         <div class="column"><i class="check circle icon"></i>Check Circle</div>
@@ -537,7 +545,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Media</h4>
       <p>Icons can represent common media types</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="area chart icon"></i>Area Chart</div>
         <div class="column"><i class="bar chart icon"></i>Bar Chart</div>
         <div class="column"><i class="camera retro icon"></i>Camera Retro</div>
@@ -564,7 +572,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Pointers</h4>
       <p>Icons can be used to indicate a direction</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="angle double down icon"></i>Angle Double Down</div>
         <div class="column"><i class="angle double left icon"></i>Angle Double Left</div>
         <div class="column"><i class="angle double right icon"></i>Angle Double Right</div>
@@ -660,7 +668,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Computer and File System</h4>
       <p>Icons can represent elements of a computer and its file system</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="desktop icon"></i>Desktop</div>
         <div class="column"><i class="disk outline icon"></i>Disk Outline</div>
         <div class="column"><i class="file archive outline icon"></i>File Archive Outline</div>
@@ -729,7 +737,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Technologies</h4>
       <p>Icons can represent common technologies</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="barcode icon"></i>Barcode</div>
         <div class="column"><i class="css3 icon"></i>Css3</div>
         <div class="column"><i class="database icon"></i>Database</div>
@@ -758,7 +766,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Rating</h4>
       <p>Icons can be used to represent users attitude towards content</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="empty heart icon"></i>Empty Heart</div>
         <div class="column"><i class="empty star icon"></i>Empty Star</div>
         <div class="column"><i class="frown icon"></i>Frown</div>
@@ -793,7 +801,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Audio</h4>
       <p>Icons can be used to represent common ways to interact with audio</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="backward icon"></i>Backward</div>
         <div class="column"><i class="eject icon"></i>Eject</div>
         <div class="column"><i class="fast backward icon"></i>Fast Backward</div>
@@ -840,7 +848,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Map</h4>
       <p>Icons can be used to represent elements on a map</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="building icon"></i>Building</div>
         <div class="column"><i class="building outline icon"></i>Building Outline</div>
         <div class="column"><i class="car icon"></i>Car</div>
@@ -885,7 +893,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Tables</h4>
       <p>Icons can be used to represent common actions inside a table</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="columns icon"></i>Columns</div>
         <div class="column"><i class="sort alphabet ascending icon"></i>Sort Alphabet Ascending</div>
         <div class="column"><i class="sort alphabet descending icon"></i>Sort Alphabet Descending</div>
@@ -916,7 +924,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Text Editor</h4>
       <p>Icons can represent common actions when editing text</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="align center icon"></i>Align Center</div>
         <div class="column"><i class="align justify icon"></i>Align Justify</div>
         <div class="column"><i class="align left icon"></i>Align Left</div>
@@ -952,7 +960,6 @@ themes      : ['Default']
         <i class="align right icon"></i>
         <i class="attach icon"></i>
         <i class="bold icon"></i>
-        <i class="content icon"></i>
         <i class="copy icon"></i>
         <i class="cut icon"></i>
         <i class="font icon"></i>
@@ -980,7 +987,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Currency</h4>
       <p>Icons can represent units of currency</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="dollar icon"></i>Dollar</div>
         <div class="column"><i class="euro icon"></i>Euro</div>
         <div class="column"><i class="lira icon"></i>Lira</div>
@@ -1007,7 +1014,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Payment Options</h4>
       <p>Icons can represent common forms of payment</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="american express icon"></i>American Express</div>
         <div class="column"><i class="discover icon"></i>Discover</div>
         <div class="column"><i class="google wallet icon"></i>Google Wallet</div>
@@ -1033,7 +1040,7 @@ themes      : ['Default']
     <div class="icon example">
       <h4 class="ui header">Brands</h4>
       <p>Icons can represent logos to common brands</p>
-      <div class="ui doubling six column grid">
+      <div class="ui doubling five column grid">
         <div class="column"><i class="adn icon"></i> Adn </div>
         <div class="column"><i class="android icon"></i> Android </div>
         <div class="column"><i class="angellist icon"></i> Angellist </div>
@@ -1300,7 +1307,6 @@ themes      : ['Default']
       <i class="circular inverted teal users icon"></i>
     </div>
 
-
     <div class="example">
       <h4 class="ui header">Bordered</h4>
       <div class="ui ignored info message">
@@ -1314,25 +1320,78 @@ themes      : ['Default']
     </div>
 
     <div class="example">
-      <h4 class="ui header">Colors</h4>
+      <h4 class="ui header">Colored</h4>
       <p>An icon can be formatted with different colors</p>
-      <i class="black users icon"></i>
-      <i class="blue user icon"></i>
       <i class="red users icon"></i>
-      <i class="green user icon"></i>
-      <i class="purple chat icon"></i>
-      <i class="teal comment icon"></i>
+      <i class="orange users icon"></i>
+      <i class="yellow users icon"></i>
+      <i class="olive users icon"></i>
+      <i class="green users icon"></i>
+      <i class="teal users icon"></i>
+      <i class="blue users icon"></i>
+      <i class="violet users icon"></i>
+      <i class="purple users icon"></i>
+      <i class="pink users icon"></i>
+      <i class="brown users icon"></i>
+      <i class="grey users icon"></i>
     </div>
 
     <div class="example">
       <h4 class="ui header">Inverted</h4>
-      <p>an icon can have its colors inverted for contrast</p>
-      <i class="inverted black users icon"></i>
-      <i class="inverted blue user icon"></i>
-      <i class="inverted red users icon"></i>
-      <i class="inverted green user icon"></i>
-      <i class="inverted purple chat icon"></i>
-      <i class="inverted teal comment icon"></i>
+      <p>An icon can have its colors inverted for contrast</p>
+      <div class="ui inverted segment">
+        <i class="inverted users icon"></i>
+        <i class="inverted red users icon"></i>
+        <i class="inverted orange users icon"></i>
+        <i class="inverted yellow users icon"></i>
+        <i class="inverted olive users icon"></i>
+        <i class="inverted green users icon"></i>
+        <i class="inverted teal users icon"></i>
+        <i class="inverted blue users icon"></i>
+        <i class="inverted violet users icon"></i>
+        <i class="inverted purple users icon"></i>
+        <i class="inverted pink users icon"></i>
+        <i class="inverted brown users icon"></i>
+        <i class="inverted grey users icon"></i>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Groups</h2>
+
+    <div class="example">
+      <h4 class="ui header">Icons</h4>
+      <p>Several icons can be used together as a group</p>
+      <i class="huge icons">
+        <i class="big thin circle icon"></i>
+        <i class="user icon"></i>
+      </i>
+    </div>
+    <div class="another example">
+      <i class="huge icons">
+        <i class="big red dont icon"></i>
+        <i class="black user icon"></i>
+      </i>
+      <i class="huge icons">
+        <i class="big loading sun icon"></i>
+        <i class="user icon"></i>
+      </i>
+    </div>
+    <div class="example" data-class="corner">
+      <h4 class="ui header">Corner Icon</h4>
+      <p>A group of icons can display a smaller corner icon</p>
+      <i class="huge icons">
+        <i class="puzzle icon"></i>
+        <i class="corner add icon"></i>
+      </i>
+    </div>
+    <div class="another example">
+      <h2 class="ui header">
+        <i class="large icons">
+          <i class="twitter icon"></i>
+          <i class="inverted corner add icon"></i>
+        </i>
+        Add on Twitter
+      </h2>
     </div>
 
   </div>

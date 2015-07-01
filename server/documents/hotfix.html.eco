@@ -6,9 +6,12 @@ standalone : true
 title      : 'Test Page'
 type       : 'Library'
 ---
+
 <!-- TEST JS HERE !-->
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
+$('.ui.rating').rating();
+
 });
 </script>
 
@@ -16,23 +19,12 @@ $(document).ready(function() {
 <style type="text/css">
 </style>
 
-<div style="max-width: 1000px;margin:2em auto;">
-<div class="ui form segment">
-  <div class="ui middle aligned page grid">
-    <div class="six wide column">
-      <label>
-        <i class="disk outline icon"></i>
-        Foo:
-      </label>
-    </div>
-    <div class="ten wide column">
-      <div class="ui labeled input">
-        <div class="ui label">
-           abcdefghijklmnopqrstuvwxyz
-        </div>
-        <input type="text" />
-      </div>
-    </div>
-  </div>
+<div class="ui container" style="margin-top:5em;">
+<div class="ui basic segment">
+    <span class="ui rating" data-rating="2"></span> <span>
+    <i class="star icon"></i>
+    Hello</span>
 </div>
 </div>
+
+</body>

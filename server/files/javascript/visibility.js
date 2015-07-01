@@ -5,7 +5,7 @@ semantic.visiblity.ready = function() {
 
   // selector cache
   var
-    $pageTabs           = $('.tab.header.segment .menu .item'),
+    $pageTabs           = $('.masthead.tab.segment .stackable.menu .item'),
     $firstColumn        = $('.first.example .main.column'),
     $firstSegment       = $('.first.example .demo.segment'),
     $firstSticky        = $('.first.example .grid .sticky'),
@@ -51,18 +51,19 @@ semantic.visiblity.ready = function() {
     }
   };
 
-  $pageTabs.tab('setting', 'onTabLoad', function() {
+  $pageTabs.tab('setting', 'onLoad', function() {
+    $('.ui.sticky')
+      .sticky('refresh')
+    ;
     $(this).find('.visibility.example .overlay, .visibility.example .demo.segment, .visibility.example .items img')
       .visibility('refresh')
-    ;
-    $(this).find('.ui.sticky')
-      .sticky('refresh')
     ;
   });
 
   $firstSticky
     .sticky({
       observeChanges : false,
+      pushing        : true,
       context        : $firstColumn,
       offset         : 60
     })
@@ -83,6 +84,14 @@ semantic.visiblity.ready = function() {
 
   $secondSegment
     .visibility({
+      onOnScreen: function() {
+        $log.append('<div class="highlight">onOnScreen fired</div>');
+        $log.scrollTop(999999);
+      },
+      onOffScreen: function() {
+        $log.append('<div class="highlight">onOffScreen fired</div>');
+        $log.scrollTop(999999);
+      },
       onTopVisible: function() {
         $log.append('<div class="highlight">onTopVisible fired</div>');
         $log.scrollTop(999999);
@@ -142,6 +151,7 @@ semantic.visiblity.ready = function() {
   $secondSticky
     .sticky({
       observeChanges : false,
+      pushing        : true,
       context        : $secondColumn,
       offset         : 60
     })
@@ -164,6 +174,9 @@ window.loadFakeContent = function() {
         .removeClass('active')
         .before($content)
       ;
+      $('.ui.sticky')
+        .sticky('refresh')
+      ;
       $('.visibility.example > .overlay, .visibility.example > .demo.segment, .visibility.example .items img')
         .visibility('refresh')
       ;
@@ -171,12 +184,6 @@ window.loadFakeContent = function() {
   }
   count++;
 }
-
-$(window).load(function() {
-  $('.visibility.example .overlay, .visibility.example .demo.segment, .visibility.example .items img')
-    .visibility('refresh')
-  ;
-});
 
 // attach ready event
 $(document)

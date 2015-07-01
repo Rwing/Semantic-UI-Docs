@@ -10,7 +10,7 @@ type        : 'UI Module'
 element     : 'dropdown'
 elementType : 'module'
 
-themes      : ['Default']
+themes      : ['Default', 'Material']
 ---
 
 <link rel="stylesheet/less" type="text/css" href="/src/definitions/modules/dropdown.less" />
@@ -19,26 +19,55 @@ themes      : ['Default']
 
 <%- @partial('header', { tabs: 'module' }) %>
 
-<div class="main container">
+<div class="main ui container">
 
   <div class="ui active tab" data-tab="definition">
     <h2 class="ui dividing header">Types</h2>
 
-    <div class="dropdown example">
+    <div class="simple example">
       <h4 class="ui header">Dropdown</h4>
       <p>A dropdown</p>
       <div class="ui dropdown">
-        <div class="text">Shop</div>
+        <div class="text">File</div>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <div class="header">Categories</div>
-          <div class="item">Clothing</div>
-          <div class="item">Home Goods</div>
-          <div class="item">Bedroom</div>
+          <div class="item">New</div>
+          <div class="item">
+            <span class="description">ctrl + o</span>
+            Open...
+          </div>
+          <div class="item">
+            <span class="description">ctrl + s</span>
+            Save as...
+          </div>
+          <div class="item">
+            <span class="description">ctrl + r</span>
+            Rename
+          </div>
+          <div class="item">Make a copy</div>
+          <div class="item">
+            <i class="folder icon"></i>
+            Move to folder
+          </div>
+          <div class="item">
+            <i class="trash icon"></i>
+            Move to trash
+          </div>
           <div class="divider"></div>
-          <div class="header">Order</div>
-          <div class="item">Status</div>
-          <div class="item">Cancellations</div>
+          <div class="item">Download As...</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Publish To Web
+            <div class="menu">
+              <div class="item">Google Docs</div>
+              <div class="item">Google Drive</div>
+              <div class="item">Dropbox</div>
+              <div class="item">Adobe Creative Cloud</div>
+              <div class="item">Private FTP</div>
+              <div class="item">Another Service...</div>
+            </div>
+          </div>
+          <div class="item">E-mail Collaborators</div>
         </div>
       </div>
     </div>
@@ -47,9 +76,7 @@ themes      : ['Default']
       <h4 class="ui header">Selection</h4>
       <p>A dropdown can be used to select between choices in a form</p>
       <div class="ui ignored info message">
-        <div class="header">Converting Select Elements</div>
-        <p>You can initialize a selection dropdown directly on a select element, any option that is given a blank value will automatically be converted into a placeholder</p>
-        <p>Keep in mind however, if you initialize a dropdown directly on a select element, the dropdown contents will be hidden until javascript can render the element, causing a flash of unstyled content.</p>
+        Selection dropdowns can be initialized directly on a <code>select</code> or with the matching html and a hidden <code>input</code>.
       </div>
       <div class="ui selection dropdown">
         <input type="hidden" name="gender">
@@ -67,12 +94,38 @@ themes      : ['Default']
         <option value="1">Male</option>
         <option value="0">Female</option>
       </select>
-      <div class="existing code">
-        <select class="ui dropdown">
-          <option value="">Gender</option>
-          <option value="1">Male</option>
-          <option value="0">Female</option>
-        </select>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui fluid selection dropdown">
+        <input type="hidden" name="user">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Friend</div>
+        <div class="menu">
+          <div class="item" data-value="jenny">
+            <img class="ui mini avatar image" src="/images/avatar/small/jenny.jpg">
+            Jenny Hess
+          </div>
+          <div class="item" data-value="elliot">
+            <img class="ui mini avatar image" src="/images/avatar/small/elliot.jpg">
+            Elliot Fu
+          </div>
+          <div class="item" data-value="stevie">
+            <img class="ui mini avatar image" src="/images/avatar/small/stevie.jpg">
+            Stevie Feliciano
+          </div>
+          <div class="item" data-value="christian">
+            <img class="ui mini avatar image" src="/images/avatar/small/christian.jpg">
+            Christian
+          </div>
+          <div class="item" data-value="matt">
+            <img class="ui mini avatar image" src="/images/avatar/small/matt.jpg">
+            Matt
+          </div>
+          <div class="item" data-value="justen">
+            <img class="ui mini avatar image" src="/images/avatar/small/justen.jpg">
+            Justen Kitsune
+          </div>
+        </div>
       </div>
     </div>
 
@@ -83,617 +136,41 @@ themes      : ['Default']
         <input type="hidden" name="country">
         <i class="dropdown icon"></i>
         <div class="default text">Select Country</div>
-        <div class="menu">
-          <div class="item" data-value="ad"><i class="ad flag"></i>Andorra</div>
-          <div class="item" data-value="ae"><i class="ae flag"></i>United Arab Emirates</div>
-          <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
-          <div class="item" data-value="ag"><i class="ag flag"></i>Antigua</div>
-          <div class="item" data-value="ai"><i class="ai flag"></i>Anguilla</div>
-          <div class="item" data-value="al"><i class="al flag"></i>Albania</div>
-          <div class="item" data-value="am"><i class="am flag"></i>Armenia</div>
-          <div class="item" data-value="an"><i class="an flag"></i>Netherlands Antilles</div>
-          <div class="item" data-value="ao"><i class="ao flag"></i>Angola</div>
-          <div class="item" data-value="ar"><i class="ar flag"></i>Argentina</div>
-          <div class="item" data-value="as"><i class="as flag"></i>American Samoa</div>
-          <div class="item" data-value="at"><i class="at flag"></i>Austria</div>
-          <div class="item" data-value="au"><i class="au flag"></i>Australia</div>
-          <div class="item" data-value="aw"><i class="aw flag"></i>Aruba</div>
-          <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
-          <div class="item" data-value="az"><i class="az flag"></i>Azerbaijan</div>
-          <div class="item" data-value="ba"><i class="ba flag"></i>Bosnia</div>
-          <div class="item" data-value="bb"><i class="bb flag"></i>Barbados</div>
-          <div class="item" data-value="bd"><i class="bd flag"></i>Bangladesh</div>
-          <div class="item" data-value="be"><i class="be flag"></i>Belgium</div>
-          <div class="item" data-value="bf"><i class="bf flag"></i>Burkina Faso</div>
-          <div class="item" data-value="bg"><i class="bg flag"></i>Bulgaria</div>
-          <div class="item" data-value="bh"><i class="bh flag"></i>Bahrain</div>
-          <div class="item" data-value="bi"><i class="bi flag"></i>Burundi</div>
-          <div class="item" data-value="bj"><i class="bj flag"></i>Benin</div>
-          <div class="item" data-value="bm"><i class="bm flag"></i>Bermuda</div>
-          <div class="item" data-value="bn"><i class="bn flag"></i>Brunei</div>
-          <div class="item" data-value="bo"><i class="bo flag"></i>Bolivia</div>
-          <div class="item" data-value="br"><i class="br flag"></i>Brazil</div>
-          <div class="item" data-value="bs"><i class="bs flag"></i>Bahamas</div>
-          <div class="item" data-value="bt"><i class="bt flag"></i>Bhutan</div>
-          <div class="item" data-value="bv"><i class="bv flag"></i>Bouvet Island</div>
-          <div class="item" data-value="bw"><i class="bw flag"></i>Botswana</div>
-          <div class="item" data-value="by"><i class="by flag"></i>Belarus</div>
-          <div class="item" data-value="bz"><i class="bz flag"></i>Belize</div>
-          <div class="item" data-value="ca"><i class="ca flag"></i>Canada</div>
-          <div class="item" data-value="cc"><i class="cc flag"></i>Cocos Islands</div>
-          <div class="item" data-value="cd"><i class="cd flag"></i>Congo</div>
-          <div class="item" data-value="cf"><i class="cf flag"></i>Central African Republic</div>
-          <div class="item" data-value="cg"><i class="cg flag"></i>Congo Brazzaville</div>
-          <div class="item" data-value="ch"><i class="ch flag"></i>Switzerland</div>
-          <div class="item" data-value="ci"><i class="ci flag"></i>Cote Divoire</div>
-          <div class="item" data-value="ck"><i class="ck flag"></i>Cook Islands</div>
-          <div class="item" data-value="cl"><i class="cl flag"></i>Chile</div>
-          <div class="item" data-value="cm"><i class="cm flag"></i>Cameroon</div>
-          <div class="item" data-value="cn"><i class="cn flag"></i>China</div>
-          <div class="item" data-value="co"><i class="co flag"></i>Colombia</div>
-          <div class="item" data-value="cr"><i class="cr flag"></i>Costa Rica</div>
-          <div class="item" data-value="cs"><i class="cs flag"></i>Serbia</div>
-          <div class="item" data-value="cu"><i class="cu flag"></i>Cuba</div>
-          <div class="item" data-value="cv"><i class="cv flag"></i>Cape Verde</div>
-          <div class="item" data-value="cx"><i class="cx flag"></i>Christmas Island</div>
-          <div class="item" data-value="cy"><i class="cy flag"></i>Cyprus</div>
-          <div class="item" data-value="cz"><i class="cz flag"></i>Czech Republic</div>
-          <div class="item" data-value="de"><i class="de flag"></i>Germany</div>
-          <div class="item" data-value="dj"><i class="dj flag"></i>Djibouti</div>
-          <div class="item" data-value="dk"><i class="dk flag"></i>Denmark</div>
-          <div class="item" data-value="dm"><i class="dm flag"></i>Dominica</div>
-          <div class="item" data-value="do"><i class="do flag"></i>Dominican Republic</div>
-          <div class="item" data-value="dz"><i class="dz flag"></i>Algeria</div>
-          <div class="item" data-value="ec"><i class="ec flag"></i>Ecuador</div>
-          <div class="item" data-value="ee"><i class="ee flag"></i>Estonia</div>
-          <div class="item" data-value="eg"><i class="eg flag"></i>Egypt</div>
-          <div class="item" data-value="eh"><i class="eh flag"></i>Western Sahara</div>
-          <div class="item" data-value="er"><i class="er flag"></i>Eritrea</div>
-          <div class="item" data-value="es"><i class="es flag"></i>Spain</div>
-          <div class="item" data-value="et"><i class="et flag"></i>Ethiopia</div>
-          <div class="item" data-value="eu"><i class="eu flag"></i>European Union</div>
-          <div class="item" data-value="fi"><i class="fi flag"></i>Finland</div>
-          <div class="item" data-value="fj"><i class="fj flag"></i>Fiji</div>
-          <div class="item" data-value="fk"><i class="fk flag"></i>Falkland Islands</div>
-          <div class="item" data-value="fm"><i class="fm flag"></i>Micronesia</div>
-          <div class="item" data-value="fo"><i class="fo flag"></i>Faroe Islands</div>
-          <div class="item" data-value="fr"><i class="fr flag"></i>France</div>
-          <div class="item" data-value="ga"><i class="ga flag"></i>Gabon</div>
-          <div class="item" data-value="gb"><i class="gb flag"></i>England</div>
-          <div class="item" data-value="gd"><i class="gd flag"></i>Grenada</div>
-          <div class="item" data-value="ge"><i class="ge flag"></i>Georgia</div>
-          <div class="item" data-value="gf"><i class="gf flag"></i>French Guiana</div>
-          <div class="item" data-value="gh"><i class="gh flag"></i>Ghana</div>
-          <div class="item" data-value="gi"><i class="gi flag"></i>Gibraltar</div>
-          <div class="item" data-value="gl"><i class="gl flag"></i>Greenland</div>
-          <div class="item" data-value="gm"><i class="gm flag"></i>Gambia</div>
-          <div class="item" data-value="gn"><i class="gn flag"></i>Guinea</div>
-          <div class="item" data-value="gp"><i class="gp flag"></i>Guadeloupe</div>
-          <div class="item" data-value="gq"><i class="gq flag"></i>Equatorial Guinea</div>
-          <div class="item" data-value="gr"><i class="gr flag"></i>Greece</div>
-          <div class="item" data-value="gs"><i class="gs flag"></i>Sandwich Islands</div>
-          <div class="item" data-value="gt"><i class="gt flag"></i>Guatemala</div>
-          <div class="item" data-value="gu"><i class="gu flag"></i>Guam</div>
-          <div class="item" data-value="gw"><i class="gw flag"></i>Guinea-Bissau</div>
-          <div class="item" data-value="gy"><i class="gy flag"></i>Guyana</div>
-          <div class="item" data-value="hk"><i class="hk flag"></i>Hong Kong</div>
-          <div class="item" data-value="hm"><i class="hm flag"></i>Heard Island</div>
-          <div class="item" data-value="hn"><i class="hn flag"></i>Honduras</div>
-          <div class="item" data-value="hr"><i class="hr flag"></i>Croatia</div>
-          <div class="item" data-value="ht"><i class="ht flag"></i>Haiti</div>
-          <div class="item" data-value="hu"><i class="hu flag"></i>Hungary</div>
-          <div class="item" data-value="id"><i class="id flag"></i>Indonesia</div>
-          <div class="item" data-value="ie"><i class="ie flag"></i>Ireland</div>
-          <div class="item" data-value="il"><i class="il flag"></i>Israel</div>
-          <div class="item" data-value="in"><i class="in flag"></i>India</div>
-          <div class="item" data-value="io"><i class="io flag"></i>Indian Ocean Territory</div>
-          <div class="item" data-value="iq"><i class="iq flag"></i>Iraq</div>
-          <div class="item" data-value="ir"><i class="ir flag"></i>Iran</div>
-          <div class="item" data-value="is"><i class="is flag"></i>Iceland</div>
-          <div class="item" data-value="it"><i class="it flag"></i>Italy</div>
-          <div class="item" data-value="jm"><i class="jm flag"></i>Jamaica</div>
-          <div class="item" data-value="jo"><i class="jo flag"></i>Jordan</div>
-          <div class="item" data-value="jp"><i class="jp flag"></i>Japan</div>
-          <div class="item" data-value="ke"><i class="ke flag"></i>Kenya</div>
-          <div class="item" data-value="kg"><i class="kg flag"></i>Kyrgyzstan</div>
-          <div class="item" data-value="kh"><i class="kh flag"></i>Cambodia</div>
-          <div class="item" data-value="ki"><i class="ki flag"></i>Kiribati</div>
-          <div class="item" data-value="km"><i class="km flag"></i>Comoros</div>
-          <div class="item" data-value="kn"><i class="kn flag"></i>Saint Kitts and Nevis</div>
-          <div class="item" data-value="kp"><i class="kp flag"></i>North Korea</div>
-          <div class="item" data-value="kr"><i class="kr flag"></i>South Korea</div>
-          <div class="item" data-value="kw"><i class="kw flag"></i>Kuwait</div>
-          <div class="item" data-value="ky"><i class="ky flag"></i>Cayman Islands</div>
-          <div class="item" data-value="kz"><i class="kz flag"></i>Kazakhstan</div>
-          <div class="item" data-value="la"><i class="la flag"></i>Laos</div>
-          <div class="item" data-value="lb"><i class="lb flag"></i>Lebanon</div>
-          <div class="item" data-value="lc"><i class="lc flag"></i>Saint Lucia</div>
-          <div class="item" data-value="li"><i class="li flag"></i>Liechtenstein</div>
-          <div class="item" data-value="lk"><i class="lk flag"></i>Sri Lanka</div>
-          <div class="item" data-value="lr"><i class="lr flag"></i>Liberia</div>
-          <div class="item" data-value="ls"><i class="ls flag"></i>Lesotho</div>
-          <div class="item" data-value="lt"><i class="lt flag"></i>Lithuania</div>
-          <div class="item" data-value="lu"><i class="lu flag"></i>Luxembourg</div>
-          <div class="item" data-value="lv"><i class="lv flag"></i>Latvia</div>
-          <div class="item" data-value="ly"><i class="ly flag"></i>Libya</div>
-          <div class="item" data-value="ma"><i class="ma flag"></i>Morocco</div>
-          <div class="item" data-value="mc"><i class="mc flag"></i>Monaco</div>
-          <div class="item" data-value="md"><i class="md flag"></i>Moldova</div>
-          <div class="item" data-value="me"><i class="me flag"></i>Montenegro</div>
-          <div class="item" data-value="mg"><i class="mg flag"></i>Madagascar</div>
-          <div class="item" data-value="mh"><i class="mh flag"></i>Marshall Islands</div>
-          <div class="item" data-value="mk"><i class="mk flag"></i>MacEdonia</div>
-          <div class="item" data-value="ml"><i class="ml flag"></i>Mali</div>
-          <div class="item" data-value="ar"><i class="ar flag"></i>Burma</div>
-          <div class="item" data-value="mn"><i class="mn flag"></i>Mongolia</div>
-          <div class="item" data-value="mo"><i class="mo flag"></i>MacAu</div>
-          <div class="item" data-value="mp"><i class="mp flag"></i>Northern Mariana Islands</div>
-          <div class="item" data-value="mq"><i class="mq flag"></i>Martinique</div>
-          <div class="item" data-value="mr"><i class="mr flag"></i>Mauritania</div>
-          <div class="item" data-value="ms"><i class="ms flag"></i>Montserrat</div>
-          <div class="item" data-value="mt"><i class="mt flag"></i>Malta</div>
-          <div class="item" data-value="mu"><i class="mu flag"></i>Mauritius</div>
-          <div class="item" data-value="mv"><i class="mv flag"></i>Maldives</div>
-          <div class="item" data-value="mw"><i class="mw flag"></i>Malawi</div>
-          <div class="item" data-value="mx"><i class="mx flag"></i>Mexico</div>
-          <div class="item" data-value="my"><i class="my flag"></i>Malaysia</div>
-          <div class="item" data-value="mz"><i class="mz flag"></i>Mozambique</div>
-          <div class="item" data-value="na"><i class="na flag"></i>Namibia</div>
-          <div class="item" data-value="nc"><i class="nc flag"></i>New Caledonia</div>
-          <div class="item" data-value="ne"><i class="ne flag"></i>Niger</div>
-          <div class="item" data-value="nf"><i class="nf flag"></i>Norfolk Island</div>
-          <div class="item" data-value="ng"><i class="ng flag"></i>Nigeria</div>
-          <div class="item" data-value="ni"><i class="ni flag"></i>Nicaragua</div>
-          <div class="item" data-value="nl"><i class="nl flag"></i>Netherlands</div>
-          <div class="item" data-value="no"><i class="no flag"></i>Norway</div>
-          <div class="item" data-value="np"><i class="np flag"></i>Nepal</div>
-          <div class="item" data-value="nr"><i class="nr flag"></i>Nauru</div>
-          <div class="item" data-value="nu"><i class="nu flag"></i>Niue</div>
-          <div class="item" data-value="nz"><i class="nz flag"></i>New Zealand</div>
-          <div class="item" data-value="om"><i class="om flag"></i>Oman</div>
-          <div class="item" data-value="pa"><i class="pa flag"></i>Panama</div>
-          <div class="item" data-value="pe"><i class="pe flag"></i>Peru</div>
-          <div class="item" data-value="pf"><i class="pf flag"></i>French Polynesia</div>
-          <div class="item" data-value="pg"><i class="pg flag"></i>New Guinea</div>
-          <div class="item" data-value="ph"><i class="ph flag"></i>Philippines</div>
-          <div class="item" data-value="pk"><i class="pk flag"></i>Pakistan</div>
-          <div class="item" data-value="pl"><i class="pl flag"></i>Poland</div>
-          <div class="item" data-value="pm"><i class="pm flag"></i>Saint Pierre</div>
-          <div class="item" data-value="pn"><i class="pn flag"></i>Pitcairn Islands</div>
-          <div class="item" data-value="pr"><i class="pr flag"></i>Puerto Rico</div>
-          <div class="item" data-value="ps"><i class="ps flag"></i>Palestine</div>
-          <div class="item" data-value="pt"><i class="pt flag"></i>Portugal</div>
-          <div class="item" data-value="pw"><i class="pw flag"></i>Palau</div>
-          <div class="item" data-value="py"><i class="py flag"></i>Paraguay</div>
-          <div class="item" data-value="qa"><i class="qa flag"></i>Qatar</div>
-          <div class="item" data-value="re"><i class="re flag"></i>Reunion</div>
-          <div class="item" data-value="ro"><i class="ro flag"></i>Romania</div>
-          <div class="item" data-value="rs"><i class="rs flag"></i>Serbia</div>
-          <div class="item" data-value="ru"><i class="ru flag"></i>Russia</div>
-          <div class="item" data-value="rw"><i class="rw flag"></i>Rwanda</div>
-          <div class="item" data-value="sa"><i class="sa flag"></i>Saudi Arabia</div>
-          <div class="item" data-value="sb"><i class="sb flag"></i>Solomon Islands</div>
-          <div class="item" data-value="sc"><i class="sc flag"></i>Seychelles</div>
-          <div class="item" data-value="sd"><i class="sd flag"></i>Sudan</div>
-          <div class="item" data-value="se"><i class="se flag"></i>Sweden</div>
-          <div class="item" data-value="sg"><i class="sg flag"></i>Singapore</div>
-          <div class="item" data-value="sh"><i class="sh flag"></i>Saint Helena</div>
-          <div class="item" data-value="si"><i class="si flag"></i>Slovenia</div>
-          <div class="item" data-value="sj"><i class="sj flag"></i>Svalbard, I Flag Jan Mayen</div>
-          <div class="item" data-value="sk"><i class="sk flag"></i>Slovakia</div>
-          <div class="item" data-value="sl"><i class="sl flag"></i>Sierra Leone</div>
-          <div class="item" data-value="sm"><i class="sm flag"></i>San Marino</div>
-          <div class="item" data-value="sn"><i class="sn flag"></i>Senegal</div>
-          <div class="item" data-value="so"><i class="so flag"></i>Somalia</div>
-          <div class="item" data-value="sr"><i class="sr flag"></i>Suriname</div>
-          <div class="item" data-value="st"><i class="st flag"></i>Sao Tome</div>
-          <div class="item" data-value="sv"><i class="sv flag"></i>El Salvador</div>
-          <div class="item" data-value="sy"><i class="sy flag"></i>Syria</div>
-          <div class="item" data-value="sz"><i class="sz flag"></i>Swaziland</div>
-          <div class="item" data-value="tc"><i class="tc flag"></i>Caicos Islands</div>
-          <div class="item" data-value="td"><i class="td flag"></i>Chad</div>
-          <div class="item" data-value="tf"><i class="tf flag"></i>French Territories</div>
-          <div class="item" data-value="tg"><i class="tg flag"></i>Togo</div>
-          <div class="item" data-value="th"><i class="th flag"></i>Thailand</div>
-          <div class="item" data-value="tj"><i class="tj flag"></i>Tajikistan</div>
-          <div class="item" data-value="tk"><i class="tk flag"></i>Tokelau</div>
-          <div class="item" data-value="tl"><i class="tl flag"></i>Timorleste</div>
-          <div class="item" data-value="tm"><i class="tm flag"></i>Turkmenistan</div>
-          <div class="item" data-value="tn"><i class="tn flag"></i>Tunisia</div>
-          <div class="item" data-value="to"><i class="to flag"></i>Tonga</div>
-          <div class="item" data-value="tr"><i class="tr flag"></i>Turkey</div>
-          <div class="item" data-value="tt"><i class="tt flag"></i>Trinidad</div>
-          <div class="item" data-value="tv"><i class="tv flag"></i>Tuvalu</div>
-          <div class="item" data-value="tw"><i class="tw flag"></i>Taiwan</div>
-          <div class="item" data-value="tz"><i class="tz flag"></i>Tanzania</div>
-          <div class="item" data-value="ua"><i class="ua flag"></i>Ukraine</div>
-          <div class="item" data-value="ug"><i class="ug flag"></i>Uganda</div>
-          <div class="item" data-value="um"><i class="um flag"></i>Us Minor Islands</div>
-          <div class="item" data-value="us"><i class="us flag"></i>United States</div>
-          <div class="item" data-value="uy"><i class="uy flag"></i>Uruguay</div>
-          <div class="item" data-value="uz"><i class="uz flag"></i>Uzbekistan</div>
-          <div class="item" data-value="va"><i class="va flag"></i>Vatican City</div>
-          <div class="item" data-value="vc"><i class="vc flag"></i>Saint Vincent</div>
-          <div class="item" data-value="ve"><i class="ve flag"></i>Venezuela</div>
-          <div class="item" data-value="vg"><i class="vg flag"></i>British Virgin Islands</div>
-          <div class="item" data-value="vi"><i class="vi flag"></i>Us Virgin Islands</div>
-          <div class="item" data-value="vn"><i class="vn flag"></i>Vietnam</div>
-          <div class="item" data-value="vu"><i class="vu flag"></i>Vanuatu</div>
-          <div class="item" data-value="wf"><i class="wf flag"></i>Wallis and Futuna</div>
-          <div class="item" data-value="ws"><i class="ws flag"></i>Samoa</div>
-          <div class="item" data-value="ye"><i class="ye flag"></i>Yemen</div>
-          <div class="item" data-value="yt"><i class="yt flag"></i>Mayotte</div>
-          <div class="item" data-value="za"><i class="za flag"></i>South Africa</div>
-          <div class="item" data-value="zm"><i class="zm flag"></i>Zambia</div>
-          <div class="item" data-value="zw"><i class="zw flag"></i>Zimbabwe</div>
-        </div>
-      </div>
-      <div class="existing code">
-        <div class="ui fluid search selection dropdown">
-          <input type="hidden" name="country">
-          <i class="dropdown icon"></i>
-          <div class="default text">Select Country</div>
-          <div class="menu">
-            <div class="item" data-value="ad"><i class="ad flag"></i>Andorra</div>
-            <div class="item" data-value="ae"><i class="ae flag"></i>United Arab Emirates</div>
-            <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
-            <div class="item" data-value="ag"><i class="ag flag"></i>Antigua</div>
-            <div class="item" data-value="ai"><i class="ai flag"></i>Anguilla</div>
-            <div class="item" data-value="al"><i class="al flag"></i>Albania</div>
-            <div class="item" data-value="am"><i class="am flag"></i>Armenia</div>
-            <div class="item" data-value="an"><i class="an flag"></i>Netherlands Antilles</div>
-            <div class="item" data-value="ao"><i class="ao flag"></i>Angola</div>
-            <div class="item" data-value="ar"><i class="ar flag"></i>Argentina</div>
-            <div class="item" data-value="as"><i class="as flag"></i>American Samoa</div>
-            <div class="item" data-value="at"><i class="at flag"></i>Austria</div>
-            <div class="item" data-value="au"><i class="au flag"></i>Australia</div>
-            <div class="item" data-value="aw"><i class="aw flag"></i>Aruba</div>
-            <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
-            <div class="item" data-value="az"><i class="az flag"></i>Azerbaijan</div>
-            <div class="item" data-value="ba"><i class="ba flag"></i>Bosnia</div>
-            <div class="item" data-value="bb"><i class="bb flag"></i>Barbados</div>
-            <div class="item" data-value="bd"><i class="bd flag"></i>Bangladesh</div>
-            <div class="item" data-value="be"><i class="be flag"></i>Belgium</div>
-            <div class="item" data-value="bf"><i class="bf flag"></i>Burkina Faso</div>
-            <div class="item" data-value="bg"><i class="bg flag"></i>Bulgaria</div>
-            <div class="item" data-value="bh"><i class="bh flag"></i>Bahrain</div>
-            <div class="item" data-value="bi"><i class="bi flag"></i>Burundi</div>
-            <div class="item" data-value="bj"><i class="bj flag"></i>Benin</div>
-            <div class="item" data-value="bm"><i class="bm flag"></i>Bermuda</div>
-            <div class="item" data-value="bn"><i class="bn flag"></i>Brunei</div>
-            <div class="item" data-value="bo"><i class="bo flag"></i>Bolivia</div>
-            <div class="item" data-value="br"><i class="br flag"></i>Brazil</div>
-            <div class="item" data-value="bs"><i class="bs flag"></i>Bahamas</div>
-            <div class="item" data-value="bt"><i class="bt flag"></i>Bhutan</div>
-            <div class="item" data-value="bv"><i class="bv flag"></i>Bouvet Island</div>
-            <div class="item" data-value="bw"><i class="bw flag"></i>Botswana</div>
-            <div class="item" data-value="by"><i class="by flag"></i>Belarus</div>
-            <div class="item" data-value="bz"><i class="bz flag"></i>Belize</div>
-            <div class="item" data-value="ca"><i class="ca flag"></i>Canada</div>
-            <div class="item" data-value="cc"><i class="cc flag"></i>Cocos Islands</div>
-            <div class="item" data-value="cd"><i class="cd flag"></i>Congo</div>
-            <div class="item" data-value="cf"><i class="cf flag"></i>Central African Republic</div>
-            <div class="item" data-value="cg"><i class="cg flag"></i>Congo Brazzaville</div>
-            <div class="item" data-value="ch"><i class="ch flag"></i>Switzerland</div>
-            <div class="item" data-value="ci"><i class="ci flag"></i>Cote Divoire</div>
-            <div class="item" data-value="ck"><i class="ck flag"></i>Cook Islands</div>
-            <div class="item" data-value="cl"><i class="cl flag"></i>Chile</div>
-            <div class="item" data-value="cm"><i class="cm flag"></i>Cameroon</div>
-            <div class="item" data-value="cn"><i class="cn flag"></i>China</div>
-            <div class="item" data-value="co"><i class="co flag"></i>Colombia</div>
-            <div class="item" data-value="cr"><i class="cr flag"></i>Costa Rica</div>
-            <div class="item" data-value="cs"><i class="cs flag"></i>Serbia</div>
-            <div class="item" data-value="cu"><i class="cu flag"></i>Cuba</div>
-            <div class="item" data-value="cv"><i class="cv flag"></i>Cape Verde</div>
-            <div class="item" data-value="cx"><i class="cx flag"></i>Christmas Island</div>
-            <div class="item" data-value="cy"><i class="cy flag"></i>Cyprus</div>
-            <div class="item" data-value="cz"><i class="cz flag"></i>Czech Republic</div>
-            <div class="item" data-value="de"><i class="de flag"></i>Germany</div>
-            <div class="item" data-value="dj"><i class="dj flag"></i>Djibouti</div>
-            <div class="item" data-value="dk"><i class="dk flag"></i>Denmark</div>
-            <div class="item" data-value="dm"><i class="dm flag"></i>Dominica</div>
-            <div class="item" data-value="do"><i class="do flag"></i>Dominican Republic</div>
-            <div class="item" data-value="dz"><i class="dz flag"></i>Algeria</div>
-            <div class="item" data-value="ec"><i class="ec flag"></i>Ecuador</div>
-            <div class="item" data-value="ee"><i class="ee flag"></i>Estonia</div>
-            <div class="item" data-value="eg"><i class="eg flag"></i>Egypt</div>
-            <div class="item" data-value="eh"><i class="eh flag"></i>Western Sahara</div>
-            <div class="item" data-value="er"><i class="er flag"></i>Eritrea</div>
-            <div class="item" data-value="es"><i class="es flag"></i>Spain</div>
-            <div class="item" data-value="et"><i class="et flag"></i>Ethiopia</div>
-            <div class="item" data-value="eu"><i class="eu flag"></i>European Union</div>
-            <div class="item" data-value="fi"><i class="fi flag"></i>Finland</div>
-            <div class="item" data-value="fj"><i class="fj flag"></i>Fiji</div>
-            <div class="item" data-value="fk"><i class="fk flag"></i>Falkland Islands</div>
-            <div class="item" data-value="fm"><i class="fm flag"></i>Micronesia</div>
-            <div class="item" data-value="fo"><i class="fo flag"></i>Faroe Islands</div>
-            <div class="item" data-value="fr"><i class="fr flag"></i>France</div>
-            <div class="item" data-value="ga"><i class="ga flag"></i>Gabon</div>
-            <div class="item" data-value="gb"><i class="gb flag"></i>England</div>
-            <div class="item" data-value="gd"><i class="gd flag"></i>Grenada</div>
-            <div class="item" data-value="ge"><i class="ge flag"></i>Georgia</div>
-            <div class="item" data-value="gf"><i class="gf flag"></i>French Guiana</div>
-            <div class="item" data-value="gh"><i class="gh flag"></i>Ghana</div>
-            <div class="item" data-value="gi"><i class="gi flag"></i>Gibraltar</div>
-            <div class="item" data-value="gl"><i class="gl flag"></i>Greenland</div>
-            <div class="item" data-value="gm"><i class="gm flag"></i>Gambia</div>
-            <div class="item" data-value="gn"><i class="gn flag"></i>Guinea</div>
-            <div class="item" data-value="gp"><i class="gp flag"></i>Guadeloupe</div>
-            <div class="item" data-value="gq"><i class="gq flag"></i>Equatorial Guinea</div>
-            <div class="item" data-value="gr"><i class="gr flag"></i>Greece</div>
-            <div class="item" data-value="gs"><i class="gs flag"></i>Sandwich Islands</div>
-            <div class="item" data-value="gt"><i class="gt flag"></i>Guatemala</div>
-            <div class="item" data-value="gu"><i class="gu flag"></i>Guam</div>
-            <div class="item" data-value="gw"><i class="gw flag"></i>Guinea-Bissau</div>
-            <div class="item" data-value="gy"><i class="gy flag"></i>Guyana</div>
-            <div class="item" data-value="hk"><i class="hk flag"></i>Hong Kong</div>
-            <div class="item" data-value="hm"><i class="hm flag"></i>Heard Island</div>
-            <div class="item" data-value="hn"><i class="hn flag"></i>Honduras</div>
-            <div class="item" data-value="hr"><i class="hr flag"></i>Croatia</div>
-            <div class="item" data-value="ht"><i class="ht flag"></i>Haiti</div>
-            <div class="item" data-value="hu"><i class="hu flag"></i>Hungary</div>
-            <div class="item" data-value="id"><i class="id flag"></i>Indonesia</div>
-            <div class="item" data-value="ie"><i class="ie flag"></i>Ireland</div>
-            <div class="item" data-value="il"><i class="il flag"></i>Israel</div>
-            <div class="item" data-value="in"><i class="in flag"></i>India</div>
-            <div class="item" data-value="io"><i class="io flag"></i>Indian Ocean Territory</div>
-            <div class="item" data-value="iq"><i class="iq flag"></i>Iraq</div>
-            <div class="item" data-value="ir"><i class="ir flag"></i>Iran</div>
-            <div class="item" data-value="is"><i class="is flag"></i>Iceland</div>
-            <div class="item" data-value="it"><i class="it flag"></i>Italy</div>
-            <div class="item" data-value="jm"><i class="jm flag"></i>Jamaica</div>
-            <div class="item" data-value="jo"><i class="jo flag"></i>Jordan</div>
-            <div class="item" data-value="jp"><i class="jp flag"></i>Japan</div>
-            <div class="item" data-value="ke"><i class="ke flag"></i>Kenya</div>
-            <div class="item" data-value="kg"><i class="kg flag"></i>Kyrgyzstan</div>
-            <div class="item" data-value="kh"><i class="kh flag"></i>Cambodia</div>
-            <div class="item" data-value="ki"><i class="ki flag"></i>Kiribati</div>
-            <div class="item" data-value="km"><i class="km flag"></i>Comoros</div>
-            <div class="item" data-value="kn"><i class="kn flag"></i>Saint Kitts and Nevis</div>
-            <div class="item" data-value="kp"><i class="kp flag"></i>North Korea</div>
-            <div class="item" data-value="kr"><i class="kr flag"></i>South Korea</div>
-            <div class="item" data-value="kw"><i class="kw flag"></i>Kuwait</div>
-            <div class="item" data-value="ky"><i class="ky flag"></i>Cayman Islands</div>
-            <div class="item" data-value="kz"><i class="kz flag"></i>Kazakhstan</div>
-            <div class="item" data-value="la"><i class="la flag"></i>Laos</div>
-            <div class="item" data-value="lb"><i class="lb flag"></i>Lebanon</div>
-            <div class="item" data-value="lc"><i class="lc flag"></i>Saint Lucia</div>
-            <div class="item" data-value="li"><i class="li flag"></i>Liechtenstein</div>
-            <div class="item" data-value="lk"><i class="lk flag"></i>Sri Lanka</div>
-            <div class="item" data-value="lr"><i class="lr flag"></i>Liberia</div>
-            <div class="item" data-value="ls"><i class="ls flag"></i>Lesotho</div>
-            <div class="item" data-value="lt"><i class="lt flag"></i>Lithuania</div>
-            <div class="item" data-value="lu"><i class="lu flag"></i>Luxembourg</div>
-            <div class="item" data-value="lv"><i class="lv flag"></i>Latvia</div>
-            <div class="item" data-value="ly"><i class="ly flag"></i>Libya</div>
-            <div class="item" data-value="ma"><i class="ma flag"></i>Morocco</div>
-            <div class="item" data-value="mc"><i class="mc flag"></i>Monaco</div>
-            <div class="item" data-value="md"><i class="md flag"></i>Moldova</div>
-            <div class="item" data-value="me"><i class="me flag"></i>Montenegro</div>
-            <div class="item" data-value="mg"><i class="mg flag"></i>Madagascar</div>
-            <div class="item" data-value="mh"><i class="mh flag"></i>Marshall Islands</div>
-            <div class="item" data-value="mk"><i class="mk flag"></i>MacEdonia</div>
-            <div class="item" data-value="ml"><i class="ml flag"></i>Mali</div>
-            <div class="item" data-value="ar"><i class="ar flag"></i>Burma</div>
-            <div class="item" data-value="mn"><i class="mn flag"></i>Mongolia</div>
-            <div class="item" data-value="mo"><i class="mo flag"></i>MacAu</div>
-            <div class="item" data-value="mp"><i class="mp flag"></i>Northern Mariana Islands</div>
-            <div class="item" data-value="mq"><i class="mq flag"></i>Martinique</div>
-            <div class="item" data-value="mr"><i class="mr flag"></i>Mauritania</div>
-            <div class="item" data-value="ms"><i class="ms flag"></i>Montserrat</div>
-            <div class="item" data-value="mt"><i class="mt flag"></i>Malta</div>
-            <div class="item" data-value="mu"><i class="mu flag"></i>Mauritius</div>
-            <div class="item" data-value="mv"><i class="mv flag"></i>Maldives</div>
-            <div class="item" data-value="mw"><i class="mw flag"></i>Malawi</div>
-            <div class="item" data-value="mx"><i class="mx flag"></i>Mexico</div>
-            <div class="item" data-value="my"><i class="my flag"></i>Malaysia</div>
-            <div class="item" data-value="mz"><i class="mz flag"></i>Mozambique</div>
-            <div class="item" data-value="na"><i class="na flag"></i>Namibia</div>
-            <div class="item" data-value="nc"><i class="nc flag"></i>New Caledonia</div>
-            <div class="item" data-value="ne"><i class="ne flag"></i>Niger</div>
-            <div class="item" data-value="nf"><i class="nf flag"></i>Norfolk Island</div>
-            <div class="item" data-value="ng"><i class="ng flag"></i>Nigeria</div>
-            <div class="item" data-value="ni"><i class="ni flag"></i>Nicaragua</div>
-            <div class="item" data-value="nl"><i class="nl flag"></i>Netherlands</div>
-            <div class="item" data-value="no"><i class="no flag"></i>Norway</div>
-            <div class="item" data-value="np"><i class="np flag"></i>Nepal</div>
-            <div class="item" data-value="nr"><i class="nr flag"></i>Nauru</div>
-            <div class="item" data-value="nu"><i class="nu flag"></i>Niue</div>
-            <div class="item" data-value="nz"><i class="nz flag"></i>New Zealand</div>
-            <div class="item" data-value="om"><i class="om flag"></i>Oman</div>
-            <div class="item" data-value="pa"><i class="pa flag"></i>Panama</div>
-            <div class="item" data-value="pe"><i class="pe flag"></i>Peru</div>
-            <div class="item" data-value="pf"><i class="pf flag"></i>French Polynesia</div>
-            <div class="item" data-value="pg"><i class="pg flag"></i>New Guinea</div>
-            <div class="item" data-value="ph"><i class="ph flag"></i>Philippines</div>
-            <div class="item" data-value="pk"><i class="pk flag"></i>Pakistan</div>
-            <div class="item" data-value="pl"><i class="pl flag"></i>Poland</div>
-            <div class="item" data-value="pm"><i class="pm flag"></i>Saint Pierre</div>
-            <div class="item" data-value="pn"><i class="pn flag"></i>Pitcairn Islands</div>
-            <div class="item" data-value="pr"><i class="pr flag"></i>Puerto Rico</div>
-            <div class="item" data-value="ps"><i class="ps flag"></i>Palestine</div>
-            <div class="item" data-value="pt"><i class="pt flag"></i>Portugal</div>
-            <div class="item" data-value="pw"><i class="pw flag"></i>Palau</div>
-            <div class="item" data-value="py"><i class="py flag"></i>Paraguay</div>
-            <div class="item" data-value="qa"><i class="qa flag"></i>Qatar</div>
-            <div class="item" data-value="re"><i class="re flag"></i>Reunion</div>
-            <div class="item" data-value="ro"><i class="ro flag"></i>Romania</div>
-            <div class="item" data-value="rs"><i class="rs flag"></i>Serbia</div>
-            <div class="item" data-value="ru"><i class="ru flag"></i>Russia</div>
-            <div class="item" data-value="rw"><i class="rw flag"></i>Rwanda</div>
-            <div class="item" data-value="sa"><i class="sa flag"></i>Saudi Arabia</div>
-            <div class="item" data-value="sb"><i class="sb flag"></i>Solomon Islands</div>
-            <div class="item" data-value="sc"><i class="sc flag"></i>Seychelles</div>
-            <div class="item" data-value="sd"><i class="sd flag"></i>Sudan</div>
-            <div class="item" data-value="se"><i class="se flag"></i>Sweden</div>
-            <div class="item" data-value="sg"><i class="sg flag"></i>Singapore</div>
-            <div class="item" data-value="sh"><i class="sh flag"></i>Saint Helena</div>
-            <div class="item" data-value="si"><i class="si flag"></i>Slovenia</div>
-            <div class="item" data-value="sj"><i class="sj flag"></i>Svalbard, I Flag Jan Mayen</div>
-            <div class="item" data-value="sk"><i class="sk flag"></i>Slovakia</div>
-            <div class="item" data-value="sl"><i class="sl flag"></i>Sierra Leone</div>
-            <div class="item" data-value="sm"><i class="sm flag"></i>San Marino</div>
-            <div class="item" data-value="sn"><i class="sn flag"></i>Senegal</div>
-            <div class="item" data-value="so"><i class="so flag"></i>Somalia</div>
-            <div class="item" data-value="sr"><i class="sr flag"></i>Suriname</div>
-            <div class="item" data-value="st"><i class="st flag"></i>Sao Tome</div>
-            <div class="item" data-value="sv"><i class="sv flag"></i>El Salvador</div>
-            <div class="item" data-value="sy"><i class="sy flag"></i>Syria</div>
-            <div class="item" data-value="sz"><i class="sz flag"></i>Swaziland</div>
-            <div class="item" data-value="tc"><i class="tc flag"></i>Caicos Islands</div>
-            <div class="item" data-value="td"><i class="td flag"></i>Chad</div>
-            <div class="item" data-value="tf"><i class="tf flag"></i>French Territories</div>
-            <div class="item" data-value="tg"><i class="tg flag"></i>Togo</div>
-            <div class="item" data-value="th"><i class="th flag"></i>Thailand</div>
-            <div class="item" data-value="tj"><i class="tj flag"></i>Tajikistan</div>
-            <div class="item" data-value="tk"><i class="tk flag"></i>Tokelau</div>
-            <div class="item" data-value="tl"><i class="tl flag"></i>Timorleste</div>
-            <div class="item" data-value="tm"><i class="tm flag"></i>Turkmenistan</div>
-            <div class="item" data-value="tn"><i class="tn flag"></i>Tunisia</div>
-            <div class="item" data-value="to"><i class="to flag"></i>Tonga</div>
-            <div class="item" data-value="tr"><i class="tr flag"></i>Turkey</div>
-            <div class="item" data-value="tt"><i class="tt flag"></i>Trinidad</div>
-            <div class="item" data-value="tv"><i class="tv flag"></i>Tuvalu</div>
-            <div class="item" data-value="tw"><i class="tw flag"></i>Taiwan</div>
-            <div class="item" data-value="tz"><i class="tz flag"></i>Tanzania</div>
-            <div class="item" data-value="ua"><i class="ua flag"></i>Ukraine</div>
-            <div class="item" data-value="ug"><i class="ug flag"></i>Uganda</div>
-            <div class="item" data-value="um"><i class="um flag"></i>Us Minor Islands</div>
-            <div class="item" data-value="us"><i class="us flag"></i>United States</div>
-            <div class="item" data-value="uy"><i class="uy flag"></i>Uruguay</div>
-            <div class="item" data-value="uz"><i class="uz flag"></i>Uzbekistan</div>
-            <div class="item" data-value="va"><i class="va flag"></i>Vatican City</div>
-            <div class="item" data-value="vc"><i class="vc flag"></i>Saint Vincent</div>
-            <div class="item" data-value="ve"><i class="ve flag"></i>Venezuela</div>
-            <div class="item" data-value="vg"><i class="vg flag"></i>British Virgin Islands</div>
-            <div class="item" data-value="vi"><i class="vi flag"></i>Us Virgin Islands</div>
-            <div class="item" data-value="vn"><i class="vn flag"></i>Vietnam</div>
-            <div class="item" data-value="vu"><i class="vu flag"></i>Vanuatu</div>
-            <div class="item" data-value="wf"><i class="wf flag"></i>Wallis and Futuna</div>
-            <div class="item" data-value="ws"><i class="ws flag"></i>Samoa</div>
-            <div class="item" data-value="ye"><i class="ye flag"></i>Yemen</div>
-            <div class="item" data-value="yt"><i class="yt flag"></i>Mayotte</div>
-            <div class="item" data-value="za"><i class="za flag"></i>South Africa</div>
-            <div class="item" data-value="zm"><i class="zm flag"></i>Zambia</div>
-            <div class="item" data-value="zw"><i class="zw flag"></i>Zimbabwe</div>
-          </div>
-        </div>
+        <%- @partial('examples/single/flag-menu') %>
       </div>
     </div>
     <div class="another dropdown example">
       <select class="ui search dropdown">
-        <option value="">State</option>
-        <option value="AL">Alabama</option>
-        <option value="AL">Alabama</option>
-        <option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option>
-        <option value="AR">Arkansas</option>
-        <option value="CA">California</option>
-        <option value="CO">Colorado</option>
-        <option value="CT">Connecticut</option>
-        <option value="DE">Delaware</option>
-        <option value="DC">District Of Columbia</option>
-        <option value="FL">Florida</option>
-        <option value="GA">Georgia</option>
-        <option value="HI">Hawaii</option>
-        <option value="ID">Idaho</option>
-        <option value="IL">Illinois</option>
-        <option value="IN">Indiana</option>
-        <option value="IA">Iowa</option>
-        <option value="KS">Kansas</option>
-        <option value="KY">Kentucky</option>
-        <option value="LA">Louisiana</option>
-        <option value="ME">Maine</option>
-        <option value="MD">Maryland</option>
-        <option value="MA">Massachusetts</option>
-        <option value="MI">Michigan</option>
-        <option value="MN">Minnesota</option>
-        <option value="MS">Mississippi</option>
-        <option value="MO">Missouri</option>
-        <option value="MT">Montana</option>
-        <option value="NE">Nebraska</option>
-        <option value="NV">Nevada</option>
-        <option value="NH">New Hampshire</option>
-        <option value="NJ">New Jersey</option>
-        <option value="NM">New Mexico</option>
-        <option value="NY">New York</option>
-        <option value="NC">North Carolina</option>
-        <option value="ND">North Dakota</option>
-        <option value="OH">Ohio</option>
-        <option value="OK">Oklahoma</option>
-        <option value="OR">Oregon</option>
-        <option value="PA">Pennsylvania</option>
-        <option value="RI">Rhode Island</option>
-        <option value="SC">South Carolina</option>
-        <option value="SD">South Dakota</option>
-        <option value="TN">Tennessee</option>
-        <option value="TX">Texas</option>
-        <option value="UT">Utah</option>
-        <option value="VT">Vermont</option>
-        <option value="VA">Virginia</option>
-        <option value="WA">Washington</option>
-        <option value="WV">West Virginia</option>
-        <option value="WI">Wisconsin</option>
-        <option value="WY">Wyoming</option>
+        <%- @partial('examples/single/state-options') %>
       </select>
-      <div class="existing code">
-      <select class="ui search dropdown">
-        <option value="">State</option>
-        <option value="AL">Alabama</option>
-        <option value="AL">Alabama</option>
-        <option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option>
-        <option value="AR">Arkansas</option>
-        <option value="CA">California</option>
-        <option value="CO">Colorado</option>
-        <option value="CT">Connecticut</option>
-        <option value="DE">Delaware</option>
-        <option value="DC">District Of Columbia</option>
-        <option value="FL">Florida</option>
-        <option value="GA">Georgia</option>
-        <option value="HI">Hawaii</option>
-        <option value="ID">Idaho</option>
-        <option value="IL">Illinois</option>
-        <option value="IN">Indiana</option>
-        <option value="IA">Iowa</option>
-        <option value="KS">Kansas</option>
-        <option value="KY">Kentucky</option>
-        <option value="LA">Louisiana</option>
-        <option value="ME">Maine</option>
-        <option value="MD">Maryland</option>
-        <option value="MA">Massachusetts</option>
-        <option value="MI">Michigan</option>
-        <option value="MN">Minnesota</option>
-        <option value="MS">Mississippi</option>
-        <option value="MO">Missouri</option>
-        <option value="MT">Montana</option>
-        <option value="NE">Nebraska</option>
-        <option value="NV">Nevada</option>
-        <option value="NH">New Hampshire</option>
-        <option value="NJ">New Jersey</option>
-        <option value="NM">New Mexico</option>
-        <option value="NY">New York</option>
-        <option value="NC">North Carolina</option>
-        <option value="ND">North Dakota</option>
-        <option value="OH">Ohio</option>
-        <option value="OK">Oklahoma</option>
-        <option value="OR">Oregon</option>
-        <option value="PA">Pennsylvania</option>
-        <option value="RI">Rhode Island</option>
-        <option value="SC">South Carolina</option>
-        <option value="SD">South Dakota</option>
-        <option value="TN">Tennessee</option>
-        <option value="TX">Texas</option>
-        <option value="UT">Utah</option>
-        <option value="VT">Vermont</option>
-        <option value="VA">Virginia</option>
-        <option value="WA">Washington</option>
-        <option value="WV">West Virginia</option>
-        <option value="WI">Wisconsin</option>
-        <option value="WY">Wyoming</option>
+    </div>
+    <div class="dropdown example">
+      <h4 class="ui header">Multiple Selection</h4>
+      <p>A selection dropdown can allow multiple selections</p>
+      <select name="skills" multiple class="ui fluid dropdown">
+        <%- @partial('examples/single/skill-menu') %>
       </select>
+    </div>
+    <div class="dropdown example">
+      <h4 class="ui header">Multiple Search Selection</h4>
+      <p>A selection dropdown can allow multiple search selections</p>
+      <select class="ui fluid search dropdown" multiple>
+        <%- @partial('examples/single/state-options') %>
+      </select>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui ignored info message">
+        Dropdowns can support content that may not be allowed inside <code>option</code> tags when converting <code>select</code> elements. For more complex content like <code>flags</code> or <code>icons</code> you can use full dropdown markup
+      </div>
+      <div class="ui fluid multiple search selection dropdown">
+        <input type="hidden" name="country">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <%- @partial('examples/single/flag-menu') %>
+
       </div>
     </div>
+
 
     <div class="dropdown example">
       <h4 class="ui header">Search Dropdown</h4>
@@ -736,28 +213,102 @@ themes      : ['Default']
         <div class="menu">
           <div class="ui icon search input">
             <i class="search icon"></i>
-            <input type="text" name="search" placeholder="Search issues...">
+            <input type="text" placeholder="Search tags...">
           </div>
           <div class="divider"></div>
           <div class="header">
             <i class="tags icon"></i>
             Tag Label
           </div>
-          <div class="item">
-            <div class="ui red empty circular label"></div>
-            Important
+          <div class="scrolling menu">
+            <div class="item">
+              <div class="ui red empty circular label"></div>
+              Important
+            </div>
+            <div class="item">
+              <div class="ui blue empty circular label"></div>
+              Announcement
+            </div>
+            <div class="item">
+              <div class="ui black empty circular label"></div>
+              Cannot Fix
+            </div>
+            <div class="item">
+              <div class="ui purple empty circular label"></div>
+              News
+            </div>
+            <div class="item">
+              <div class="ui orange empty circular label"></div>
+              Enhancement
+            </div>
+            <div class="item">
+              <div class="ui empty circular label"></div>
+              Change Declined
+            </div>
+            <div class="item">
+              <div class="ui yellow empty circular label"></div>
+              Off Topic
+            </div>
+            <div class="item">
+              <div class="ui pink empty circular label"></div>
+              Interesting
+            </div>
+            <div class="item">
+              <div class="ui green empty circular label"></div>
+              Discussion
+            </div>
           </div>
-          <div class="item">
-            <div class="ui blue empty circular label"></div>
-            Announcement
+        </div>
+      </div>
+    </div>
+
+    <div class="another dropdown example">
+      <div class="ui multiple dropdown">
+        <i class="filter icon"></i>
+        <span class="text">Filter Posts</span>
+        <div class="menu">
+          <div class="ui icon search input">
+            <i class="search icon"></i>
+            <input type="text" placeholder="Search tags...">
           </div>
-          <div class="item">
-            <div class="ui black empty circular label"></div>
-            Cannot Fix
+          <div class="divider"></div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Tag Label
           </div>
-          <div class="item">
-            <div class="ui green empty circular label"></div>
-            Discussion
+          <div class="scrolling menu">
+            <div class="item" data-value="important">
+              <div class="ui red empty circular label"></div>
+              Important
+            </div>
+            <div class="item" data-value="announcement">
+              <div class="ui blue empty circular label"></div>
+              Announcement
+            </div>
+            <div class="item" data-value="cannotfix">
+              <div class="ui black empty circular label"></div>
+              Cannot Fix
+            </div>
+            <div class="item" data-value="news">
+              <div class="ui purple empty circular label"></div>
+              News
+            </div>
+            <div class="item" data-value="enhancement">
+              <div class="ui orange empty circular label"></div>
+              Enhancement
+            </div>
+            <div class="item" data-value="off-topic">
+              <div class="ui yellow empty circular label"></div>
+              Off Topic
+            </div>
+            <div class="item" data-value="interesting">
+              <div class="ui pink empty circular label"></div>
+              Interesting
+            </div>
+            <div class="item" data-value="discussion">
+              <div class="ui green empty circular label"></div>
+              Discussion
+            </div>
           </div>
         </div>
       </div>
@@ -767,63 +318,104 @@ themes      : ['Default']
       <h4 class="ui header">Inline</h4>
       <p>A dropdown can be formatted to appear inline in other content</p>
       <span>
-        Show me posts trending
+        Show me posts by
         <div class="ui inline dropdown">
-          <div class="text">today</div>
+          <div class="text">
+            <img class="ui avatar image" src="/images/avatar/small/jenny.jpg">
+            Jenny Hess
+          </div>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item" data-text="today">Today</div>
-            <div class="item" data-text="this week">This Week</div>
-            <div class="item" data-text="this month">This Month</div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/jenny.jpg">
+              Jenny Hess
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/elliot.jpg">
+              Elliot Fu
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/stevie.jpg">
+              Stevie Feliciano
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/christian.jpg">
+              Christian
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/matt.jpg">
+              Matt
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/justen.jpg">
+              Justen Kitsune
+            </div>
           </div>
         </div>
       </span>
+    </div>
+
+    <div class="another dropdown example">
+      <h4 class="ui header">
+        <i class="trophy icon"></i>
+        <div class="content">
+          Trending repos
+          <div class="ui inline dropdown">
+            <div class="text">today</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="header">Adjust time span</div>
+              <div class="active item" data-text="today">Today</div>
+              <div class="item" data-text="this week">This Week</div>
+              <div class="item" data-text="this month">This Month</div>
+            </div>
+          </div>
+        </div>
+      </h4>
     </div>
 
     <div class="hover example">
     <h4 class="ui header">Pointing</h4>
     <p>A dropdown can be formatted so that its menu is pointing</p>
       <div class="ui menu">
-        <div class="menu">
-          <a class="item">
-            Home
-          </a>
-          <div class="ui pointing dropdown link item">
-            <span class="text">Shopping</span>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div class="header">Categories</div>
-              <div class="item">
-                <i class="dropdown icon"></i>
-                <span class="text">Clothing</span>
-                <div class="menu">
-                  <div class="header">Mens</div>
-                  <div class="item">Shirts</div>
-                  <div class="item">Pants</div>
-                  <div class="item">Jeans</div>
-                  <div class="item">Shoes</div>
-                  <div class="divider"></div>
-                  <div class="header">Womens</div>
-                  <div class="item">Dresses</div>
-                  <div class="item">Shoes</div>
-                  <div class="item">Bags</div>
-                </div>
+        <a class="item">
+          Home
+        </a>
+        <div class="ui pointing dropdown link item">
+          <span class="text">Shopping</span>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="header">Categories</div>
+            <div class="item">
+              <i class="dropdown icon"></i>
+              <span class="text">Clothing</span>
+              <div class="menu">
+                <div class="header">Mens</div>
+                <div class="item">Shirts</div>
+                <div class="item">Pants</div>
+                <div class="item">Jeans</div>
+                <div class="item">Shoes</div>
+                <div class="divider"></div>
+                <div class="header">Womens</div>
+                <div class="item">Dresses</div>
+                <div class="item">Shoes</div>
+                <div class="item">Bags</div>
               </div>
-              <div class="item">Home Goods</div>
-              <div class="item">Bedroom</div>
-              <div class="divider"></div>
-              <div class="header">Order</div>
-              <div class="item">Status</div>
-              <div class="item">Cancellations</div>
             </div>
+            <div class="item">Home Goods</div>
+            <div class="item">Bedroom</div>
+            <div class="divider"></div>
+            <div class="header">Order</div>
+            <div class="item">Status</div>
+            <div class="item">Cancellations</div>
           </div>
-          <a class="item">
-            Forums
-          </a>
-          <a class="item">
-            Contact Us
-          </a>
         </div>
+        <a class="item">
+          Forums
+        </a>
+        <a class="item">
+          Contact Us
+        </a>
       </div>
     </div>
     <div class="another hover example">
@@ -920,7 +512,7 @@ themes      : ['Default']
         <i class="filter icon"></i>
         <span class="text">Filter Posts</span>
         <div class="menu">
-          <div class="ui icon input">
+          <div class="ui search icon input">
             <i class="search icon"></i>
             <input type="text" name="search" placeholder="Search issues...">
           </div>
@@ -947,15 +539,15 @@ themes      : ['Default']
             Filter by date
           </div>
           <div class="item">
-            <i class="circle icon"></i>
+            <i class="olive circle icon"></i>
             This Week
           </div>
           <div class="item">
-            <i class="circle icon"></i>
+            <i class="violet circle icon"></i>
             This Month
           </div>
           <div class="item">
-            <i class="circle icon"></i>
+            <i class="orange circle icon"></i>
             This Year
           </div>
         </div>
@@ -965,7 +557,7 @@ themes      : ['Default']
       <div class="ui right pointing dropdown icon button">
         <i class="settings icon"></i>
         <div class="menu">
-          <div class="ui transparent left icon input">
+          <div class="ui left search icon input">
             <i class="search icon"></i>
             <input type="text" name="search" placeholder="Search issues...">
           </div>
@@ -991,14 +583,13 @@ themes      : ['Default']
       <div class="ui left pointing dropdown icon button">
         <i class="settings icon"></i>
         <div class="menu">
-          <div class="ui transparent left icon input">
+          <div class="ui left search icon input">
             <i class="search icon"></i>
             <input type="text" name="search" placeholder="Search issues...">
           </div>
-          <div class="divider"></div>
           <div class="header">
             <i class="tags icon"></i>
-            Filter by tag
+            Tag Label
           </div>
           <div class="item">
             <div class="ui red empty circular label"></div>
@@ -1128,7 +719,7 @@ themes      : ['Default']
 
     <div class="dropdown example">
       <h4 class="ui header">Description</h4>
-      <p>A dropdown menu can contain a <a href="/elements/icon.html">description</a>.</p>
+      <p>A dropdown menu can contain a description.</p>
       <div class="ui floating labeled icon dropdown button">
         <i class="filter icon"></i>
         <span class="text">Filter</span>
@@ -1138,16 +729,16 @@ themes      : ['Default']
           </div>
           <div class="divider"></div>
           <div class="item">
-            Important
             <span class="description">2 new</span>
+            Important
           </div>
           <div class="item">
-            Announcement
             <span class="description">10 new</span>
+            Announcement
           </div>
           <div class="item">
-            Discussion
             <span class="description">5 new</span>
+            Discussion
           </div>
         </div>
       </div>
@@ -1155,7 +746,7 @@ themes      : ['Default']
 
     <div class="dropdown example">
       <h4 class="ui header">Label</h4>
-      <p>A dropdown menu can contain a <a href="/elements/input.html">label</a>.</p>
+      <p>A dropdown menu can contain a <a href="/elements/label.html">label</a>.</p>
       <div class="ui floating labeled icon dropdown button">
         <i class="filter icon"></i>
         <span class="text">Filter</span>
@@ -1182,6 +773,21 @@ themes      : ['Default']
           <div class="item">
             <div class="ui black empty circular label"></div>
             Discussion
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Message</h4>
+      <p>A dropdown menu can contain a <a href="/elements/message.html">message</a>.</p>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Login</span>
+        <div class="menu">
+          <div class="ui error message">
+            <div class="header">Error</div>
+            You must log-in to see all categories
           </div>
         </div>
       </div>
@@ -1262,7 +868,7 @@ themes      : ['Default']
 
     <div class="dropdown example">
       <h4 class="ui header">Image</h4>
-      <p>A dropdown menu can contain an <a href="/elements/input.html">image</a></p>
+      <p>A dropdown menu can contain an <a href="/elements/image.html">image</a></p>
       <div class="ui floating labeled icon dropdown button">
         <i class="add user icon"></i>
         <span class="text">Add User</span>
@@ -1304,6 +910,41 @@ themes      : ['Default']
     <h2 class="ui dividing header">States</h2>
 
     <div class="dropdown example">
+      <h4 class="ui header">Loading</h4>
+      <p>An dropddown can show that it is currently loading data</p>
+      <div class="ui loading dropdown">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui loading fluid multiple search selection dropdown">
+        <input type="hidden" name="country" value="kp">
+        <i class="dropdown icon"></i>
+        <input class="search">
+        <div class="default text">Search...</div>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui loading selection dropdown">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown example">
       <h4 class="ui header">Error</h4>
       <p>An errored dropddown can alert a user to a problem</p>
       <div class="ui floating dropdown error">
@@ -1314,7 +955,8 @@ themes      : ['Default']
           <div class="item">Choice 3</div>
         </div>
       </div>
-      <br><br>
+    </div>
+    <div class="another dropdown example">
       <div class="ui selection dropdown error">
         Dropdown <i class="dropdown icon"></i>
         <div class="menu">
@@ -1340,13 +982,22 @@ themes      : ['Default']
 
     <div class="example">
       <h4 class="ui header">Disabled</h4>
-      <p>A disabled dropdown menu will not open or close</p>
-      <div class="ui ignored info message">A disabled state will prevent all dropdowns from allowing the menu to open.</div>
-      <div class="ui simple disabled dropdown">
+      <p>A disabled dropdown menu or item does not allow user interaction</p>
+      <div class="ui disabled dropdown">
         Dropdown <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Choice 1</div>
           <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui dropdown">
+        Disabled Item <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="disabled item">Disabled</div>
           <div class="item">Choice 3</div>
         </div>
       </div>
@@ -1356,46 +1007,89 @@ themes      : ['Default']
     <h2 class="ui dividing header">Variations</h2>
 
     <div class="dropdown example">
-      <h4 class="ui header">Upward</h4>
-      <p>A dropdown can have its menus open upward.</p>
-
-      <div class="ui upward selection dropdown">
+      <h4 class="ui header">Scrolling</h4>
+      <p>A dropdown can have its menu scroll</p>
+      <div class="ui ignored warning message">
+        Scroling dropdowns are incompatible with the usage of <code>sub menu</code>.
+      </div>
+      <div class="ui scrolling dropdown">
         <input type="hidden" name="gender">
+        <div class="default text">Select choice</div>
         <i class="dropdown icon"></i>
-        <div class="default text">Gender</div>
         <div class="menu">
-          <div class="item" data-value="male" data-text="Male">
-            <i class="male icon"></i>
-            Male
-          </div>
-          <div class="item" data-value="female" data-text="Female">
-            <i class="female icon"></i>
-            Female
-          </div>
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+          <div class="item">Choice 4</div>
+          <div class="item">Choice 5</div>
+          <div class="item">Choice 6</div>
+          <div class="item">Choice 7</div>
+          <div class="item">Choice 8</div>
+          <div class="item">Choice 9</div>
+          <div class="item">Choice 10</div>
+          <div class="item">Choice 11</div>
+          <div class="item">Choice 12</div>
+          <div class="item">Choice 13</div>
+          <div class="item">Choice 14</div>
+          <div class="item">Choice 15</div>
         </div>
       </div>
     </div>
     <div class="another dropdown example">
-      <div class="ui top attached segment">
-        <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
-      </div>
-      <div class="ui bottom attached menu">
-        <div class="ui upward dropdown item">
-          <i class="settings icon"></i>
-          <div class="menu">
+      <div class="ui dropdown">
+        <i class="filter icon"></i>
+        <span class="text">Filter Posts</span>
+        <div class="menu">
+          <div class="ui icon search input">
+            <i class="search icon"></i>
+            <input type="text" placeholder="Search tags...">
+          </div>
+          <div class="divider"></div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Tag Label
+          </div>
+          <div class="scrolling menu">
             <div class="item">
-              <i class="dropdown icon"></i>
-              <span class="text">New</span>
-              <div class="menu">
-                <div class="item">Document</div>
-                <div class="item">Image</div>
-              </div>
+              <div class="ui red empty circular label"></div>
+              Important
             </div>
-            <div class="item">Save As...</div>
-            <div class="item">Edit</div>
+            <div class="item">
+              <div class="ui blue empty circular label"></div>
+              Announcement
+            </div>
+            <div class="item">
+              <div class="ui black empty circular label"></div>
+              Cannot Fix
+            </div>
+            <div class="item">
+              <div class="ui purple empty circular label"></div>
+              News
+            </div>
+            <div class="item">
+              <div class="ui orange empty circular label"></div>
+              Enhancement
+            </div>
+            <div class="item">
+              <div class="ui empty circular label"></div>
+              Change Declined
+            </div>
+            <div class="item">
+              <div class="ui yellow empty circular label"></div>
+              Off Topic
+            </div>
+            <div class="item">
+              <div class="ui pink empty circular label"></div>
+              Interesting
+            </div>
+            <div class="item">
+              <div class="ui green empty circular label"></div>
+              Discussion
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
     <div class="dropdown example">
@@ -1505,11 +1199,272 @@ themes      : ['Default']
 
   <div class="ui tab" data-tab="examples">
 
-    <h2 class="ui header">Examples</h2>
+    <h2 class="ui header">Selection Dropdowns</h2>
+
+    <div class="max example">
+      <h4 class="ui header">Maximum Selections</h4>
+      <p>Using <code>maxSelections</code> lets you force a maximum number of selections. You can also use <a href="http://laptop-vm:9778/behaviors/form.html#validation-rules">form validation</a> rules to specify minimum and maximum validation settings for multi-selects inside forms.</p>
+
+      <div class="ui sub header">Selection</div>
+      <select multiple name="skills" class="ui fluid dropdown">
+        <%- @partial('examples/single/skill-menu') %>
+      </select>
+
+      <div class="ui sub header">Search Selection</div>
+      <div class="ui fluid multiple search selection dropdown">
+        <input type="hidden" name="country">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <%- @partial('examples/single/flag-menu') %>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.max.example .ui.dropdown')
+          .dropdown({
+            maxSelections: 3
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="tag example">
+      <h4 class="ui header">Tagging and User Additions</h4>
+      <p>Using <code>allowAdditions: true</code> gives users the ability to add their own options. This can work with either single or multiple search select dropdowns</p>
+
+      <div class="ui ignored warning message">
+        Although all dropdowns support <code>select</code> initialization, custom choices <b>will not be saved on page refresh</b> unless you use a hidden input. This is because <code>option</code> created dynamically are not preserved on page refresh.
+      </div>
+
+      <div class="ui sub header">Single</div>
+      <select name="skills" class="ui fluid search dropdown">
+        <%- @partial('examples/single/skill-menu') %>
+      </select>
+
+      <div class="ui sub header">Multiple</div>
+      <div class="ui fluid multiple search selection dropdown">
+        <input name="tags" type="hidden" />
+        <i class="dropdown icon"></i>
+        <div class="default text">Skills</div>
+        <div class="menu">
+          <%- @partial('examples/single/preset-menu') %>
+        </div>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.tag.example .ui.dropdown')
+          .dropdown({
+            allowAdditions: true
+          })
+        ;
+      </div>
+    </div>
+    <div class="remote no example">
+      <h4 class="ui header">Remote Content</h4>
+      <p>Search selection dropdowns can specify <a href="/behaviors/api.html">API settings</a> for retrieving values remotely, this can use either a named API <code>action</code> or <code>url</code>.</p>
+      <p class="ignored">Using API can allow users to select choices from large datasets that would be too large to include directly in page markups.</p>
+      <p class="ignored">If your backend is not designed to return the correct markup you can use API's <code><a href="/behaviors/api.html#adjusting-server-responses">onResponse</a></code> callback to adjust the format of an API response after it is received from the server.</p>
+      <p class="ignored">Requests for the same API endpoints will automatically cached locally, to avoid server roundtrips. You can disable this by adjusting the <code>cache</code> API setting.</p>
+      <div class="ui ignored positive message">When a user refreshes the page, selection labels are automatically recreated by using <code>sessionStorage</code> to store the corresponding names for selected values. You can disable this feature by setting <code>saveRemoteData: false</code></div>
+
+
+      <div class="ui form">
+        <div class="two fields">
+          <div class="field">
+            <label>Favorite Animal</label>
+            <div class="ui search selection dropdown">
+              <input type="hidden">
+              <i class="dropdown icon"></i>
+              <input type="text" class="search">
+              <div class="default text">Select one...</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Favorite Animals</label>
+            <div class="ui multiple search selection dropdown">
+              <input type="hidden">
+              <i class="dropdown icon"></i>
+              <input type="text" class="search">
+              <div class="default text">Select...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.remote.example .ui.dropdown')
+          .dropdown({
+            apiSettings: {
+              url: '//api.semantic-ui.com/tags/{query}'
+            }
+          })
+        ;
+      </div>
+      <div class="code" data-type="JSON">
+      // Expected server response
+      {
+          "success": true,
+          "results": [
+            {
+              "name"  : "Choice 1",
+              "value" : "value1"
+            },
+            {
+              "name"  : "Choice 2",
+              "value" : "value2"
+            },
+            {
+              "name"  : "Choice 3",
+              "value" : "value3"
+            },
+            {
+              "name"  : "Choice 4",
+              "value" : "value4"
+            },
+            {
+              "name"  : "Choice 5",
+              "value" : "value5"
+            }
+          ]
+      }
+      </div>
+    </div>
+
+    <div class="no label example">
+      <h4 class="ui header">Text Labels</h4>
+      <p>Sometimes multiselect include options which are long and would appear awkwardly as labels. Setting <code>useLabels: false</code> will display a selected count, and allow reselection directly from the menu.</p>
+      <div class="ui ignored info message">
+        You can customize any of the messages displayed by adjusting templates in <code>settings.message</code>
+      </div>
+      <select multiple name="binary" class="ui fluid dropdown">
+        <option value="">Select Tag</option>
+        <option value="10001010">10001010</option>
+        <option value="10001011">10001011</option>
+        <option value="11001110">11001110</option>
+        <option value="10011110">10011110</option>
+      </select>
+
+      <div class="ui horizontal divider">or</div>
+
+      <div class="ui fluid multiple search selection dropdown">
+        <input type="hidden" name="country">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <%- @partial('examples/single/flag-menu') %>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.no.label.example .ui.dropdown')
+          .dropdown({
+            useLabels: false
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="clear dropdown example">
+      <h4 class="ui header">Clearing Dropdown</h4>
+      <p>You can reset a form field to its placeholder value</p>
+      <div class="ui selection dropdown">
+        <input name="gender" type="hidden" />
+        <div class="default text">Select a value</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            <div class="item" data-value="0">Value</div>
+            <div class="item" data-value="1">Another Value</div>
+        </div>
+       </div>
+
+      <div class="ui button">
+        Clear
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('.clear.example .button')
+          .on('click', function() {
+            $('.clear.example .ui.dropdown')
+              .dropdown('clear')
+            ;
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="restore dropdown example">
+      <h4 class="ui header">Restoring Defaults</h4>
+      <p>You can restore a dropdown to its value set on page load</p>
+      <div class="ui multiple selection dropdown">
+        <input name="gender" type="hidden" value="default,default2" />
+        <div class="text">Default</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            <div class="item" data-value="0">Value</div>
+            <div class="item" data-value="1">Another Value</div>
+            <div class="item" data-value="default">Default Value</div>
+            <div class="item" data-value="default2">Second Default</div>
+        </div>
+       </div>
+
+      <div class="ui selection dropdown">
+        <input name="gender" type="hidden" value="default" />
+        <div class="text">Default</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            <div class="item" data-value="0">Value</div>
+            <div class="item" data-value="1">Another Value</div>
+            <div class="item" data-value="default">Default Value</div>
+        </div>
+       </div>
+
+      <div class="ui button">
+          Restore
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('.restore.example .button')
+          .on('click', function() {
+            $('.restore.example .ui.dropdown')
+              .dropdown('restore defaults')
+            ;
+          })
+        ;
+      </div>
+    </div>
+
+
+    <div class="upward example">
+      <h4 class="ui header">Upward</h4>
+      <p>A dropdown menu will automatically change which direction it opens if it cant fit on screen. If you need a dropdown to open in a specific direction you can specify it when initializing a dropdown.</p>
+      <div class="code" data-demo="true">
+        $('.upward.example .dropdown')
+          .dropdown({
+            direction: 'upward'
+          })
+        ;
+      </div>
+      <div class="ui top attached segment">
+        <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+      </div>
+      <div class="ui bottom attached menu">
+        <div class="ui upward dropdown item">
+          <i class="settings icon"></i>
+          <div class="menu">
+            <div class="item">
+              <i class="dropdown icon"></i>
+              <span class="text">New</span>
+              <div class="menu">
+                <div class="item">Document</div>
+                <div class="item">Image</div>
+              </div>
+            </div>
+            <div class="item">Save As...</div>
+            <div class="item">Edit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="ui header">Menus</h2>
 
     <div class="transition example">
       <h4 class="ui header">Changing Transitions</h4>
-      <p>A dropdown can specify a different <a href="/modules/transition.html">transitions</a>.</p>
+      <p>A dropdown can specify a different <a href="/modules/transition.html">transition</a>.</p>
 
       <div class="code" data-type="javascript">
       $('.dropdown')
@@ -1569,61 +1524,6 @@ themes      : ['Default']
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="clear dropdown example">
-      <h4 class="ui header">Clearing Dropdown</h4>
-      <p>You can reset a form field to its placeholder value</p>
-      <div class="ui selection dropdown">
-        <input name="gender" type="hidden" />
-        <div class="default text">Select a value</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-            <div class="item" data-value="0">Value</div>
-            <div class="item" data-value="1">Another Value</div>
-        </div>
-       </div>
-
-      <div class="ui button">
-        Clear
-      </div>
-      <div class="evaluated code" data-type="javascript">
-        $('.clear.example .button')
-          .on('click', function() {
-            $('.clear.example .ui.dropdown')
-              .dropdown('clear')
-            ;
-          })
-        ;
-      </div>
-    </div>
-
-    <div class="restore dropdown example">
-      <h4 class="ui header">Restoring Defaults</h4>
-      <p>You can restore a dropdown to its value set on page load</p>
-      <div class="ui selection dropdown">
-        <input name="gender" type="hidden" value="default" />
-        <div class="text">Default</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-            <div class="item" data-value="0">Value</div>
-            <div class="item" data-value="1">Another Value</div>
-            <div class="item" data-value="default">Default Value</div>
-        </div>
-       </div>
-
-      <div class="ui button">
-          Restore
-      </div>
-      <div class="evaluated code" data-type="javascript">
-        $('.restore.example .button')
-          .on('click', function() {
-            $('.restore.example .ui.dropdown')
-              .dropdown('restore defaults')
-            ;
-          })
-        ;
       </div>
     </div>
 
@@ -1691,102 +1591,8 @@ themes      : ['Default']
 
     </div>
 
-    <div class="dropdown example">
-    <h4 class="ui header">Button Group</h4>
-      <p>A <a href="/elements/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
-      <div class="ui icon buttons">
-        <div class="ui top left pointing dropdown button">
-          <i class="user icon"></i>
-          <div class="menu">
-            <div class="item"><i class="edit icon"></i>Edit User</div>
-            <div class="item"><i class="delete icon"></i>Remove User</div>
-            <div class="item"><i class="hide icon"></i>Make Invisible</div>
-          </div>
-        </div>
-        <div class="ui top left pointing dropdown button">
-          <i class="users icon"></i>
-          <div class="menu">
-            <div class="item"><i class="edit icon"></i>Edit Group</div>
-            <div class="item"><i class="delete icon"></i>Remove Group</div>
-            <div class="item"><i class="hide icon"></i>Hide from Group</div>
-          </div>
-        </div>
-        <div class="ui top right pointing dropdown button">
-          <i class="settings icon"></i>
-          <div class="menu">
-            <div class="item"><i class="edit icon"></i> Edit</div>
-            <div class="item"><i class="delete icon"></i> Remove</div>
-            <div class="item"><i class="hide icon"></i> Hide</div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="hover example">
-      <h4 class="ui header">Menu</h4>
-      <p>A <a href="/collections/menu.html">menu</a> element can contain a dropdown</p>
-        <div class="ui tiered purple inverted menu">
-          <div class="menu">
-            <a class="active item">
-              Home
-            </a>
-            <a class="ui dropdown item">
-              Messages
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <div class="item">
-                  <i class="dropdown icon"></i>
-                  <span class="text">Categories</span>
-                  <div class="menu">
-                    <div class="item">Unread</div>
-                    <div class="item">Promotions</div>
-                    <div class="item">Updates</div>
-                  </div>
-                </div>
-                <div class="item">Archive</div>
-              </div>
-            </a>
-            <a class="item">
-              Browse
-            </a>
-          </div>
-          <div class="sub menu">
-            <a class="item">Activity Feed</a>
-            <a class="item">Profile</a>
-            <a class="item">Events</a>
-          </div>
-        </div>
-    </div>
-
-    <div class="dropdown example">
-      <h4 class="ui header">Form</h4>
-      <p>A dropdown can be formatted to allow selection inside a <a href="/collections/form.html">form</a></p>
-      <div class="ui form segment">
-        <p>Let's go ahead and get you signed up.</p>
-        <div class="two fields">
-          <div class="field">
-            <label>First Name</label>
-            <input placeholder="First Name" type="text">
-          </div>
-          <div class="field">
-            <label>Last Name</label>
-            <input placeholder="Last Name" type="text">
-          </div>
-        </div>
-        <div class="field">
-          <label>Gender</label>
-          <div class="ui dropdown selection">
-            <input type="hidden" name="gender">
-            <div class="default text">Select Gender</div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div class="item" data-value="male">Male</div>
-              <div class="item" data-value="female">Female</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h2 class="ui header">Adjusting Actions</h2>
 
     <div class="button example">
       <h4 class="ui header">Combo Dropdowns</h4>
@@ -1835,6 +1641,97 @@ themes      : ['Default']
           <a class="item" href="#link1"><i class="home icon"></i> Home</a>
           <a class="item" href="#link2"><i class="users icon"></i> Browse</a>
           <a class="item" href="#link3"><i class="search icon"></i> Search</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui header">Coupling</h2>
+
+    <div class="dropdown example">
+    <h4 class="ui header">Button Group</h4>
+      <p>A <a href="/elements/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
+      <div class="ui icon buttons">
+        <div class="ui top left pointing dropdown button">
+          <i class="user icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit User</div>
+            <div class="item"><i class="delete icon"></i>Remove User</div>
+            <div class="item"><i class="hide icon"></i>Make Invisible</div>
+          </div>
+        </div>
+        <div class="ui top left pointing dropdown button">
+          <i class="users icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit Group</div>
+            <div class="item"><i class="delete icon"></i>Remove Group</div>
+            <div class="item"><i class="hide icon"></i>Hide from Group</div>
+          </div>
+        </div>
+        <div class="ui top right pointing dropdown button">
+          <i class="settings icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i> Edit</div>
+            <div class="item"><i class="delete icon"></i> Remove</div>
+            <div class="item"><i class="hide icon"></i> Hide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hover example">
+      <h4 class="ui header">Menu</h4>
+      <p>A <a href="/collections/menu.html">menu</a> element can contain a dropdown</p>
+        <div class="ui menu">
+          <a class="item">
+            Home
+          </a>
+          <a class="ui dropdown item">
+            Messages
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">
+                <i class="dropdown icon"></i>
+                <span class="text">Categories</span>
+                <div class="menu">
+                  <div class="item">Unread</div>
+                  <div class="item">Promotions</div>
+                  <div class="item">Updates</div>
+                </div>
+              </div>
+              <div class="item">Archive</div>
+            </div>
+          </a>
+          <a class="item">
+            Browse
+          </a>
+        </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Form</h4>
+      <p>A dropdown can be formatted to allow selection inside a <a href="/collections/form.html">form</a></p>
+      <div class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label>Gender</label>
+          <div class="ui dropdown selection">
+            <input type="hidden" name="gender">
+            <div class="default text">Select Gender</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="male">Male</div>
+              <div class="item" data-value="female">Female</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1989,65 +1886,12 @@ themes      : ['Default']
         ;
       </div>
       <select class="ui search selection dropdown" id="search-select">
-        <option value="">State</option>
-        <option value="AL">Alabama</option>
-        <option value="AL">Alabama</option>
-        <option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option>
-        <option value="AR">Arkansas</option>
-        <option value="CA">California</option>
-        <option value="CO">Colorado</option>
-        <option value="CT">Connecticut</option>
-        <option value="DE">Delaware</option>
-        <option value="DC">District Of Columbia</option>
-        <option value="FL">Florida</option>
-        <option value="GA">Georgia</option>
-        <option value="HI">Hawaii</option>
-        <option value="ID">Idaho</option>
-        <option value="IL">Illinois</option>
-        <option value="IN">Indiana</option>
-        <option value="IA">Iowa</option>
-        <option value="KS">Kansas</option>
-        <option value="KY">Kentucky</option>
-        <option value="LA">Louisiana</option>
-        <option value="ME">Maine</option>
-        <option value="MD">Maryland</option>
-        <option value="MA">Massachusetts</option>
-        <option value="MI">Michigan</option>
-        <option value="MN">Minnesota</option>
-        <option value="MS">Mississippi</option>
-        <option value="MO">Missouri</option>
-        <option value="MT">Montana</option>
-        <option value="NE">Nebraska</option>
-        <option value="NV">Nevada</option>
-        <option value="NH">New Hampshire</option>
-        <option value="NJ">New Jersey</option>
-        <option value="NM">New Mexico</option>
-        <option value="NY">New York</option>
-        <option value="NC">North Carolina</option>
-        <option value="ND">North Dakota</option>
-        <option value="OH">Ohio</option>
-        <option value="OK">Oklahoma</option>
-        <option value="OR">Oregon</option>
-        <option value="PA">Pennsylvania</option>
-        <option value="RI">Rhode Island</option>
-        <option value="SC">South Carolina</option>
-        <option value="SD">South Dakota</option>
-        <option value="TN">Tennessee</option>
-        <option value="TX">Texas</option>
-        <option value="UT">Utah</option>
-        <option value="VT">Vermont</option>
-        <option value="VA">Virginia</option>
-        <option value="WA">Washington</option>
-        <option value="WV">West Virginia</option>
-        <option value="WI">Wisconsin</option>
-        <option value="WY">Wyoming</option>
+        <%- @partial('examples/single/state-options') %>
       </select>
       <div class="ui ignored hidden divider"></div>
       <div class="code" data-label="HTML" data-type="html">
         <select class="ui search selection dropdown" id="search-select">
           <option value="">State</option>
-          <option value="AL">Alabama</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -2073,11 +1917,89 @@ themes      : ['Default']
         </select>
       </div>
     </div>
+    <div class="no example">
+      <h4 class="ui header">Multiple Selections</h4>
+      <p>You can allow multiple selections by the <code>multiple</code> property on a <code>select</code> element, or by including the class <code>multiple</code> on a dropdown.</p>
+      <p>When a hidden input is used values will be passed through a single value separated by a delimiter. The default is "," but this can be changed by adjusting the <code>delimiter</code> setting.</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#multi-select')
+          .dropdown()
+        ;
+      </div>
+
+      <select class="ui search selection dropdown" multiple id="multi-select">
+        <%- @partial('examples/single/state-options') %>
+      </select>
+
+      <div class="ui ignored hidden divider"></div>
+
+      <h5 class="ui sub header">Dropdown</h5>
+      <div class="code" data-label="HTML" data-type="html">
+        <div class="ui multiple selection dropdown">
+          <!-- This will receive comma separated value like OH,TX,WY !-->
+          <input name="states" type="hidden" />
+          <i class="dropdown icon"></i>
+          <div class="default text">States</div>
+          <div class="menu">
+            <div data-value="AL">Alabama</div>
+            <div data-value="AK">Alaska</div>
+            <div data-value="AZ">Arizona</div>
+            <div data-value="AR">Arkansas</div>
+            <div data-value="CA">California</div>
+            <!-- Saving your scroll sanity !-->
+            <div data-value="OH">Ohio</div>
+            <div data-value="OK">Oklahoma</div>
+            <div data-value="OR">Oregon</div>
+            <div data-value="PA">Pennsylvania</div>
+            <div data-value="RI">Rhode Island</div>
+            <div data-value="SC">South Carolina</div>
+            <div data-value="SD">South Dakota</div>
+            <div data-value="TN">Tennessee</div>
+            <div data-value="TX">Texas</div>
+            <div data-value="UT">Utah</div>
+            <div data-value="VT">Vermont</div>
+            <div data-value="VA">Virginia</div>
+            <div data-value="WA">Washington</div>
+            <div data-value="WV">West Virginia</div>
+            <div data-value="WI">Wisconsin</div>
+            <div data-value="WY">Wyoming</div>
+          </div>
+        </div>
+      </div>
+
+      <h5 class="ui sub header">Select</h5>
+      <div class="code" data-label="HTML" data-type="html">
+        <select name="states" class="ui selection dropdown" multiple id="multi-select">
+          <option value="">States</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
 
 
     <div class="no example">
       <h4 class="ui header">Specifying Select Action</h4>
-      <p>Dropdowns have multiple built-in actions that can occur on item selection, you can specify a built by passing in a value to <code>settings.action</code> that is either a built in action, or a custom function that performs an action.</p>
+      <p>Dropdowns have multiple built-in actions that can occur on item selection. You can specify a built-in action by passing its name to <code>settings.action</code> or pass a custom function that performs an action.</p>
 
       <table class="ui definition sortable celled table segment">
         <thead>
@@ -2102,6 +2024,10 @@ themes      : ['Default']
           <tr>
             <td>hide</td>
             <td>Hides the dropdown menu but does nothing</td>
+          </tr>
+          <tr>
+            <td>function(text, value){}</td>
+            <td>Custom action</td>
           </tr>
           <tr>
             <td>nothing</td>
@@ -2178,7 +2104,7 @@ themes      : ['Default']
         </tr>
         <tr>
           <td>clear</td>
-          <td>Clears </td>
+          <td>Clears dropdown of selection</td>
         </tr>
         <tr>
           <td>hide others</td>
@@ -2257,7 +2183,7 @@ themes      : ['Default']
         </tr>
         <tr>
           <td>remove active</td>
-          <td>rRemoves dropdown active state
+          <td>Removes dropdown active state
         <tr>
           <td>remove visible</td>
           <td>Removes dropdown visible state</td>
@@ -2288,8 +2214,10 @@ themes      : ['Default']
       Dropdown
     </h2>
 
+    <div class="no example">
+
     <h4 class="ui header">
-      Behavior
+      Frequently Used Settings
     </h4>
     <table class="ui celled sortable definition table segment">
       <thead>
@@ -2301,9 +2229,20 @@ themes      : ['Default']
       </thead>
       <tbody>
         <tr>
+          <td>on</td>
+          <td>click</td>
+          <td>Event used to trigger dropdown (Hover, Click, Custom Event)</td>
+        </tr>
+        <tr>
+          <td>allowAdditions</td>
+          <td>false</td>
+          <td>Whether search selection should allow users to add their own selections, works for single or multiselect.</td>
+        </tr>
+        <tr>
           <td>action</td>
           <td>auto</td>
-          <td>Sets a default action to occur. (See usage guide)
+          <td>
+          <p>Sets a default action to occur. (See usage guide)</p>
           <div class="ui vertical divided list">
             <div class="item">
               <div class="header">activate (default)</div>
@@ -2332,14 +2271,23 @@ themes      : ['Default']
           </div>
         </tr>
         <tr>
-          <td>on</td>
-          <td>click</td>
-          <td>Event used to trigger dropdown (Hover, Click, Custom Event)</td>
-        </tr>
-        <tr>
-          <td>allowCategorySelection</td>
-          <td>false</td>
-          <td>Whether menu items with sub-menus (categories) should be selectable</td>
+          <td>match</td>
+          <td>both</td>
+          <td>When using <code>search selection</code> specifies how to match values.
+          <div class="ui vertical divided list">
+            <div class="item">
+              <div class="header">both</div>
+              <div class="description">Matches against text and value</div>
+            </div>
+            <div class="item">
+              <div class="header">value</div>
+              <div class="description">matches against value only</div>
+            </div>
+            <div class="item">
+              <div class="header">text</div>
+              <div class="description">matches against text only</div>
+            </div>
+          </div>
         </tr>
         <tr>
           <td>forceSelection</td>
@@ -2347,14 +2295,143 @@ themes      : ['Default']
           <td>Whether search selection will force currently selected choice when element is blurred.</td>
         </tr>
         <tr>
-          <td>sortSelect</td>
+          <td>allowCategorySelection</td>
           <td>false</td>
-          <td>Whether to sort values when creating a dropdown automatically from a select element.</td>
+          <td>Whether menu items with sub-menus (categories) should be selectable</td>
         </tr>
         <tr>
-          <td>allowTab</td>
+          <td>placeholder</td>
+          <td>auto</td>
+          <td>
+            <div class="ui vertical divided list">
+              <div class="item">
+                <div class="header">auto</div>
+                <div class="description">Convert option with "" (blank string) value to placeholder text</div>
+              </div>
+              <div class="item">
+                <div class="header">value</div>
+                <div class="description">Sets string value to placeholder text, leaves "" value</div>
+              </div>
+              <div class="item">
+                <div class="header">false</div>
+                <div class="description">Leaves "" value as a selectable option</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="no example">
+
+    <h4 class="ui header">
+      Remote Settings
+    </h4>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>apiSettings</td>
+          <td>false</td>
+          <td>Can be set to an object to specify <a href="/behaviors/api.html">API settings</a> for retrieving remote selection menu content from an API endpoint</td>
+        </tr>
+        <tr>
+          <td>saveRemoteData</td>
           <td>true</td>
-          <td>Whether to allow a <code>tabindex</code> to be created for this element </td>
+          <td>When enabled will automatically store selected name/value pairs in <code>sessionStorage</code> to preserve user selection on page refresh. Disabling will clear remote dropdown values on refresh.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="no example">
+
+    <h4 class="ui header">
+      Multiple Select Settings
+    </h4>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="eight wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>useLabels</td>
+          <td>
+           true
+          </td>
+          <td>Whether multiselect should use labels. Must be set to true when <code>allowAdditions</code> is <code>true</code></td>
+        </tr>
+        <tr>
+          <td>maxSelections</td>
+          <td>
+           false
+          </td>
+          <td>When set to a number, sets the maximum number of selections</td>
+        </tr>
+        <tr>
+          <td>glyphWidth</td>
+          <td>
+           1.0714
+          </td>
+          <td>Maximum glyph width, used to calculate search size. This is usually size of a "W" in your font in <code>em</code></td>
+        </tr>
+        <tr>
+          <td>label</td>
+          <td>
+            <div class="code">
+            label: {
+              transition : 'horizontal flip',
+              duration   : 200,
+              variation  : false
+            }
+            </div>
+          </td>
+          <td>Allows customization of multi-select labels</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="no example">
+    <h4 class="ui header">
+      Additional Settings
+    </h4>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>direction</td>
+          <td>'auto'</td>
+          <td>When set to <code>auto</code> determines direction based on whether dropdown can fit on screen. Set to <code>upward</code> or <code>downward</code> to always force a direction.</td>
+        </tr>
+        <tr>
+          <td>keepOnScreen</td>
+          <td>true</td>
+          <td>Whether dropdown should try to keep itself on screen by checking whether menus display position in its <code>context</code> (Default context is page).</td>
+        </tr>
+        <tr>
+          <td>context</td>
+          <td>window</td>
+          <td>Element context to use when checking whether can show when <code>keepOnScreen: true</code></td>
         </tr>
         <tr>
           <td>fullTextSearch</td>
@@ -2367,17 +2444,19 @@ themes      : ['Default']
           <td>Whether html included in dropdown values should be preserved. (Allows icons to show up in selected value)</td>
         </tr>
         <tr>
-          <td>delay</td>
-          <td>
-          <div class="code">
-          delay: {
-            show  : 200,
-            hide  : 300,
-            touch : 50
-          },
-          </div>
-          </td>
-          <td>Time in milliseconds to debounce show or hide behavior when <code>on: hover</code> is used, or when touch is used.</td>
+          <td>sortSelect</td>
+          <td>false</td>
+          <td>Whether to sort values when creating a dropdown automatically from a select element.</td>
+        </tr>
+        <tr>
+          <td>showOnFocus</td>
+          <td>true</td>
+          <td>Whether to show dropdown menu automatically on element focus.</td>
+        </tr>
+        <tr>
+          <td>allowTab</td>
+          <td>true</td>
+          <td>Whether to allow the element to be navigable by keyboard, by automatically creating a <code>tabindex</code></td>
         </tr>
         <tr>
           <td>transition</td>
@@ -2389,12 +2468,28 @@ themes      : ['Default']
         <tr>
           <td>duration</td>
           <td>
-            250
+            200
           </td>
           <td>Duration of animation events</td>
         </tr>
+        <tr>
+          <td>delay</td>
+          <td>
+          <div class="code">
+          delay : {
+            hide   : 300,
+            show   : 200,
+            search : 50,
+            touch  : 50
+          }
+          </div>
+          </td>
+          <td>Time in milliseconds to debounce show or hide behavior when <code>on: hover</code> is used, or when touch is used.</td>
+        </tr>
       </tbody>
     </table>
+
+    </div>
 
     <h4 class="ui header">
       Callbacks
@@ -2403,7 +2498,7 @@ themes      : ['Default']
     <table class="ui celled sortable definition table segment">
       <thead>
         <tr>
-          <th class="four wide"></th>
+          <th class="six wide"></th>
           <th>Context</th>
           <th>Description</th>
         </tr>
@@ -2412,7 +2507,27 @@ themes      : ['Default']
         <tr>
           <td>onChange(value, text, $choice)</td>
           <td>Dropdown</td>
-          <td>Is called after a dropdown item is selected. receives the name and value of selection and the active menu element</td>
+          <td>Is called after a dropdown value changes. Receives the name and value of selection and the active menu element</td>
+        </tr>
+        <tr>
+          <td>onAdd(addedValue, addedText, $addedChoice)</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown selection is added using a multiple select dropdown, only receives the added value</td>
+        </tr>
+        <tr>
+          <td>onRemove(removedValue, removedText, $removedChoice)</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown selection is removed using a multiple select dropdown, only receives the removed value</td>
+        </tr>
+        <tr>
+          <td>onLabelCreate($label)</td>
+          <td>$label</td>
+          <td>Allows you to modify a label before it is added. Expects <code>$label</code> to be returned.</td>
+        </tr>
+        <tr>
+          <td>onLabelSelect($selectedLabels)</td>
+          <td>Dropdown</td>
+          <td>Is called after a label is selected by a user</td>
         </tr>
         <tr>
           <td>onNoResults(searchValue)</td>
@@ -2455,16 +2570,46 @@ themes      : ['Default']
           <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
         </tr>
         <tr>
-          <td>selector</td>
+          <td>message</td>
           <td colspan="2">
             <div class="code">
+            message: {
+              addResult     : 'Add <b>{term}</b>',
+              count         : '{count} selected',
+              maxSelections : 'Max {maxCount} selections',
+              noResults     : 'No results found.'
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td colspan="2">
+            <div class="code" data-type="html">
             selector : {
-              dropdown : '.ui.dropdown',
-              text     : '> .text:not(.icon)',
-              input    : '> input[type="hidden"], > select',
-              search   : '> .search, .menu > .search > input, .menu > input.search',
-              menu     : '.menu',
-              item     : '.item'
+              addition     : '.addition',
+              dropdown     : '.ui.dropdown',
+              icon         : '> .dropdown.icon',
+              input        : '> input[type="hidden"], > select',
+              item         : '.item',
+              label        : '> .label',
+              remove       : '> .label > .delete.icon',
+              siblingLabel : '.label',
+              menu         : '.menu',
+              message      : '.message',
+              menuIcon     : '.dropdown.icon',
+              search       : 'input.search, .menu > .search > input',
+              text         : '> .text:not(.icon)'
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>regExp</td>
+          <td colspan="2">
+            <div class="code">
+            regExp : {
+              escape   : /[-[\]{}()*+?.,\\^$|#\s]/g,
             }
             </div>
           </td>
@@ -2473,11 +2618,12 @@ themes      : ['Default']
           <td>metadata</td>
           <td colspan="2">
             <div class="code">
-            metadata: {
-              defaultText  : 'defaultText',
-              defaultValue : 'defaultValue',
-              text         : 'text',
-              value        : 'value'
+            metadata : {
+              defaultText     : 'defaultText',
+              defaultValue    : 'defaultValue',
+              placeholderText : 'placeholderText',
+              text            : 'text',
+              value           : 'value'
             }
             </div>
           </td>
@@ -2488,14 +2634,23 @@ themes      : ['Default']
             <div class="code">
             className : {
               active      : 'active',
+              addition    : 'addition',
+              animating   : 'animating',
               disabled    : 'disabled',
               dropdown    : 'ui dropdown',
               filtered    : 'filtered',
+              hidden      : 'hidden transition',
+              item        : 'item',
+              label       : 'ui label',
+              loading     : 'loading',
               menu        : 'menu',
+              message     : 'message',
+              multiple    : 'multiple',
               placeholder : 'default',
               search      : 'search',
               selected    : 'selected',
               selection   : 'selection',
+              upward      : 'upward',
               visible     : 'visible'
             }
             </div>
@@ -2526,9 +2681,11 @@ themes      : ['Default']
           <td colspan="2">
             <div class="code">
             error   : {
-              action     : 'You called a dropdown action that was not defined',
-              method     : 'The method you called is not defined.',
-              transition : 'The requested transition was not found'
+              action       : 'You called a dropdown action that was not defined',
+              alreadySetup : 'Once a select has been initialized behaviors must be called on the created ui dropdown',
+              labels       : 'Allowing user additions currently requires the use of labels.',
+              method       : 'The method you called is not defined.',
+              noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
             }
             </div>
           </td>

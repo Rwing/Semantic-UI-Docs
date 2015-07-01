@@ -16,7 +16,7 @@ themes      : ['Default', 'Chubby']
 
 <%- @partial('header', { tabs: 'module' }) %>
 
-<div class="main container">
+<div class="main ui container">
 
   <div class="ui active tab" data-tab="definition">
 
@@ -467,6 +467,11 @@ themes      : ['Default', 'Chubby']
           <td>Only allow one section open at a time</td>
         </tr>
         <tr>
+          <td>on</td>
+          <td>click</td>
+          <td>Event on <code>title</code> that will cause accordion to open</td>
+        </tr>
+        <tr>
           <td>animateChildren</td>
           <td>true</td>
           <td>Whether child content opacity should be animated (may cause performance issues with many child elements)</td>
@@ -506,14 +511,24 @@ themes      : ['Default', 'Chubby']
       </thead>
       <tbody>
         <tr>
+          <td>onOpening</td>
+          <td>active content</td>
+          <td>Callback before element opens</td>
+        </tr>
+        <tr>
           <td>onOpen</td>
           <td>active content</td>
-          <td>Callback on element open</td>
+          <td>Callback after element is open</td>
+        </tr>
+        <tr>
+          <td>onClosing</td>
+          <td>active content</td>
+          <td>Callback before element closes</td>
         </tr>
         <tr>
           <td>onClose</td>
           <td>active content</td>
-          <td>Callback on element close</td>
+          <td>Callback after element is closed</td>
         </tr>
         <tr>
           <td>onChange</td>
@@ -553,6 +568,7 @@ themes      : ['Default', 'Chubby']
             selector    : {
               accordion : '.accordion',
               title     : '.title',
+              trigger   : '.title',
               content   : '.content'
             }
             </div>
@@ -563,8 +579,9 @@ themes      : ['Default', 'Chubby']
           <td>className</td>
           <td>
             <div class="code">
-            className : {
-              active : 'active'
+            className   : {
+              active    : 'active',
+              animating : 'animating'
             }
             </div>
           </td>
