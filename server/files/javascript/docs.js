@@ -85,6 +85,7 @@ semantic.ready = function() {
       : 0,
     languageDropdownUsed = false,
 
+    metadata,
 
     requestAnimationFrame = window.requestAnimationFrame
       || window.mozRequestAnimationFrame
@@ -99,6 +100,18 @@ semantic.ready = function() {
 
   // event handlers
   handler = {
+
+    getMetadata: function() {
+      $.api({
+        debug : false,
+        on    : 'now',
+        url   : '/metadata.json',
+        cache : 'local',
+        onSuccess: function(response) {
+          metadata = response;
+        }
+      });
+    },
 
     createIcon: function() {
       $example
@@ -290,34 +303,6 @@ semantic.ready = function() {
             })
           ;
         }
-      }
-    },
-
-    loadSearch: function() {
-      if( !$search.hasClass('loaded') ) {
-        $search.addClass('loading');
-        $.getJSON('/metadata.json')
-          .always(function() {
-            $search.removeClass('loading');
-          })
-          .fail(function(err) {
-            console.log('Failed to load search metadata');
-          })
-          .done(function(data) {
-            $search
-              .addClass('loaded')
-              .search({
-                transition     : 'slide down',
-                searchFullText : false,
-                source         : data,
-                searchFields   : [ 'title', 'category'],
-                onSelect       : function(results, response) {
-                  window.location = '/' + results.filename;
-                }
-              })
-            ;
-          })
-        ;
       }
     },
 
@@ -637,7 +622,7 @@ semantic.ready = function() {
 
     openMusic: function() {
       var
-        url       = 'http://www.stratus.sc/player?links=https://soundcloud.com/into-the-light/sets/sui&popup=true',
+        url       = 'http://www.stratus.sc/player?links=https://soundcloud.com/into-the-light/sets/sui-2&popup=true',
         newWindow = window.open(url,'name','height=196,width=733')
       ;
       if(window.focus) {
@@ -795,13 +780,13 @@ semantic.ready = function() {
       }
       setTimeout(function() {
         handler.refreshSticky();
-      }, 1000);
+      }, 400);
     },
 
     refreshSticky: function() {
       $sectionHeaders.visibility('refresh');
       $sectionExample.visibility('refresh');
-      $sticky.sticky('refresh');
+      $('.ui.sticky').sticky('refresh');
       $footer.visibility('refresh');
       $visibilityExample.visibility('refresh');
     },
@@ -842,9 +827,12 @@ semantic.ready = function() {
             : $closestExample,
         $header     = $example.find('h4').eq(0),
         $attributes = $code.find('.attribute, .class'),
+        $tags       = $code.find('.title'),
         pageName    = handler.getPageTitle(),
         name        = handler.getText($header).toLowerCase(),
-        classes     = $example.data('class') || ''
+        classes     = $example.data('class') || '',
+        tags        = $example.data('tag')  || false,
+        useContent  = $example.data('use-content') || false
       ;
       // Add title
       if(name) {
@@ -858,22 +846,65 @@ semantic.ready = function() {
       }
       // Add common variations
       classes = classes.replace('text alignment', "left aligned, right aligned, justified, center aligned");
+      classes = classes.replace('floated', "right floated,left floated,floated");
       classes = classes.replace('floating', "right floated,left floated,floated");
+      classes = classes.replace('horizontally aligned', "left aligned, center aligned, right aligned, justified");
+      classes = classes.replace('vertically aligned', "top aligned, middle aligned, bottom aligned");
       classes = classes.replace('vertically attached', "attached");
       classes = classes.replace('horizontally attached', "attached");
+      classes = classes.replace('padded', "very padded, padded");
+      classes = classes.replace('relaxed', "very relaxed, relaxed");
       classes = classes.replace('attached', "left attached,right attached,top attached,bottom attached,attached");
+      classes = classes.replace('wide', "one wide,two wide,three wide,four wide,five wide,six wide,seven wide,eight wide,nine wide,ten wide,eleven wide,twelve wide,thirteen wide,fourteen wide,fifteen wide,sixteen wide");
+      classes = classes.replace('count', "one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen");
+      classes = classes.replace('column count', "one column,two column,three column,four column,five column,six column,seven column,eight column,nine column,ten column,eleven column,twelve column,thirteen column,fourteen column,fifteen column,sixteen column");
+      classes = classes.replace('evenly divided', "one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen");
       classes = classes.replace('size', "mini,tiny,small,medium,large,big,huge,massive");
+      classes = classes.replace('emphasis', "primary,secondary,tertiary");
       classes = classes.replace('colored', "red,orange,yellow,olive,green,teal,blue,violet,purple,pink,brown,grey,black");
       classes = (classes !== '')
         ? classes.split(',')
         : []
       ;
-      // check each class value
+      // highlight tags if asked
+      if(tags) {
+        tags = (tags !== '')
+          ? tags.split(',')
+          : []
+        ;
+        $tags.each(function() {
+          var
+            $tag    = $(this),
+            tagHTML = $tag.html(),
+            newHTML = false
+          ;
+          $.each(tags, function(index, tag) {
+            if(tagHTML == tag) {
+              newHTML = tagHTML.replace(tag, '<b>' + tag + '</b>');
+            }
+          });
+          if(newHTML) {
+            $tag
+              .addClass('class')
+              .html(newHTML)
+            ;
+          }
+        });
+      }
+      // highlight classes
       $attributes.each(function() {
         var
           $attribute    = $(this),
           attributeHTML = $attribute.html(),
+          $tag,
           $value,
+          tagHTML,
+          isUI,
+          isPageElement,
+          isOtherUI,
+          isOtherIcon,
+          classNames,
+          classString,
           html,
           newHTML
         ;
@@ -881,22 +912,55 @@ semantic.ready = function() {
         if(attributeHTML.search('class') === -1) {
           return true;
         }
-        $value     = $attribute.next('.value, .string').eq(0);
-        html       = $value.html();
-        // check against each value
-        $.each(classes, function(index, className) {
-          className = $.trim(className);
+        $value        = $attribute.next('.value, .string').eq(0);
+        $tag          = $attribute.prev('.title').eq(0);
+        tagHTML       = $tag.html();
+        html          = $value.html();
+        classNames    = html.replace(/\"/g, '').split(' ');
+
+        isUI          = (html.search('ui') !== -1);
+        isPageElement = (html.search(pageName) > 0);
+        isOtherUI     = (!isPageElement && isUI);
+        isOtherIcon   = (!isPageElement && tagHTML === 'i' && html.search('icon') !== -1);
+        // check if any class match
+        $.each(classes, function(index, string) {
+          var
+            className      = $.trim(string),
+            isClassMatch   = (html.search(className) !== -1)
+          ;
           if(className === '') {
             return true;
           }
-          if(pageName !== 'icon' && className == 'icon' && $value.prevAll('.title').html() == 'i') {
-            return true;
-          }
-          if(html.search(className) !== -1) {
-            newHTML = html.replace(className, '<b>' + className + '</b>');
+          // class match on current page element (or content if allowed)
+          if(isClassMatch && (isPageElement || useContent) ) {
+            newHTML = html.replace(className, '<b title="Required Class">' + className + '</b>');
             return false;
           }
         });
+
+        // generate links to other UI
+        if(isOtherUI || isOtherIcon) {
+          html           = newHTML || html;
+          classString    = /^\"(.*)\"/g.exec(html);
+          if(!classString || classString.length < 2) {
+            return true;
+          }
+          classString = classString[1];
+          $.each(classNames, function(index, string){
+            var
+              className = string.replace('"', '')
+            ;
+            // yep..
+            if(className == 'item') {
+              return;
+            }
+            if(metadata && metadata[className] && metadata[className].url) {
+              // we found a match
+              newHTML = html.replace(classString, '<a href="' + metadata[className].url + '">' + classString + '</a>');
+            }
+          });
+        }
+
         if(newHTML) {
           $value
             .addClass('class')
@@ -1206,7 +1270,7 @@ semantic.ready = function() {
 
   handler.createIcon();
 
-  if(expertiseLevel < 2) {
+  if(expertiseLevel < 2 && $(window).width() > 640) {
     $popupExample
       .each(function() {
         $(this)
@@ -1226,7 +1290,7 @@ semantic.ready = function() {
           .find('i.code')
             .on('click', function() {
               $.cookie('expertiseLevel', 2, {
-                expires: 90
+                expires: 365
               });
             })
         ;
@@ -1324,6 +1388,8 @@ semantic.ready = function() {
   if(window.Transifex !== undefined) {
     window.Transifex.live.onTranslatePage(handler.showLanguageModal);
   }
+
+  handler.getMetadata();
 
 };
 

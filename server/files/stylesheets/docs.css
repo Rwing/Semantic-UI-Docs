@@ -481,21 +481,22 @@ blockquote .author {
 #example .main.container > p a:before,
 #example .main.container > .tab > p a:before,
 #example .main.container .example > .ignored a:before,
-#example .main.container .example > p a:before {
+#example .main.container .example > p a:before,
+#example .main.container .code .value a:before {
   position: absolute;
-  top: 0;
+  top: auto;
+  bottom: 1px;
   left: 0;
-  z-index: -1;
   width: 100%;
-  height: 100%;
+  height: 1px;
   background-color: #4183C4;
   content: '';
   -webkit-transition: all 0.2s;
   -webkit-backface-visibility: hidden;
   transition: all 0.2s;
   backface-visibility: hidden;
-  -webkit-transform: translateY(95%) scaleX(0);
-  transform: translateY(95%) scaleX(0);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
 }
 
 /* Not on UI */
@@ -517,10 +518,11 @@ blockquote .author {
 #example .main.container .example > .ignored a:hover:before,
 #example .main.container .example > .ignored a:focus:before,
 #example .main.container .example > p a:hover:before,
-#example .main.container .example > p a:focus:before {
+#example .main.container .example > p a:focus:before,
+#example .main.container .code .value a:hover:before  {
   background-color: #2C76BF;
-  -webkit-transform: translateY(95%) scaleX(1);
-  transform: translateY(95%) scaleX(1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 #example .ui.ad {
@@ -721,9 +723,11 @@ blockquote .author {
 }
 
 /* Examples Tab */
+#example .tab[data-tab*="examples"] .example > p,
 #example .examples.tab .example > p {
   margin: 1em 0em;
 }
+#example .tab[data-tab*="examples"] .example .anchor + p,
 #example .examples.tab .example .anchor + p {
   padding: 0em;
 }
@@ -752,6 +756,12 @@ blockquote .author {
 /* No Example */
 #example .no.example i.code {
   display: none;
+}
+
+#example .fixed.example iframe {
+  border: none;
+  width: 100%;
+  height: 350px;
 }
 
 /* Requires Clear */
@@ -914,6 +924,13 @@ blockquote .author {
 }
 #example .example > .empty.html.segment {
   padding: 1.15em 1em 1em;
+}
+#example .example > .html.segment:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 #example .example > .html.segment > .attached.label {
   display: block;
@@ -1443,6 +1460,7 @@ body.progress.animated .ui.progress .bar {
     transform 0.2s ease
   ;
 }
+#example .icon.example .html.segment .grid .column,
 #example .icon.example .grid:hover .column {
   color: #777777;
 }
@@ -1704,29 +1722,58 @@ code.less:hover .lisp .body {
 }
 
 /* Emphasized Value */
-code.code .class.string b,
-code.code .class.value b {
-  padding: 0px;
+code.code .class {
+  color: #008C79;
+}
+code.code .class b {
   font-weight: normal;
   background-color: rgba(90, 90, 90, 0);
   border-radius: 5px;
   line-height: 1;
   vertical-align: baseline;
-  display: inline-block;/*
+  display: inline-block;
   -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;*/
+  transition: all 0.3s ease;
+  margin: 0px -4px;
+  padding: 1px 4px;
 }
-code.code .class.value {
-  /*color: #668C79;*/
-}
-code.code .class.string b,
-code.code .class.value b {
-  background-color: rgba(98, 190, 169, 0.25);
-  color: #008078;
-  margin: 0px -2px;
-  padding: 2px 2px;
+code.code .class b {
+  background-color: rgba(218, 189, 40, 0.15);
+  color: #9E6C00;
 }
 
+/*
+code.code:hover .class.string b,
+code.code:hover .class.value b {
+  background-color: rgba(218, 189, 40, 0.1);
+  color: inherit;
+}
+*/
+
+
+/* Linked UI */
+code .tag .value a {
+  position: relative;
+  border-radius: 5px;
+  line-height: 1;
+  color: inherit;
+  margin: 0px -2px;
+  padding: 1px 4px;
+  background-color: rgba(150, 150, 150, 0.1);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+code .tag .value a b {
+  border-radius: 0px;
+}
+code .tag .value a:hover {
+  background-color: rgba(40, 150, 218, 0.2);
+  color: #00689E;
+}
+code .tag .value a:hover b {
+  background-color: transparent;
+  color: inherit;
+}
 
 
 
@@ -2213,8 +2260,7 @@ code .chunk {
 @media only screen and (max-width: 768px) {
 
   /* Hide Some Fixed Menu Content (Pagination, Search) */
-  #example .fixed.menu > .container > .section.item,
-  #example .fixed.menu > .container > .right.menu > .item:last-child {
+  #example .fixed.menu > .container > .section.item {
     display: none;
   }
 

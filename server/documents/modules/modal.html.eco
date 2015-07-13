@@ -1,4 +1,4 @@
----
+F---
 layout      : 'default'
 css         : 'modal-page'
 standalone  : true
@@ -178,6 +178,30 @@ themes      : ['Default', 'Material']
     </div>
   </div>
 
+  <div class="ui inverted test modal">
+    <div class="header">
+      Select a Photo
+    </div>
+    <div class="image content">
+      <div class="ui medium image">
+        <img src="/images/avatar2/large/rachel.png">
+      </div>
+      <div class="description">
+        <div class="ui header">Default Profile Image</div>
+        <p>We've found the following <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your e-mail address.</p>
+        <p>Is it okay to use this photo?</p>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Nope
+      </div>
+      <div class="ui positive right labeled icon button">
+        Yep, that's me
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
   <div class="ui standard test modal">
     <div class="header">
       Select a Photo
@@ -328,8 +352,8 @@ themes      : ['Default', 'Material']
         <div class="ui modal">
           <div class="header">Header</div>
           <div class="image content">
-            <img class="image">
-            <div class="description">
+              <img class="image">
+              <div class="description">
               <p></p>
             </div>
           </div>
@@ -361,7 +385,7 @@ themes      : ['Default', 'Material']
           <div class="actions">
             <div class="ui approve button">Approve</div>
             <div class="ui button">Neutral</div>
-            <div class="Ui cancel button">Cancel</div>
+            <div class="ui cancel button">Cancel</div>
           </div>
         </div>
       </div>
@@ -407,27 +431,6 @@ themes      : ['Default', 'Material']
   <div class="ui tab" data-tab="examples">
 
     <h2 class="ui dividing header">Examples</h2>
-
-    <div class="no example">
-      <h4 class="ui header">Dimmer Variations</h4>
-      <p>Modals can specify additional variations like <code>blurring</code> or <code>inverted</code> which adjust how the dimmer displays.</p>
-      <div class="code" data-demo="true">
-      $('.small.modal')
-        .modal({
-          inverted: true
-        })
-        .modal('show')
-      ;
-      </div>
-      <div class="code" data-demo="true">
-      $('.small.modal')
-        .modal({
-          blurring: true
-        })
-        .modal('show')
-      ;
-      </div>
-    </div>
 
     <div class="no example">
       <h4 class="ui header">Scrolling Modal</h4>
@@ -510,6 +513,17 @@ themes      : ['Default', 'Material']
     </div>
 
     <div class="no example">
+      <h4 class="ui header">Attach events</h4>
+      <p>A modal can attach events to another element</p>
+      <div class="code" data-demo="true">
+      $('.test.modal')
+        .modal('attach events', '.test.button', 'show')
+      ;
+      </div>
+      <div class="ui primary test button">Launch modal</div>
+    </div>
+
+    <div class="no example">
       <h4 class="ui header">Transitions</h4>
       <p>A modal can use any named ui transition.</p>
       <div class="ui animation selection dropdown">
@@ -540,15 +554,27 @@ themes      : ['Default', 'Material']
     </div>
 
     <div class="no example">
-      <h4 class="ui header">Attach events</h4>
-      <p>A modal can attach events to another element</p>
-      <div class="code" data-demo="true">
-      $('.test.modal')
-        .modal('attach events', '.test.button', 'show')
+      <h4 class="ui header">Dimmer Variations</h4>
+      <p>Modals can specify additional variations like <code>blurring</code> or <code>inverted</code> which adjust how the dimmer displays.</p>
+      <div class="ui ignored info message">Full screen blurring modals are not performant for current-gen computers at widescreen resolutions with integrated graphics.</div>
+      <div class="code" data-demo="true" data-eval="$('.ui.inverted.modal').modal({inverted: true}).modal('show')">
+      $('.ui.modal')
+        .modal({
+          inverted: true
+        })
+        .modal('show')
       ;
       </div>
-      <div class="ui primary test button">Launch modal</div>
+      <div class="code" data-demo="true" data-eval="$('.ui.standard.modal').modal({inverted: false, blurring: true}).modal('show')">
+      $('.ui.modal')
+        .modal({
+          blurring: true
+        })
+        .modal('show')
+      ;
+      </div>
     </div>
+
   </div>
 
   <div class="ui tab" data-tab="usage">
@@ -726,18 +752,11 @@ themes      : ['Default', 'Material']
           <td>You can specify custom settings to extend <a href="/modules/dimmer.html">UI dimmer</a></td>
         </tr>
         <tr>
-          <td>useCSS</td>
-          <td>
-            true
-          </td>
-          <td>Whether to use CSS animations instead of fallback javascript animations</td>
-        </tr>
-        <tr>
           <td>transition</td>
           <td>
             scale
           </td>
-          <td>Named transition to use when animating menu in and out. <code>Fade</code> is available without including <a href="/modules/transition.html">ui transitions</a></td>
+          <td>Named transition to use when animating menu in and out, full list can be found in <a href="/modules/transition.html">ui transitions</a> docs.</td>
         </tr>
         <tr>
           <td>duration</td>
@@ -752,13 +771,6 @@ themes      : ['Default', 'Material']
             false
           </td>
           <td>Whether additional animations should queue</td>
-        </tr>
-        <tr>
-          <td>easing</td>
-          <td>
-            easeOutExpo
-          </td>
-          <td>Animation easing is only used if javascript animations are used.</td>
         </tr>
       </tbody>
     </table>
