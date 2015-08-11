@@ -155,7 +155,7 @@ type        : 'Main'
     </div>
   </div>
 
-  <div class="example">
+  <div class="stretched example">
     <h4 class="ui header">Stretched rows</h4>
     <p>The new <a href="/collections/grid.html#stretched"><code>stretched</code></a> variation makes vertically aligning layouts much simpler. Columns will not only match heights, but stretch their contents to match heights.</p>
     <div class="ui three column stretched grid">
@@ -602,7 +602,7 @@ type        : 'Main'
   <h2 class="ui dividing header">Checkbox</h2>
 
 <!--   <div class="indeterminate example">
-    <h4 class="ui header">Progresssively Enhanced</h4>
+    <h4 class="ui header">Progressively Enhanced</h4>
     <p><a href="/modules/checkbox.html">Checkboxes</a> now can work without javascript, although additional features are available with javascript use.</p>
 
     <div class="ui checkbox">

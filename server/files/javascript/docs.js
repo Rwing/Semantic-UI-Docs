@@ -485,7 +485,7 @@ semantic.ready = function() {
       parseFile: function(content) {
         var
           variables = {},
-          lines = content.match(/^\W*(@[\s|\S]+?;)/gm),
+          lines = content.match(/^\s*(@[\s|\S]+?;)/gm),
           name,
           value
         ;
@@ -529,7 +529,7 @@ semantic.ready = function() {
             urlData  : urlData,
             onSuccess: function(content) {
               window.less.modifyVars( handler.less.parseFile(content) );
-              /*$themeDropdown
+              $themeDropdown
                 .api({
                   on       : 'now',
                   action   : 'getOverrides',
@@ -547,7 +547,7 @@ semantic.ready = function() {
                     $sticky.sticky('refresh');
                   }
                 })
-              ;*/
+              ;
             }
           })
         ;
@@ -987,6 +987,7 @@ semantic.ready = function() {
         preview       = $code.data('preview')  || false,
         label         = $code.data('label')    || false,
         preserve      = $code.data('preserve') || false,
+        escape        = $code.data('escape') || false,
         displayType   = {
           html       : 'HTML',
           javascript : 'Javascript',
@@ -1021,7 +1022,7 @@ semantic.ready = function() {
       }
 
       // escape html entities
-      if(contentType != 'html') {
+      if(contentType != 'html' || escape) {
         code = escapeHTML(code);
       }
 

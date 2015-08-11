@@ -554,7 +554,7 @@ type        : 'UI Behavior'
 
       <div class="no example">
         <h4 class="ui header">Response Callbacks</h4>
-        <p>Succesful responses from the server will trigger <code>onSuccess</code>, invalid results <code>onFailure</code>.<p>
+        <p>Successful responses from the server will trigger <code>onSuccess</code>, invalid results <code>onFailure</code>.<p>
         <p><code>onError</code> will only trigger on <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XHR</a> errors, but not on invalid JSON responses.</p>
         <p>You can use the <code>onResponse</code> callback to adjust the json response before being parsed against a success test.
         <div class="code" data-type="javascript">
@@ -567,7 +567,10 @@ type        : 'UI Behavior'
             successTest: function(response) {
               // test whether a json response is valid
               return response.success || false;
-            }
+            },
+            onComplete: function(response) {
+              // always called after xhr complete
+            },
             onSuccess: function(response) {
               // valid response and response.success = true
             },
@@ -595,7 +598,7 @@ type        : 'UI Behavior'
         <div class="code" data-type="json" data-title="Example Server Response">
         {
           "success": true,
-          "message": "We've retreived your data from the server"
+          "message": "We've retrieved your data from the server"
           "data": {
             // payload here
           }
@@ -934,6 +937,10 @@ type        : 'UI Behavior'
           <td>Gets event that API request will occur on</td>
         </tr>
         <tr>
+          <td>get url encoded value(value)</td>
+          <td>Returns <code>encodeURIComponent</code> value only if value passsed is not already encoded
+        </tr>
+        <tr>
           <td>read cached response(url)</td>
           <td>Reads a locally cached response for a URL</td>
         </tr>
@@ -1058,13 +1065,7 @@ type        : 'UI Behavior'
           <td>false</td>
           <td>Variables to use for replacement</td>
           <td></td>
-        </tr><!--
-        <tr>
-          <td>encodeUrlData</td>
-          <td>true</td>
-          <td>Where url data should be encoded with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent"><code>encodeURIComponent</code></a> before being added to URL.</td>
-          <td></td>
-        </tr> -->
+        </tr>
         <tr>
           <td>mockResponse</td>
           <td>false</td>
@@ -1074,7 +1075,7 @@ type        : 'UI Behavior'
         <tr>
           <td>mockResponseAsync(settings, callback)</td>
           <td>false</td>
-          <td>When specified, this function can be used to retreive content from a server and return it asynchronously <b>instead of</b> a standard AJAX call. The callback function should return the server response.</td>
+          <td>When specified, this function can be used to retrieve content from a server and return it asynchronously <b>instead of</b> a standard AJAX call. The callback function should return the server response.</td>
           <td>function or false</td>
         </tr>
         <tr>
@@ -1130,12 +1131,18 @@ type        : 'UI Behavior'
           <td>Allows modifying the server's response before parsed by other callbacks to determine API event success</td>
         </tr>
         <tr>
-          <td>onSuccess(response, element)</td>
+          <td>successTest(response)</td>
+          <td></td>
+          <td>Determines whether completed JSON response should be <a href="#determining-json-success">treated as successful</a>
+          </td>
+        </tr>
+        <tr>
+          <td>onSuccess(response, element, xhr)</td>
           <td>state context</td>
           <td>Callback after successful response, JSON response must pass <code>successTest</code></td>
         </tr>
         <tr>
-          <td>onComplete(response, element)</td>
+          <td>onComplete(response, element, xhr)</td>
           <td>state context</td>
           <td>Callback on request complete regardless of conditions</td>
         </tr>
@@ -1145,12 +1152,12 @@ type        : 'UI Behavior'
           <td>Callback on failed response, or JSON response that fails <code>successTest</code></td>
         </tr>
         <tr>
-          <td>onError(errorMessage, element)</td>
+          <td>onError(errorMessage, element, xhr)</td>
           <td>state context</td>
           <td>Callback on server error from returned status code, or XHR failure.</td>
         </tr>
         <tr>
-          <td>onAbort(errorMessage, element)</td>
+          <td>onAbort(errorMessage, element, xhr)</td>
           <td>state context</td>
           <td>Callback on abort caused by user clicking a link or manually cancelling request.</td>
         </tr>

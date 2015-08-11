@@ -83,17 +83,6 @@ standalone : true
     </div>
   </div>
 </div>
-<div class="ui promo alternative stripe vertical segment">
-  <div class="ui center aligned grid container">
-    <div class="fourteen wide stackable column">
-      <h3 class="ui header">
-        <img class="ui small image" src="/images/icons/community.png">
-        <div class="content">We're throwing a launch party July 14th in NYC and you're invited!</div>
-      </h3>
-      <a class="ui big primary button" href="https://www.eventbrite.com/e/semantic-ui-20-launch-party-tickets-17620305809" target="_blank">RSVP to Attend</a>
-    </div>
-  </div>
-</div>
 <div class="ui vertical stripe intro segment">
   <div class="ui stackable very relaxed center aligned grid container">
     <div class="row">
@@ -984,7 +973,7 @@ standalone : true
           <img class="ui icon image" src="/images/icons/mobile.png">
           Responsively Designed
         </h2>
-        <p>Semantic is <b>designed completely with em</b> making reponsive sizing a breeze. Design <em>variations</em> built into elements allow you to make the choice how content adjusts for tablet and mobile.</p>
+        <p>Semantic is <b>designed completely with em</b> making responsive sizing a breeze. Design <em>variations</em> built into elements allow you to make the choice how content adjusts for tablet and mobile.</p>
         <a class="ui large button" href="/usage/layout.html">Responsive Examples</a>
       </div>
       <div class="column">

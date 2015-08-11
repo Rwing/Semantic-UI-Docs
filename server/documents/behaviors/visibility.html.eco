@@ -187,7 +187,7 @@ type        : 'UI Behavior'
 
       <p>Visibility's default settings will only have each callback occur <b>the first time</b> which the conditions are met. On subsequent occurences the event will not fire.</p>
 
-      <p>Setting <code>continuous: true</code> will make the callback fire <b>anytime the callback contitions are met</b>. So for example if you set a "top visible" callback, this callback will fire with each change in scroll when the top is visible on the page.</p>
+      <p>Setting <code>continuous: true</code> will make the callback fire <b>anytime the callback conditions are met</b>. So for example if you set a "top visible" callback, this callback will fire with each change in scroll when the top is visible on the page.</p>
 
       <p>Setting <code>once: false</code> will make the callback fire each time a callback <b>becomes true</b>. So, using the same "top visible" example, the callback will fire each time the top of an element is passed. Even if you scroll back up and pass the element again</p>
 
@@ -797,12 +797,7 @@ type        : 'UI Behavior'
         <tr>
           <td>type</td>
           <td>false</td>
-          <td>Set to <code>image</code> to load images when on scren. Set to <code>fixed</code> to add class name <code>fixed</code> when passed.</td>
-        </tr>
-        <tr>
-          <td>type</td>
-          <td>false</td>
-          <td>Set to <code>image</code> to load images when on scren. Set to <code>fixed</code> to add class name <code>fixed</code> when passed.</td>
+          <td>Set to <code>image</code> to load images when on screen. Set to <code>fixed</code> to add class name <code>fixed</code> when passed.</td>
         </tr>
         <tr>
           <td>initialCheck</td>
@@ -810,9 +805,19 @@ type        : 'UI Behavior'
           <td>Whether visibility conditions should be checked immediately on init</td>
         </tr>
         <tr>
-          <td>checkOnResize</td>
+          <td>refreshOnLoad</td>
           <td>true</td>
-          <td>Whether visibility conditions should be checked on <code>visibility('refresh')</code> and window <code>resize</code>. Useful when content resizes causes continuous changes in position</td>
+          <td>Whether visibility conditions should be checked on window <code>load</code>. This ensures that after images load content positions will be updated correctly.</td>
+        </tr>
+        <tr>
+          <td>refreshOnResize</td>
+          <td>true</td>
+          <td>Whether visibility conditions should be checked on window <code>resize</code>. Useful when content resizes causes continuous changes in position</td>
+        </tr>
+        <tr>
+          <td>checkOnRefresh</td>
+          <td>true</td>
+          <td>Whether visibility conditions should be checked on calls to <code>refresh</code>. These calls can be triggered from either <code>resize</code>, <code>load</code> or manually calling <code>$('.foo').visiblity('refresh')</code></td>
         </tr>
         <tr>
           <td>offset</td>
