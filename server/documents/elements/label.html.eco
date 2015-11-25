@@ -10,7 +10,7 @@ title       : 'Label'
 description : 'A label displays content classification'
 type        : 'UI Element'
 
-themes      : ['Default']
+themes      : ['Default', 'GitHub']
 ---
 <link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/label.less" />
 
@@ -79,7 +79,7 @@ themes      : ['Default']
     </div>
   </div>
 
-  <div class="example" data-class="pointing above, pointing below, pointing left, pointing right">
+  <div class="example" data-class="pointing above, pointing below, left pointing, right pointing">
     <h4 class="ui header">Pointing</h4>
     <p>A label can point to content next to it</p>
     <form class="ui fluid form">
@@ -99,13 +99,13 @@ themes      : ['Default']
       <div class="ui divider"></div>
       <div class="inline field">
         <input type="text" placeholder="Username">
-        <div class="ui pointing left label">
+        <div class="ui left pointing label">
           That name is taken!
         </div>
       </div>
       <div class="ui divider"></div>
       <div class="inline field">
-        <div class="ui pointing right label">
+        <div class="ui right pointing label">
           Your password must be 6 characters or more
         </div>
         <input type="password">
@@ -113,6 +113,37 @@ themes      : ['Default']
     </form>
   </div>
 
+  <div class="another example">
+    <form class="ui fluid form">
+      <div class="field">
+        <input type="text" placeholder="First name">
+        <div class="ui pointing red basic label">
+          Please enter a value
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="field" placeholder="Last Name">
+        <div class="ui pointing below red basic label">
+          Please enter a value
+        </div>
+        <input type="text">
+      </div>
+      <div class="ui divider"></div>
+      <div class="inline field">
+        <input type="text" placeholder="Username">
+        <div class="ui left pointing red basic label">
+          That name is taken!
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="inline field">
+        <div class="ui right pointing red basic label">
+          Your password must be 6 characters or more
+        </div>
+        <input type="password">
+      </div>
+    </form>
+  </div>
   <div class="example" data-class="left corner, right corner, corner">
     <h4 class="ui header">Corner</h4>
     <p>A label can position itself in the corner of an element</p>
@@ -120,7 +151,7 @@ themes      : ['Default']
     <div class="ui two column grid">
       <div class="column">
         <div class="ui fluid image">
-          <a class="ui red left corner label">
+          <a class="ui left corner label">
             <i class="heart icon"></i>
           </a>
           <img src="/images/wireframe/image.png">
@@ -128,7 +159,7 @@ themes      : ['Default']
       </div>
       <div class="column">
         <div class="ui fluid image">
-          <a class="ui black right corner label">
+          <a class="ui red right corner label">
             <i class="save icon"></i>
           </a>
           <img src="/images/wireframe/image.png">
@@ -373,6 +404,21 @@ themes      : ['Default']
     <a class="ui brown empty circular label"></a>
     <a class="ui grey empty circular label"></a>
     <a class="ui black empty circular label"></a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Basic
+      <div class="ui black label">New in 2.1</div>
+    </h4>
+    <p>A label can reduce its complexity</p>
+    <a class="ui basic label">Basic</a>
+    <a class="ui pointing basic label">Pointing</a>
+    <a class="ui basic image label">
+      <img src="/images/avatar/small/elliot.jpg">
+      Elliot
+    <a class="ui pointing red basic label">Red Pointing</a>
+    <a class="ui blue basic label">Blue</a>
+    </a>
   </div>
 
   <div class="example">

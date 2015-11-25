@@ -81,9 +81,54 @@ themes      : ['Default', 'Classic', 'Basic', 'Bootstrap3', 'Twitter', 'Raised',
         $12.99 a month
       </div>
     </div>
-
   </div>
 
+  <div class="example" data-class="labeled, left labeled">
+    <h4 class="ui header">Labeled</h4>
+    <p>A button can appear alongside a <a href="/elements/label.html">label</a></p>
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui button">
+        <i class="heart icon"></i> Like
+      </div>
+      <a class="ui basic label">
+        2,048
+      </a>
+    </div>
+    <div class="ui left labeled button" tabindex="0">
+      <a class="ui basic right pointing label">
+        2,048
+      </a>
+      <div class="ui button">
+        <i class="heart icon"></i> Like
+      </div>
+    </div>
+    <div class="ui left labeled button" tabindex="0">
+      <a class="ui basic label">
+        1,048
+      </a>
+      <div class="ui icon button">
+        <i class="fork icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui red button">
+        <i class="heart icon"></i> Like
+      </div>
+      <a class="ui basic red left pointing label">
+        1,048
+      </a>
+    </div>
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui basic blue button">
+        <i class="fork icon"></i> Forks
+      </div>
+      <a class="ui basic left pointing blue label">
+        1,048
+      </a>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Icon</h4>
@@ -95,7 +140,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Bootstrap3', 'Twitter', 'Raised',
 
   <div class="example" data-class="labeled icon, right labeled icon">
     <h4 class="ui header">Labeled Icon</h4>
-    <p>A button can have an icon and a label</p>
+    <p>A button can use an icon as a label</p>
     <button class="ui labeled icon button">
       <i class="pause icon"></i>
       Pause
@@ -313,6 +358,14 @@ themes      : ['Default', 'Classic', 'Basic', 'Bootstrap3', 'Twitter', 'Raised',
       Massive
     </button>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Floated</h4>
+    <p>A button can be aligned to the left or right of its container</p>
+    <button class="ui right floated button">Right Floated</button>
+    <button class="ui left floated button">Left Floated</button>
+  </div>
+
 
   <div class="spaced example">
     <h4 class="ui header">Colored</h4>

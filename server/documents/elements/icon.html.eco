@@ -100,7 +100,6 @@ themes      : ['Default']
         <i class="calendar outline icon"></i>
         <i class="calendar icon"></i>
         <i class="cloud icon"></i>
-        <i class="code icon"></i>
         <i class="comment icon"></i>
         <i class="comments icon"></i>
         <i class="comment outline icon"></i>
@@ -1265,8 +1264,19 @@ themes      : ['Default']
     <h2 class="ui dividing header">Variations</h2>
 
     <div class="example">
+      <h4 class="ui header">Fitted</h4>
+      <p>An icon can be fitted, without any space to the left or right of it.</p>
+      Tight spacing
+      <i class="fitted help icon"></i>
+      Tight spacing
+    </div>
+
+    <div class="example">
       <h4 class="ui header">Size</h4>
       <p>An icon can vary in size</p>
+      <i class="mini home icon"></i>
+      <i class="tiny home icon"></i>
+      <i class="small home icon"></i>
       <i class="small home icon"></i>
       <br>
       <i class="home icon"></i>
@@ -1283,8 +1293,8 @@ themes      : ['Default']
     <div class="example">
       <h4 class="ui header">Link</h4>
       <p>An icon can be formatted as a link</p>
-      <i class="close icon link icon"></i>
-      <i class="help icon link icon"></i>
+      <i class="close link icon"></i>
+      <i class="help link icon"></i>
     </div>
 
     <div class="example">

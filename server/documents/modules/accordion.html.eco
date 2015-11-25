@@ -420,12 +420,16 @@ themes      : ['Default', 'Chubby']
 
     <p>Behaviors are short english phrases used for accessing specific functionality in
 
-    <p>Behaviors are accessible with javascript using the syntax:<p>
+    <p>Behaviors are accessible with Javascript using the syntax:<p>
     <div class="code">
     $('.ui.accordion').accordion('behavior', argumentOne, argumentTwo...);
     </div>
 
     <table class="ui definition celled table">
+      <tr>
+        <td>refresh</td>
+        <td>Refreshes all cached selectors and data</td>
+      </tr>
       <tr>
         <td>open (index)</td>
         <td>Opens accordion content at index</td>

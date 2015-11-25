@@ -134,13 +134,13 @@ themes      : ['Default']
         <i class="folder icon"></i>
         <div class="content">
           <div class="header">dist</div>
-          <div class="description">Compiled css and js files</div>
+          <div class="description">Compiled CSS and JS files</div>
           <div class="list">
             <div class="item">
               <i class="folder icon"></i>
               <div class="content">
                 <div class="header">components</div>
-                <div class="description">Individual component css and js</div>
+                <div class="description">Individual component CSS and JS</div>
               </div>
             </div>
           </div>
@@ -234,6 +234,24 @@ themes      : ['Default']
       <li>Deleting Your Account</li>
     </ol>
   </div>
+
+  <div class="another example">
+    <div class="ui ignored info message">You can also manually specify a value for an ordered list using <code>data-value</code> on a <code>div</code>, or <code>value</code> on an <code>li</code>
+    </div>
+    <ol class="ui list">
+      <li value="*">Signing Up</li>
+      <li value="*">User Benefits</li>
+      <li value="*">User Types
+        <ol>
+          <li value="-">Admin</li>
+          <li value="-">Power User</li>
+          <li value="-">Regular User</li>
+        </ol>
+      </li>
+      <li value="*">Deleting Your Account</li>
+    </ol>
+  </div>
+
 
   <div class="example" data-tag="a">
     <h4 class="ui header">Link</h4>
@@ -928,7 +946,7 @@ themes      : ['Default']
 
   <div class="example" data-use-content="true">
     <h4 class="ui header">Floated</h4>
-    <p>An element inside a list can be floated left or right</p>
+    <p>An list, or an element inside a list can be floated left or right</p>
     <div class="ui middle aligned divided list">
       <div class="item">
         <div class="right floated content">
@@ -966,6 +984,18 @@ themes      : ['Default']
           Molly
         </div>
       </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui right floated horizontal list">
+      <div class="disabled item" href="#">&copy; GitHub, Inc.</div>
+      <a class="item" href="#">Terms</a>
+      <a class="item" href="#">Privacy</a>
+      <a class="item" href="#">Contact</a>
+    </div>
+    <div class="ui horizontal list">
+      <a class="item" href="#">About Us</a>
+      <a class="item" href="#">Jobs</a>
     </div>
   </div>
 

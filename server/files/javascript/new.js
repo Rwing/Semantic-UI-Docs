@@ -20,6 +20,95 @@ semantic.new.ready = function() {
 
   };
 
+  // tab refresh
+  $('.masthead.tab.segment .stackable.menu .item')
+    .tab('setting', 'onLoad', function() {
+      semantic.handler.refreshSticky();
+      $(this).find('.overlay')
+        .visibility('refresh')
+      ;
+    })
+  ;
+
+
+  // 2.1
+
+  $('.mapping.example .ui.search')
+    .search({
+      apiSettings: {
+        url: '//api.github.com/search/repositories?q={query}',
+        cache: true
+      },
+      fields: {
+        results : 'items',
+        title   : 'name',
+        url     : 'html_url'
+      }
+    })
+  ;
+
+  $('.fields.example .ui.search')
+    .search({
+      source: [
+      {
+        mustard: 'Title #1',
+        pickle: 'thing'
+      },
+      {
+        mustard: 'Title #2',
+        pickle: 'another thing'
+      },
+      {
+        mustard: 'Title #3',
+        pickle: 'thing 100'
+      }
+    ],
+    fields: {
+      title   : 'mustard'
+    },
+    searchFields: ['pickle']
+    })
+  ;
+
+  $('.validation.example')
+    .form({
+      inline: true,
+      fields: {
+        firstName: {
+          identifier  : 'first-name',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter your first name'
+            }
+          ]
+        },
+        lastName: {
+          identifier  : 'last-name',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter your last name'
+            }
+          ]
+        },
+        terms: {
+          identifier : 'terms',
+          rules: [
+            {
+              type   : 'checked',
+              prompt : 'You must agree to the terms and conditions'
+            }
+          ]
+        }
+      }
+    })
+  ;
+
+
+
+  /// 2.0
+
   // form
   $('.form.example .ui.dropdown')
     .dropdown()

@@ -221,9 +221,6 @@ themes      : ['Default', 'Chubby', 'GitHub', 'Material']
   </div>
   <div class="another example">
     <div class="ui top attached tabular menu">
-      <div class="item">
-        <img src="/images/logo.png">
-      </div>
       <a class="active item">
         Bio
       </a>
@@ -241,6 +238,27 @@ themes      : ['Default', 'Chubby', 'GitHub', 'Material']
     </div>
     <div class="ui bottom attached segment">
       <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui top attached segment">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+    <div class="ui bottom attached tabular menu">
+      <a class="active item">
+        Active Project
+      </a>
+      <a class="item">
+        Project #2
+      </a>
+      <a class="item">
+        Project #3
+      </a>
+      <div class="right menu">
+        <a class="item">
+          <i class="add icon"></i> New Tab
+        </a>
+      </div>
     </div>
   </div>
   <div class="another example">
@@ -264,6 +282,31 @@ themes      : ['Default', 'Chubby', 'GitHub', 'Material']
       <div class="twelve wide stretched column">
         <div class="ui segment">
           This is an stretched grid column. This segment will always match the tab height
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui grid">
+      <div class="twelve wide stretched column">
+        <div class="ui segment">
+          This is an stretched grid column. This segment will always match the tab height
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui vertical fluid right tabular menu">
+          <a class="active item">
+            Bio
+          </a>
+          <a class="item">
+            Pics
+          </a>
+          <a class="item">
+            Companies
+          </a>
+          <a class="item">
+            Links
+          </a>
         </div>
       </div>
     </div>
@@ -525,7 +568,7 @@ themes      : ['Default', 'Chubby', 'GitHub', 'Material']
     <h4 class="ui header">Dropdown Item</h4>
     <p>An item may contain a nested menu in a <a href="/modules/dropdown.html">dropdown</a>.</p>
     <div class="ui ignored message">
-      <p>To have a dropdown open without javascript, use the <a href="/modules/dropdown.html#simple">simple</a> variation</p>
+      <p>To have a dropdown open without Javascript, use the <a href="/modules/dropdown.html#simple">simple</a> variation</p>
     </div>
     <div class="ui vertical menu">
       <div class="ui dropdown item">
@@ -661,8 +704,11 @@ themes      : ['Default', 'Chubby', 'GitHub', 'Material']
     <p>A menu item can be hovered</p>
     <div class="ui ignore warning message">Menu items are only hoverable if they are <code>a</code> links, or given the class name <code>link</code></div>
     <div class="ui compact menu">
-      <div class="hover item">
-        Link
+      <a class="item">
+        A link
+      </a>
+      <div class="link item">
+        div Link
       </div>
     </div>
   </div>
@@ -833,20 +879,20 @@ themes      : ['Default', 'Chubby', 'GitHub', 'Material']
     <h4 class="ui header">Colored</h4>
     <p>Additional colors can be specified.</p>
     <div class="ui menu">
-      <a class="ui active red item">Red</a>
-      <a class="ui orange item">Orange</a>
-      <a class="ui yellow item">Yellow</a>
-      <a class="ui olive item">Olive</a>
-      <a class="ui green item">Green</a>
-      <a class="ui teal item">Teal</a>
+      <a class="active red item">Red</a>
+      <a class="orange item">Orange</a>
+      <a class="yellow item">Yellow</a>
+      <a class="olive item">Olive</a>
+      <a class="green item">Green</a>
+      <a class="teal item">Teal</a>
     </div>
     <div class="ui menu">
-      <a class="ui blue item">Blue</a>
-      <a class="ui violet item">Violet</a>
-      <a class="ui purple item">Purple</a>
-      <a class="ui pink item">Pink</a>
-      <a class="ui brown item">Brown</a>
-      <a class="ui grey item">Grey</a>
+      <a class="blue item">Blue</a>
+      <a class="violet item">Violet</a>
+      <a class="purple item">Purple</a>
+      <a class="pink item">Pink</a>
+      <a class="brown item">Brown</a>
+      <a class="grey item">Grey</a>
     </div>
   </div>
   <div class="another example">
@@ -985,6 +1031,24 @@ themes      : ['Default', 'Chubby', 'GitHub', 'Material']
   </div>
   <div class="another example">
     <p>These colors can also be inverted</p>
+    <div class="ui inverted menu">
+      <a class="active red item">Red</a>
+      <a class="orange item">Orange</a>
+      <a class="yellow item">Yellow</a>
+      <a class="olive item">Olive</a>
+      <a class="green item">Green</a>
+      <a class="teal item">Teal</a>
+    </div>
+    <div class="ui inverted menu">
+      <a class="blue item">Blue</a>
+      <a class="violet item">Violet</a>
+      <a class="purple item">Purple</a>
+      <a class="pink item">Pink</a>
+      <a class="brown item">Brown</a>
+      <a class="grey item">Grey</a>
+    </div>
+  </div>
+  <div class="another example">
     <div class="ui red three item inverted menu">
       <a class="active item">
         Home

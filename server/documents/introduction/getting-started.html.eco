@@ -27,6 +27,12 @@ type        : 'Main'
     <p>For integrating Semantic UI tasks into your own build tools, or using a CDN see our <a href="/introduction/advanced-usage.html">recipes</a> section.</p>
 
   </div>
+  <div class="ui large info message">
+    <div class="ui header">Simpler Setup</div>
+    <p>If you are using Semantic UI as a dependency and just want to use our default theme, use our lighter <a href="https://github.com/Semantic-Org/Semantic-UI-CSS" target="_blank"><code>semantic-ui-css</code></a> or <a href="https://github.com/Semantic-Org/Semantic-UI-Less" target="_blank"><code>semantic-ui-less</code></a> repo. If you just need the files you can download them as a zip from GitHub.</p>
+    <a href="https://github.com/Semantic-Org/Semantic-UI-CSS/archive/master.zip" class="ui secondary button">Download Zip</a>
+    <a href="https://github.com/Semantic-Org/" class="ui button" target="_blank">View all Semantic-Org Repos </a>
+  </div>
 
   <h2 class="ui dividing header">Installing</h2>
 
@@ -116,9 +122,9 @@ type        : 'Main'
 
   <div class="no example">
     <h4>Include in Your HTML</h4>
-    <p>Running the gulp build tools will compile css and javascript for use in your project. Just link to these files in your html.</p>
+    <p>Running the gulp build tools will compile CSS and Javascript for use in your project. Just link to these files in your HTML.</p>
     <div class="ignored code" data-type="html" data-escape="true">
-      &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/semantic/dist/semantic.min.css&quot;&gt;
+      &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;semantic/dist/semantic.min.css&quot;&gt;
       &lt;script src=&quot;semantic/dist/semantic.min.js&quot;&gt;&lt;/script&gt;
     </div>
   </div>

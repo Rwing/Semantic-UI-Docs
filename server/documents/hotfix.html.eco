@@ -7,17 +7,27 @@ title      : 'Test Page'
 type       : 'Library'
 ---
 
+<div class="ui container">
+
+
+    <select class="ui search dropdown">
+      <%- @partial('examples/single/state-options') %>
+    </select>
+</div>
+
+</body>
 <!-- TEST JS HERE !-->
 <script>
-$(document).ready(function() {
-});
+$(document)
+  .ready(function(){
+    $('.ui.search.dropdown').dropdown();
+  })
+;
 </script>
 
 <!-- TEST CSS HERE !-->
 <style type="text/css">
+body > .ui.container:first-child {
+  margin-top: 5em;
+}
 </style>
-
-<div class="ui container" style="padding-top: 2em;">
-
-</div>
-</body>

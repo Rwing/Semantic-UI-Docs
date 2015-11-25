@@ -10,7 +10,7 @@ title       : 'Input'
 description : 'An input is a field used to elicit a response from a user'
 type        : 'UI Element'
 
-themes      : ['Default']
+themes      : ['Default', 'GitHub']
 ---
 
 <%- @partial('header') %>
@@ -24,7 +24,6 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">
       Input
-      <span class="ui teal label">Flexbox</span>
     </h4>
     <p>A standard input</p>
     <div class="ui input">
@@ -50,10 +49,30 @@ themes      : ['Default']
       <input type="text" placeholder="Search...">
       <i class="search icon"></i>
     </div>
-    <div class="ui divider"></div>
+  </div>
+  <div class="another example">
     <div class="ui icon input loading">
       <input type="text" placeholder="Search...">
       <i class="search icon"></i>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>An input field can show that it is disabled</p>
+    <div class="ui disabled input">
+      <input type="text" placeholder="Search...">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui disabled icon input">
+      <i class="search icon"></i>
+      <input type="text" placeholder="Search...">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui input">
+      <input type="text" placeholder="Search..." disabled>
     </div>
   </div>
 
@@ -122,6 +141,21 @@ themes      : ['Default']
     </div>
   </div>
   <div class="another example">
+    <div class="ui right labeled input">
+      <input type="text" placeholder="Enter weight..">
+      <div class="ui basic label">
+        kg
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui right labeled input">
+      <div class="ui label">$</div>
+      <input type="text" placeholder="Amount">
+      <div class="ui basic label">.00</div>
+    </div>
+  </div>
+  <div class="another example">
     <div class="ui right labeled left icon input">
       <i class="tags icon"></i>
       <input type="text" placeholder="Enter tags">
@@ -168,7 +202,7 @@ themes      : ['Default']
     <div class="ui right action left icon input">
       <i class="search icon"></i>
       <input type="text" placeholder="Search">
-      <div class="ui dropdown button">
+      <div class="ui basic floating dropdown button">
         <div class="text">This Page</div>
         <i class="dropdown icon"></i>
         <div class="menu">
@@ -183,7 +217,7 @@ themes      : ['Default']
       <input type="text" placeholder="Search...">
       <select class="ui compact selection dropdown">
         <option value="all">All</option>
-        <option value="articles">Articles</option>
+        <option selected value="articles">Articles</option>
         <option value="products">Products</option>
       </select>
       <div type="submit" class="ui button">Search</div>

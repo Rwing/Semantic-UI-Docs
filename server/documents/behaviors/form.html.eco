@@ -24,18 +24,33 @@ type        : 'UI Behavior'
 
     <h2 class="ui dividing header">Usage</h2>
 
-    <div class="example">
-      <h4 class="ui header">Setting-up Fields</h4>
+    <div class="auto example">
+      <h4 class="ui header">Specifying Validation Rules</h4>
       <p>Form validation requires passing in a validation object with the rules required to validate your form.</p>
       <div class="ui ignored info message">
-        A validation object includes a list of form elements, and rules to validate each against. Fields are matched by either the <code>id</code> tag, <code>name</code> tag, or the <code>data-validate</code> metadata matching the identifier provided in the settings object.
+        A validation object includes a list of form elements, and rules to validate each field against. Fields are matched by either the <code>id</code>, <code>name</code>, or <code>data-validate</code>  property matching the identifier specified in the settings object.
       </div>
-      <div class="ignore code">
+      <div class="ignore code" data-title="Shorthand Validation">
+      $('.ui.form')
+        .form({
+          fields: {
+            name     : 'empty',
+            gender   : 'empty',
+            username : 'empty',
+            password : ['minLength[6]', 'empty'],
+            skills   : ['minCount[2]', 'empty'],
+            terms    : 'checked'
+          }
+        })
+      ;
+      </div>
+      <div class="ui horizontal divider">or</div>
+      <div class="ignore code" data-title="Full Validation Settings">
       $('.ui.form')
         .form({
           fields: {
             name: {
-              identifier  : 'name',
+              identifier: 'name',
               rules: [
                 {
                   type   : 'empty',
@@ -44,14 +59,16 @@ type        : 'UI Behavior'
               ]
             },
             skills: {
-              identifier : 'skills',
+              identifier: 'skills',
               rules: [
-                type   : 'minCount[2]',
-                prompt : 'Please select at least two skills'
+                {
+                  type   : 'minCount[2]',
+                  prompt : 'Please select at least two skills'
+                }
               ]
             },
             gender: {
-              identifier  : 'gender',
+              identifier: 'gender',
               rules: [
                 {
                   type   : 'empty',
@@ -60,7 +77,7 @@ type        : 'UI Behavior'
               ]
             },
             username: {
-              identifier : 'username',
+              identifier: 'username',
               rules: [
                 {
                   type   : 'empty',
@@ -69,7 +86,7 @@ type        : 'UI Behavior'
               ]
             },
             password: {
-              identifier : 'password',
+              identifier: 'password',
               rules: [
                 {
                   type   : 'empty',
@@ -77,12 +94,12 @@ type        : 'UI Behavior'
                 },
                 {
                   type   : 'minLength[6]',
-                  prompt : 'Your password must be at least 6 characters'
+                  prompt : 'Your password must be at least {ruleValue} characters'
                 }
               ]
             },
             terms: {
-              identifier : 'terms',
+              identifier: 'terms',
               rules: [
                 {
                   type   : 'checked',
@@ -144,6 +161,102 @@ type        : 'UI Behavior'
       </div>
     </form>
 
+    <div class="prompt example">
+      <h4 class="ui header">Customizing Prompts</h4>
+      <p>Form validation includes default error prompts for most cases, however these can be quite generic. To specify custom personalized values for a validation prompt use the <code>prompt</code> property with a rule.</p>
+      <div class="ui ignored info message">You can set default messages for each validation rule type by modifying <code>$fn.form.settings.prompt</code></div>
+      <p>Prompt also supports custom templating with the following values replaced</p>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide"><b>{name}</b></td>
+            <td>The current text of a field's label, or if no label available its placeholder text</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>{identifier}</b></td>
+            <td>The identifier used to match the field</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>{value}</b></td>
+            <td>The current field value</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>{ruleValue}</b></td>
+            <td>The value passed to a rule, for example <code>minLength[100]</code> would set this value to 100</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ignored code">
+      $('.ui.form')
+        .form({
+          fields: {
+            field1: {
+              rules: [
+                {
+                  type   : 'empty'
+                }
+              ]
+            },
+            field2: {
+              rules: [
+                {
+                  type   : 'exactly[dog]',
+                  prompt : '{name} is set to "{value}" that is totally wrong. It should be {ruleValue}'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Field 1</label>
+            <input type="text" name="field1">
+          </div>
+          <div class="field">
+            <label>Field 2</label>
+            <input type="text" name="field2">
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui error message">
+        </div>
+      </form>
+    </div>
+
+    <div class="matching example">
+      <h4 class="ui header">Matching Fields</h4>
+      <p>By default the property name used in the validation object will match against the <code>id</code>, <code>name</code>, or <code>data-validate</code> property of each input to find the corresponding field to match validation rules against.</p>
+      <p>If you need to specify a different identifier you can use the <code>identifier</code> property on each validation rule</p>
+      <div class="ignored code">
+      $('.ui.form')
+        .form(
+          fields: {
+            name: {
+              identifier : 'special-name',
+              rules: [
+                {
+                  type   : 'empty'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="field">
+          <label>Special Field</label>
+          <input type="text" name="special-name">
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui error message">
+        </div>
+      </form>
+    </div>
+
     <h2 class="ui dividing header">Rules</h2>
 
     <div class="no example">
@@ -180,10 +293,21 @@ type        : 'UI Behavior'
             <td>url</td>
             <td>A field is a url</td>
             <td></td>
+          </tr>
           <tr>
             <td>integer</td>
             <td>A field is an integer value, or matches an integer range</td>
             <td><code>integer</code> or <code>integer[1..10]</code></td>
+          </tr>
+          <tr>
+            <td>decimal</td>
+            <td>A field must be a decimal number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>number</td>
+            <td>A field is any number decimal or non-decimal</td>
+            <td></td>
           </tr>
           <tr>
             <td>regExp[expression]</td>
@@ -196,6 +320,23 @@ type        : 'UI Behavior'
           </tr>
         </tbody>
       </table>
+
+      <h3 class="ui header"><a href="#payment">Payment</a></h3>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide">creditCard</td>
+            <td class="six wide">A field is a valid credit card</td>
+            <td><code>creditCard</code></td>
+          </tr>
+          <tr>
+            <td>creditCard[types]</td>
+            <td>A field matches a specified array of card types</td>
+            <td><code>creditCard[visa,mastercard,unionpay]</code></td>
+          </tr>
+        </tbody>
+      </table>
+
       <h3 class="ui header"><a href="#specified-content">Specified Content</a></h3>
       <table class="ui celled sortable basic table segment">
         <tbody>
@@ -220,11 +361,6 @@ type        : 'UI Behavior'
             <td><code>doesntContainExactly[foo]</code></td>
           </tr>
           <tr>
-            <td>integer</td>
-            <td>A field is an integer value, or matches an integer range</td>
-            <td><code>integer</code> or <code>integer[1..10]</code></td>
-          </tr>
-          <tr>
             <td>is</td>
             <td>A field is a value (case insensitive)</td>
             <td><code>is[foo]</code></td>
@@ -246,6 +382,7 @@ type        : 'UI Behavior'
           </tr>
         </tbody>
       </table>
+
       <h3 class="ui header"><a href="#length">Length</a></h3>
       <table class="ui celled sortable basic table segment">
         <tbody>
@@ -272,7 +409,7 @@ type        : 'UI Behavior'
         <tbody>
           <tr>
             <td class="four wide">match</td>
-            <td>A field should match the value of another validation field, for example to confirm passwords</td class="six wide">
+            <td class="six wide">A field should match the value of another validation field, for example to confirm passwords</td>
             <td><code>match[password]</code></td>
           </tr>
           <tr>
@@ -638,6 +775,16 @@ type        : 'UI Behavior'
         </div>
         <div class="two fields">
           <div class="field">
+            <label>Decimal</label>
+            <input name="decimal" type="text" value="1.1.1">
+          </div>
+          <div class="field">
+            <label>Number</label>
+            <input name="number" type="text" value="+200">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
             <label>URL</label>
             <input name="url" type="text" value="ww.fakeurl.com">
           </div>
@@ -660,6 +807,24 @@ type        : 'UI Behavior'
                   {
                     type   : 'integer[1..100]',
                     prompt : 'Please enter an integer value'
+                  }
+                ]
+              },
+              decimal: {
+                identifier  : 'decimal',
+                rules: [
+                  {
+                    type   : 'decimal',
+                    prompt : 'Please enter a valid decimal'
+                  }
+                ]
+              },
+              number: {
+                identifier  : 'number',
+                rules: [
+                  {
+                    type   : 'number',
+                    prompt : 'Please enter a valid number'
                   }
                 ]
               },
@@ -687,6 +852,111 @@ type        : 'UI Behavior'
                   {
                     type   : 'regExp[/^[a-z0-9_-]{4,16}$/]',
                     prompt : 'Please enter a 4-16 letter username'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+      </div>
+    </div>
+    <div class="payment example">
+      <h4 class="ui header">Payment</h4>
+      <p>Inputs can validate credit cards and other payment types.</p>
+
+      <table class="ui very basic collapsing celled table">
+        <tbody>
+          <tr>
+            <td class="four wide">Card Name</td>
+            <td class="six wide">Validation Name</td>
+            <td class="six wide">Test Card Number</td>
+          </tr>
+          <tr>
+            <td>Visa</td>
+            <td><code>visa</code></td>
+            <td>4565340519181845</td>
+          </tr>
+          <tr>
+            <td>American Express</td>
+            <td><code>amex</code></td>
+            <td>378282246310005</td>
+          </tr>
+          <tr>
+            <td>Mastercard</td>
+            <td><code>mastercard</code></td>
+            <td>5200828282828210</td>
+          </tr>
+          <tr>
+            <td>Discover</td>
+            <td><code>discover</code></td>
+            <td>6011111111111117</td>
+          </tr>
+          <tr>
+            <td>Unionpay</td>
+            <td><code>unionpay</code></td>
+            <td>6240008631401148</td>
+          </tr>
+          <tr>
+            <td>JCB</td>
+            <td><code>jcb</code></td>
+            <td>3530111333300000</td>
+          </tr>
+          <tr>
+            <td>Diner's Club</td>
+            <td><code>dinersClub</code></td>
+            <td>38520000023237</td>
+          </tr>
+          <tr>
+            <td>Maestro</td>
+            <td><code>maestro</code></td>
+            <td>6799990100000000019</td>
+          </tr>
+          <tr>
+            <td>Laser</td>
+            <td><code>laser</code></td>
+            <td>630490017740292441</td>
+          </tr>
+          <tr>
+            <td>Visa Electron</td>
+            <td><code>visaElectron</code></td>
+            <td>4917300800000000</td>
+          </tr>
+        </tbody>
+      </table>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Credit Card</label>
+            <input name="card" type="text" value="4444444444444444">
+          </div>
+          <div class="field">
+            <label>Certain Type</label>
+            <input name="exact-card" type="text" value="4444444444444444">
+          </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+      <div class="evaluated code">
+        $('.payment.example form')
+          .form({
+            on: 'blur',
+            fields: {
+              card: {
+                identifier  : 'card',
+                rules: [
+                  {
+                    type   : 'creditCard',
+                    prompt : 'Please enter a valid credit card'
+                  }
+                ]
+              },
+              exactCard: {
+                identifier  : 'exact-card',
+                rules: [
+                  {
+                    type   : 'creditCard[visa,amex]',
+                    prompt : 'Please enter a visa or amex card'
                   }
                 ]
               }
@@ -1027,7 +1297,7 @@ type        : 'UI Behavior'
         .dropdown()
       ;
       $('.ui.form')
-        .form(
+        .form({
           fields: {
             gender: {
               identifier  : 'gender',
@@ -1069,6 +1339,33 @@ type        : 'UI Behavior'
               </div>
             </div>
           </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+      </form>
+    </div>
+    <div class="data example">
+      <h4 class="ui header">Using Server Name Attributes</h4>
+      <p>Sometimes an integration requires you to use a specific value for <code>name</code>, or <code>id</code>. In these cases, you can match a form field using the <code>data-validate</code> property.</p>
+      <div class="ignored code">
+      $('.ui.form')
+        .form(
+          fields: {
+            name: {
+              identifier : 'name',
+              rules: [
+                {
+                  type   : 'empty'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="SERVER_REQUIRED_NAME" data-validate="name">
         </div>
         <div class="ui blue submit button">Submit</div>
       </form>
@@ -1330,7 +1627,7 @@ type        : 'UI Behavior'
       </tr>
       <tr>
         <td>get validation(element)</td>
-        <td>Returns validation rules for a given field</td>
+        <td>Returns validation rules for a given jQuery-referenced input field</td>
       </tr>
       <tr>
         <td>has field(identifier)</td>
@@ -1353,7 +1650,7 @@ type        : 'UI Behavior'
       <table class="ui celled sortable definition table">
         <thead>
           <th>Setting</th>
-          <th class="four wide">Default</th>
+          <th class="six wide">Default</th>
           <th>Description</th>
         </thead>
         <tbody>
@@ -1397,6 +1694,68 @@ type        : 'UI Behavior'
         </tbody>
       </table>
     </div>
+
+    <div class="no example">
+      <h4 class="ui header">
+        Form Prompts
+      </h4>
+      <p>Settings to modify default form prompts</p>
+
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th class="collapsing">Setting</th>
+          <th>Default</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>text</td>
+            <td>
+              <div class="code">
+              text: {
+                unspecifiedRule  : 'Please enter a valid value',
+                unspecifiedField : 'This field'
+              }
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>prompt</td>
+            <td>
+              <div class="code">
+              prompt: {
+                empty                : '{name} must have a value',
+                checked              : '{name} must be checked',
+                email                : '{name} must be a valid e-mail',
+                url                  : '{name} must be a valid url',
+                regExp               : '{name} is not formatted correctly',
+                integer              : '{name} must be an integer',
+                decimal              : '{name} must be a decimal number',
+                number               : '{name} must be set to a number',
+                is                   : '{name} must be \'{ruleValue}\'',
+                isExactly            : '{name} must be exactly \'{ruleValue}\'',
+                not                  : '{name} cannot be set to \'{ruleValue}\'',
+                notExactly           : '{name} cannot be set to exactly \'{ruleValue}\'',
+                contain              : '{name} cannot contain \'{ruleValue}\'',
+                containExactly       : '{name} cannot contain exactly \'{ruleValue}\'',
+                doesntContain        : '{name} must contain  \'{ruleValue}\'',
+                doesntContainExactly : '{name} must contain exactly \'{ruleValue}\'',
+                minLength            : '{name} must be at least {ruleValue} characters',
+                length               : '{name} must be at least {ruleValue} characters',
+                exactLength          : '{name} must be exactly {ruleValue} characters',
+                maxLength            : '{name} cannot be longer than {ruleValue} characters',
+                match                : '{name} must match {ruleValue} field',
+                different            : '{name} must have a different value than {ruleValue} field',
+                creditCard           : '{name} must be a valid credit card number',
+                minCount             : '{name} must have at least {ruleValue} choices',
+                exactCount           : '{name} must have exactly {ruleValue} choices',
+                maxCount             : '{name} must have {ruleValue} or less choices'
+              }
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="no example">
       <h4 class="ui header">
         Callbacks
@@ -1421,12 +1780,12 @@ type        : 'UI Behavior'
             <td>Callback on each invalid field</td>
           </tr>
           <tr>
-            <td>onSuccess</td>
+            <td>onSuccess(event, fields)</td>
             <td>form</td>
             <td>Callback if a form is all valid</td>
           </tr>
           <tr>
-            <td>onFailure</td>
+            <td>onFailure(formErrors, fields)</td>
             <td>form</td>
             <td>Callback if any form field is invalid</td>
           </tr>
@@ -1438,7 +1797,7 @@ type        : 'UI Behavior'
         Templates
       </h4>
       <p>Templates are used to construct elements</p>
-      <div class="ui ignored info message">Templates are found in <code>settings.template</code>, to modify templates across all forms, modify <code>$.fn.form.settings.templates</code> to include your function. They must return html.</div>
+      <div class="ui ignored info message">Templates are found in <code>settings.template</code>, to modify templates across all forms, modify <code>$.fn.form.settings.templates</code> to include your function. They must return HTML.</div>
       <table class="ui celled sortable definition table">
         <thead>
           <th class="four wide">Template</th>

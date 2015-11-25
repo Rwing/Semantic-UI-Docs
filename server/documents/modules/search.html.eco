@@ -13,7 +13,7 @@ type        : 'UI Module'
 <link rel="stylesheet/less" type="text/css" href="/src/definitions/modules/search.less" />
 <script src="/javascript/search.js"></script>
 
-<%- @partial('header', { tabs: { definition: 'Definition', usage: 'Usage', settings: 'Settings'} }) %>
+<%- @partial('header', { tabs: { definition: 'Definition', examples: 'Examples', usage: 'Usage', settings: 'Settings'} }) %>
 
 <div class="main ui container">
 
@@ -149,11 +149,6 @@ type        : 'UI Module'
 
   </div>
 
-  <div class="ui tab" data-tab="examples">
-    <h2 class="ui dividing header">Examples</h2>
-
-
-  </div>
   <div class="ui tab" data-tab="usage">
 
     <h2 class="ui dividing header">Initializing</h2>
@@ -174,7 +169,7 @@ type        : 'UI Module'
     </div>
 
     <h4 class="ui header">Named URL</h4>
-    <p>You can specify custom API settings to adjust the url, callback settings, or specify a different api action.</p>
+    <p>You can specify custom API settings to adjust the url, callback settings, or specify a different API action.</p>
     <div class="code" data-label="javascript">
 
       // initializes with default endpoint /search/{query}
@@ -400,7 +395,7 @@ type        : 'UI Module'
         </tr>
         <tr>
           <td>add results(html)</td>
-          <td>Adds html to results and displays</td>
+          <td>Adds HTML to results and displays</td>
         </tr>
         <tr>
           <td>show results</td>
@@ -422,6 +417,91 @@ type        : 'UI Module'
     </table>
 
 
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
+
+    <div class="mapping example">
+      <h4 class="ui header">Using Different Response Fields</h4>
+      <p>Search expects a very specific API response, however you can easily modify the mapping of server response to displayed field using the <code>fields</code> parameter.
+      <div class="ui ignored code">
+      $('.ui.search')
+        .search({
+          apiSettings: {
+            url: '//api.github.com/search/repositories?q={query}'
+          },
+          fields: {
+            results : 'items',
+            title   : 'name',
+            url     : 'html_url'
+          },
+          minCharacters : 3
+        })
+      ;
+      </div>
+      <div class="ui search">
+        <div class="ui left icon input">
+          <input class="prompt" type="text" placeholder="Search GitHub">
+          <i class="github icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="external example">
+      <h4 class="ui header">Using API Settings</h4>
+      <p><a href="/behaviors/api.html">API</a> provides a callback <a href="/behaviors/api.html#response-callbacks"><code>onResponse</code></a> that can be used to restructure third party APIs to match the expected server response for search.</p>
+      <p>You can also use <a href="/behaviors/api.html#mocking-responses"><code>mockResponseAsync</code></a> to use a custom backend for fullfilling searches.</p>
+      <div class="ui search">
+        <div class="ui left icon input">
+          <input class="prompt" type="text" placeholder="Search GitHub">
+          <i class="github icon"></i>
+        </div>
+      </div>
+      <div class="ignored code" data-type="javascript">
+      $('.ui.search')
+        .search({
+          type          : 'category',
+          minCharacters : 3,
+          apiSettings   : {
+            onResponse: function(githubResponse) {
+              var
+                response = {
+                  results : {}
+                }
+              ;
+              // translate GitHub API response to work with search
+              $.each(githubResponse.items, function(index, item) {
+                var
+                  language   = item.language || 'Unknown',
+                  maxResults = 8
+                ;
+                if(index >= maxResults) {
+                  return false;
+                }
+                // create new language category
+                if(response.results[language] === undefined) {
+                  response.results[language] = {
+                    name    : language,
+                    results : []
+                  };
+                }
+                // add result to category
+                response.results[language].results.push({
+                  title       : item.name,
+                  description : item.description,
+                  url         : item.html_url
+                });
+              });
+              return response;
+            },
+            url: '//api.github.com/search/repositories?q={query}'
+          }
+        })
+      ;
+      </div>
+    </div>
   </div>
 
   <div class="ui tab" data-tab="settings">
@@ -482,13 +562,34 @@ type        : 'UI Module'
         <tr>
           <td>source</td>
           <td>false</td>
-          <td>Specify a javascript object which will be searched locally</td>
+          <td>Specify a Javascript object which will be searched locally</td>
         </tr>
         <tr>
           <td>searchFullText</td>
           <td>true</td>
           <td>Return local results that match anywhere inside your content</td>
-        </tr>
+      </tr>
+      <tr>
+        <td>fields</td>
+        <td>
+          <div class="code" data-type="css">
+          fields: {
+            categories      : 'results',     // array of categories (category view)
+            categoryName    : 'name',        // name of category (category view)
+            categoryResults : 'results',     // array of results (category view)
+            description     : 'description', // result description
+            image           : 'image',       // result image
+            price           : 'price',       // result price
+            results         : 'results',     // array of results (standard)
+            title           : 'title',       // result title
+            action          : 'action',      // "view more" object name
+            actionText      : 'text',        // "view more" text
+            actionURL       : 'url'          // "view more" url
+          }
+          </div>
+        </td>
+        <td>List mapping display content to JSON property, either with API or <code>source</code>.</td>
+      </tr>
         <tr>
           <td>searchFields</td>
           <td>
@@ -516,7 +617,7 @@ type        : 'UI Module'
           <td>
             easeOutExpo
           </td>
-          <td>Easing equation when using fallback javascript animation</td>
+          <td>Easing equation when using fallback Javascript animation</td>
         </tr>
       </tbody>
     </table>
@@ -540,10 +641,10 @@ type        : 'UI Module'
         <tr>
           <td>onResultsAdd(html)</td>
           <td>module</td>
-          <td>Callback after processing element template to add html to results. Function should return false to prevent default actions.</td>
+          <td>Callback after processing element template to add HTML to results. Function should return false to prevent default actions.</td>
         </tr>
         <tr>
-          <td>onSearchQuery</td>
+          <td>onSearchQuery(query)</td>
           <td>module</td>
           <td>Callback on search query</td>
         </tr>
@@ -569,7 +670,7 @@ type        : 'UI Module'
       Templates
     </h2>
 
-    <p>These templates are used to generate the html structures for search results</p>
+    <p>These templates are used to generate the HTML structures for search results</p>
 
     <div class="ui ignored info message">
       By specifying a search as <code>type: 'customType'</code>, and a custom template under <code>$.fn.search.settings.templates.customType</code> you can create custom search results. Keep in mind that <code>.title</code> will be used for matching results <code>onSelect</code>

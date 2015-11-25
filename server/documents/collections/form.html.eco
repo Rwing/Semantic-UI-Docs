@@ -289,7 +289,7 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
     <h4 class="ui header">Checkbox</h4>
     <p>A form can contain a <a href="/modules/checkbox.html">checkbox</a></p>
     <div class="ui ignored info message">
-      UI checkbox are special, styled versions of standard html checkboxes.
+      UI checkbox are special, styled versions of standard HTML checkboxes.
     </div>
     <div class="evaluated code" data-type="javascript" data-label="true">
     $('.ui.checkbox')
@@ -931,7 +931,7 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
 
   <div class="form example" data-tag="select" data-use-content="true">
     <h4 class="ui header">HTML Select</h4>
-    <p>If javascript or <a href="/modules/dropdown.html">ui dropdown</a> are not a viable option, forms also can provide basic styling for select elements</p>
+    <p>If Javascript or <a href="/modules/dropdown.html">ui dropdown</a> are not a viable option, forms also can provide basic styling for select elements</p>
     <div class="ui form">
       <div class="field">
         <select>
@@ -1101,24 +1101,6 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
   <h2 class="ui dividing header">Form Variations</h2>
 
   <div class="example">
-    <h4 class="ui header">Fluid</h4>
-    <p>A form can take the width of its container</p>
-    <div class="ui fluid form">
-      <div class="two fields">
-        <div class="field">
-          <label>First Name</label>
-          <input placeholder="First Name" type="text">
-        </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input placeholder="Last Name" type="text">
-        </div>
-      </div>
-      <div class="ui submit button">Submit</div>
-    </div>
-  </div>
-
-  <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A form can also be small or large</p>
     <div class="ui small form">
@@ -1148,6 +1130,37 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
         </div>
       </div>
       <div class="ui submit button">Submit</div>
+    </div>
+  </div>
+
+  <div class="example" data-use-content="true">
+    <h4 class="ui header">Equal Width</h4>
+    <p>Forms can automatically divide fields to be equal width</p>
+    <div class="ui equal width form">
+      <div class="fields">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" placeholder="Username">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password">
+        </div>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <label>First name</label>
+          <input type="text" placeholder="First Name">
+        </div>
+        <div class="field">
+          <label>Middle name</label>
+          <input type="text" placeholder="Middle Name">
+        </div>
+        <div class="field">
+          <label>Last name</label>
+          <input type="text" placeholder="Last Name">
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1309,12 +1322,44 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
   </div>
 
   <div class="example" data-use-content="true">
+    <h4 class="ui header">Equal Width</h4>
+    <p>Fields can automatically divide fields to be equal width</p>
+    <div class="ui form">
+      <div class="fields">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" placeholder="Username">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password">
+        </div>
+      </div>
+      <div class="equal width fields">
+        <div class="field">
+          <label>First name</label>
+          <input type="text" placeholder="First Name">
+        </div>
+        <div class="field">
+          <label>Middle name</label>
+          <input type="text" placeholder="Middle Name">
+        </div>
+        <div class="field">
+          <label>Last name</label>
+          <input type="text" placeholder="Last Name">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example" data-use-content="true">
     <h4 class="ui header">Inline</h4>
     <p>Multiple fields may be inline in a row</p>
     <div class="ui form">
       <div class="inline fields">
+        <label>Phone Number</label>
         <div class="field">
-          <label>Phone Number</label>
           <input type="text" placeholder="(xxx)">
         </div>
         <div class="field">
