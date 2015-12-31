@@ -160,7 +160,10 @@
     </div>
     <div class="advertisement">
       <% unless 'development' in @getEnvironments(): %>
-      <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=semanticuicom" id="_carbonads_js"></script>
+<script type="text/javascript">
+var cpro_id = "u2448267";
+</script>
+<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
       <% end %>
     </div>
     <% if @tabs?: %>
