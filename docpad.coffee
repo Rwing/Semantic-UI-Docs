@@ -39,7 +39,7 @@ docpadConfig = {
 			# The website description (for SEO)
 			description: """
 				Semantic empowers designers and developers by creating a shared vocabulary for UI.Semantic UI中文官方网站, 当前版本:Semantic UI 
-				""" + @site.version
+				""" + @version
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
