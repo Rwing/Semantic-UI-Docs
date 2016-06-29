@@ -130,12 +130,20 @@ blockquote .author {
      Sidebar
 ---------------*/
 
+
+#example .ui.sidebar.menu .item {
+  will-change: transform;
+}
+
 #example .sidebar.menu .logo.image,
 #example .sticky.menu .logo.image {
   width: 35px;
   margin-right: 1em;
 }
 
+#example #toc > * {
+  will-change: transform;
+}
 #example #toc > :last-child {
   padding-bottom: 2em;
 }
@@ -179,7 +187,7 @@ blockquote .author {
 
 #example .masthead.segment {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   margin: 0em;
   min-height: 185px;
   padding: 3em 0em;
@@ -977,6 +985,10 @@ blockquote .author {
   width: 175px;
   height: 175px;
 }
+#example .example .annotation.visible + .icon.buttons {
+  margin-top: 1rem;
+}
+
 
 /*******************************
            UI Pages
@@ -1210,6 +1222,9 @@ blockquote .author {
   }
 }
 
+#example .layered.example {
+  z-index: 1;
+}
 
 /*--------------
       Demo

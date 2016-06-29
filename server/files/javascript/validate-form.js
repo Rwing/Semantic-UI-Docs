@@ -9,8 +9,10 @@ semantic.validateForm.ready = function() {
     $matchingForm = $('.matching.example .ui.form'),
     $autoForm     = $('.auto.example .ui.form'),
     $promptForm   = $('.prompt.example .ui.form'),
+    $ruleForm     = $('.custom.rule.example .ui.form'),
     $dropdownForm = $('.dropdown.example .ui.form'),
     $optionalForm = $('.optional.example .ui.form'),
+    $dependsForm  = $('.depends.example .ui.form'),
     $inlineForm   = $('.inline.example .ui.form'),
     $form         = $('.ui.form').not($dogForm).not($inlineForm).not($dropdownForm).not($optionalForm).not($promptForm),
     $checkbox     = $('.main.container .ui.checkbox'),
@@ -34,6 +36,8 @@ semantic.validateForm.ready = function() {
     // alert('Valid form!');
     return false;
   };
+
+
 
   $.fn.form.settings.defaults = {
     firstName: {
@@ -229,6 +233,23 @@ semantic.validateForm.ready = function() {
     })
   ;
 
+  $dependsForm
+    .form({
+      fields: {
+        yearsPracticed: {
+          identifier : 'yearsPracticed',
+          depends    : 'isDoctor',
+          rules      : [
+            {
+              type   : 'empty',
+              prompt : 'Please enter the number of years you have been a doctor'
+            }
+          ]
+        }
+      }
+    })
+  ;
+
   $optionalForm
     .form({
       fields: {
@@ -248,6 +269,26 @@ semantic.validateForm.ready = function() {
             {
               type   : 'email',
               prompt : 'Please enter a valid second e-mail'
+            }
+          ]
+        }
+      }
+    })
+  ;
+
+  // no need to actually do this
+  $.fn.form.settings.rules.adminLevel = function(value, adminLevel) {
+    window.user && window.user.adminLevel >= adminLevel;
+  };
+  $ruleForm
+    .form({
+      fields: {
+        dog: {
+          identifier: 'dog',
+          rules: [
+            {
+              type: 'adminLevel[2]',
+              prompt: 'You must be at least a level-2 admin to add a dog'
             }
           ]
         }
